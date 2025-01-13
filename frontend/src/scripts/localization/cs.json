@@ -1,0 +1,28 @@
+{
+  "app": {
+    "name": "App"
+  },
+  "page": {
+    "home": "Homepage",
+    "error404": "HTTP Error 404"
+  },
+  "validations": {
+    "REQUIRED": "Toto pole je povinné!",
+    "INTEGER": "Hodnotou pole musí být celé číslo!",
+    "MIN": "Číslo musí být větší nebo rovno {{min}}!",
+    "MAX": "Číslo musí být menší nebo rovno {{max}}!",
+    "MIN_LENGTH_one": "Pole musí obsahovat minimálně {{count}} znak!",
+    "MIN_LENGTH_few": "Pole musí obsahovat minimálně {{count}} znaky!",
+    "MIN_LENGTH_other": "Pole musí obsahovat minimálně {{count}} znaků!",
+    "MAX_LENGTH_one": "Pole musí obsahovat maximálně {{count}} znak!",
+    "MAX_LENGTH_few": "Pole musí obsahovat maximálně {{count}} znaky!",
+    "MAX_LENGTH_other": "Pole musí obsahovat maximálně {{count}} znaků!",
+    "MAX_ITEMS_one": "Pole musí obsahovat maximálně {{count}} položku!",
+    "MAX_ITEMS_few": "Pole musí obsahovat maximálně {{count}} položky!",
+    "MAX_ITEMS_other": "Pole musí obsahovat maximálně {{count}} položek!"
+  },
+  "error": {
+    "notFound": "Stránka nebyla nalezena",
+    "fetch": "Při načítání obsahu stránky došlo k chybě!"
+  }
+}
