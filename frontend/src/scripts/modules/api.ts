@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
-import { QueryClient, useMutation, useQuery } from '@tanstack/react-query';
-import { TestShared } from '@project/api-types';
+import { QueryClient, useQuery } from '@tanstack/react-query';
+import { FetchMoviesResponse } from '@project/api-types';
 
 import { Logger } from './logger';
 
@@ -21,27 +21,12 @@ export const queryClient = new QueryClient({
   },
 });
 
-interface TestPayload {
-  readonly x: number;
-}
-
 export const client = {
-  useTestMutation: () => {
-    return useMutation<TestShared, AxiosError, TestPayload>({
-      mutationKey: ['test-mutation'],
-      mutationFn: async (payload) => {
-        const response = await axios.get<TestShared>(`${root}/test`, {
-          params: payload,
-        });
-        return response.data;
-      },
-    });
-  },
-  useTestQuery: () => {
-    return useQuery<TestShared, AxiosError>({
-      queryKey: ['test-query'],
+  useFetchMovies: () => {
+    return useQuery<FetchMoviesResponse, AxiosError>({
+      queryKey: ['movies'],
       queryFn: async () => {
-        const response = await axios.get<TestShared>(`${root}/test`);
+        const response = await axios.get<FetchMoviesResponse>(`${root}/movie`);
         return response.data;
       },
     });

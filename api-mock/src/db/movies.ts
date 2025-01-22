@@ -1,49 +1,60 @@
-import { Movie, MovieFilter } from '@project/api-types';
+import fs from 'fs';
+import unzipper from 'unzipper';
+import {
+  Movie,
+  MovieFilter,
+  MoviesFiltered,
+  defaultPerPage,
+} from '@project/api-types';
+import { filterMovies, sortMovies } from 'utils/movie';
 
-// movie ID counter
-let movieId = 0;
+const dataPath = './src/data/movies.zip';
+const hash = 'oqxkgu/fd/wuc/3;22/3;;;';
 
-const files = [
-  'movies-1900s.json',
-  'movies-1910s.json',
-  'movies-1920s.json',
-  'movies-1930s.json',
-  'movies-1940s.json',
-  'movies-1950s.json',
-  'movies-1960s.json',
-  'movies-1970s.json',
-  'movies-1980s.json',
-  'movies-1990s.json',
-  'movies-2000s.json',
-  'movies-2010s.json',
-  'movies-2020s.json',
-];
-const filesRoot = './../data';
+const parseHash = (value: string): string => {
+  const items = value.split('');
+  const parsed = items.map((_) =>
+    String.fromCodePoint((_.codePointAt(0) ?? 0) - 2),
+  );
+  return parsed.join('');
+};
 
 export const createMovieData = async (): Promise<Movie[]> => {
-  let movies: Movie[] = [];
-
-  for (const filename of files) {
-    const path = `${filesRoot}/${filename}`;
-    const json = (await import(path)) as { default?: Movie[] };
-
-    if (!json.default) {
-      console.error(`Could not import movie data for "${path}"!`);
-      continue;
-    }
-    const data = json.default.map((item) => ({
-      ...item,
-      id: `MOVIE-${movieId++}`,
-    }));
-    movies = movies.concat(data);
-  }
+  const buffer = fs.readFileSync(dataPath);
+  const archive = await unzipper.Open.buffer(buffer);
+  const file = archive.files[0];
+  const fileBuffer = await file.buffer(parseHash(hash));
+  const fileString = fileBuffer.toString();
+  const movies = JSON.parse(fileString) as Movie[];
   return movies;
 };
 
-export const getMovies = (movies: Movie[], filter?: MovieFilter): Movie[] => {
-  // ...
-  if (filter?.query) {
-    /* */
-  }
-  return movies;
+// get movie by ID
+export const getMovie = (movies: Movie[], id: string): Movie | null => {
+  return movies.find((item) => id === item.id) ?? null;
+};
+
+// get sorted / filtered movie list
+export const getMovies = (
+  movies: Movie[],
+  filter: MovieFilter = {},
+): MoviesFiltered => {
+  // filter
+  const filtered = filterMovies(movies, filter);
+  const total = filtered.length;
+
+  // sort
+  const sorted = sortMovies(filtered, filter.sort, filter.sortDirection);
+
+  // paging
+  const page = filter.page ?? 0;
+  const perPage = filter.perPage ?? defaultPerPage;
+  const start = page * perPage;
+  const end = start + perPage;
+  const result = sorted.slice(start, end);
+
+  return {
+    items: result,
+    total,
+  };
 };

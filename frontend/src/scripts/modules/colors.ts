@@ -5,8 +5,8 @@ export const colors = {
   surface: '#fff',
   grey: '#dae0e3',
   active: '#0af',
-  error: '#ef5350',
-  success: '#00a851',
+  error: '#f00',
+  success: '#0a0',
   disabled: '#98c3d9',
 };
 export type ColorId = keyof typeof colors;

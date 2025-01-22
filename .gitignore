@@ -3,4 +3,5 @@
 **/lib
 **/coverage
 **/.env
+api-data
 TODO.txt

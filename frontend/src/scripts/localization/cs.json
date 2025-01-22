@@ -1,10 +1,22 @@
 {
   "app": {
-    "name": "App"
+    "name": "Databáze filmů USA (1900 - 1999)"
   },
   "page": {
-    "home": "Homepage",
+    "home": "Seznam filmů",
     "error404": "HTTP Error 404"
+  },
+  "movies": {
+    "empty": "Seznam filmů je prázdný."
+  },
+  "movie": {
+    "title": "Název",
+    "year": "Rok",
+    "genre": "Žánr",
+    "score": "IMDB",
+    "director": "Režie",
+    "writer": "Scénář",
+    "stars": "Hrají"
   },
   "validations": {
     "REQUIRED": "Toto pole je povinné!",
@@ -24,5 +36,6 @@
   "error": {
     "notFound": "Stránka nebyla nalezena",
     "fetch": "Při načítání obsahu stránky došlo k chybě!"
-  }
+  },
+  "copyright": "Copyright © {{year}} <0>{{author}}</0>"
 }

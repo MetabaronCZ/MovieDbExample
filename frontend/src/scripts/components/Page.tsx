@@ -5,7 +5,7 @@ import { Layout } from './layout/Layout';
 import { Heading } from './common/Heading';
 
 interface Props extends PropsWithChildren {
-  readonly title: string;
+  readonly title?: string;
 }
 
 export const Page: React.FC<Props> = ({ title, children }) => {
@@ -19,10 +19,11 @@ export const Page: React.FC<Props> = ({ title, children }) => {
 
   return (
     <Layout>
-      <Heading tag="h1" size="large">
-        {title}
-      </Heading>
-
+      {!!title && (
+        <Heading tag="h2" size="large">
+          {title}
+        </Heading>
+      )}
       {children}
     </Layout>
   );

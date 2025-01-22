@@ -1,17 +1,19 @@
-import { Movie, MovieFilter } from '@project/api-types';
-import { createMovieData, getMovies } from 'db/movies';
+import { Movie, MovieFilter, MoviesFiltered } from '@project/api-types';
+import { createMovieData, getMovie, getMovies } from 'db/movies';
 
 export interface Db {
   readonly movies: {
-    readonly get: (filter?: MovieFilter) => Movie[];
+    readonly getList: (filter?: MovieFilter) => MoviesFiltered;
+    readonly getDetail: (id: string) => Movie | null;
   };
 }
 
-export const initDb = async (): Promise<Db> => {
+export const createDb = async (): Promise<Db> => {
   const movies = await createMovieData();
   return {
     movies: {
-      get: (filter) => getMovies(movies, filter),
+      getList: (filter) => getMovies(movies, filter),
+      getDetail: (id) => getMovie(movies, id),
     },
   };
 };

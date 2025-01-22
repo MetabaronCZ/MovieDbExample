@@ -9,15 +9,15 @@ export const theme = {
     default: 'Nunito, sans-serif',
   },
   fontSize: {
-    small: '14px',
-    base: '16px',
-    large: '20px',
+    small: '12px',
+    base: '14px',
+    large: '18px',
     larger: '24px',
   },
   lineHeight: {
     small: toVU(3),
     base: toVU(3),
-    large: toVU(4),
+    large: toVU(3),
     larger: toVU(4),
   },
   border: {
@@ -32,7 +32,7 @@ export const theme = {
     default: '8px',
   },
   shadow: {
-    /* */
+    default: `1px 1px 4px ${colors.grey}`,
   },
   zIndex: {
     dropdown: 1000,
@@ -41,6 +41,9 @@ export const theme = {
   dimensions: {
     page: {
       minWidth: toVU(40),
+    },
+    sidebar: {
+      width: toVU(32),
     },
   },
 };

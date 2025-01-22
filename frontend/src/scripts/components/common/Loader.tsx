@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import { toVU } from 'modules/theme';
+import { Grid } from 'components/common/Grid';
 
 const spinAnimation = keyframes`
   from {
@@ -12,20 +13,8 @@ const spinAnimation = keyframes`
   }
 `;
 
-const fadeInAnimation = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+const Container = styled(Grid)`
+  padding: ${toVU(1)} 0;
 `;
 
 const Ico = styled.i`
@@ -37,14 +26,11 @@ const Ico = styled.i`
   border-color: ${({ theme }) => theme.color.disabled};
   border-top-color: ${({ theme }) => theme.color.base};
   border-radius: 50%;
-  opacity: 0;
-  animation:
-    ${spinAnimation} 1s ease-in-out infinite,
-    ${fadeInAnimation} 500ms ease-in 500ms forwards;
+  animation: ${spinAnimation} 1s ease-in-out infinite;
 `;
 
 export const Loader: React.FC = () => (
-  <Container>
+  <Container align="center" justify="center">
     <Ico />
   </Container>
 );

@@ -1,5 +1,8 @@
 import { Request } from 'express';
 
+export type QueryParam = Request['query'][number];
+export type Query = Record<string, QueryParam>;
+
 const wait = (delay: number): Promise<void> => {
   return new Promise((resolve) => setTimeout(resolve, delay));
 };
@@ -14,7 +17,7 @@ export const requestDelay = (cb: () => void): void => {
 };
 
 // extract simple string value from Express query parameter result
-export const parseQueryParam = (param: Request['query'][number]): string => {
+export const parseQueryParam = (param: QueryParam): string => {
   const value = Array.isArray(param) ? param[0] : param;
   return 'string' === typeof value ? value : '';
 };

@@ -1,18 +1,41 @@
-import express, { Router } from 'express';
+import express from 'express';
 
-import { Db } from 'db';
-import { requestDelay } from 'utils';
+import { requestDelay } from 'utils/common';
+import { parseMovieFilter } from 'utils/movie';
 
-export const movieRouter = (db: Db): Router => {
-  const router = express.Router();
+export const movieRouter = express.Router();
 
-  // get movie list
-  router.get('/', (req, res) => {
-    requestDelay(() => {
-      const movies = db.movies.get();
-      res.json(movies);
-    });
+// get movie list
+movieRouter.get('/', (req, res) => {
+  requestDelay(() => {
+    const { db } = res.locals;
+
+    try {
+      const filter = parseMovieFilter(req.query);
+      const response = db.movies.getList(filter);
+      res.json(response);
+    } catch (error) {
+      res.status(500).json({ error });
+    }
   });
+});
 
-  return router;
-};
+// get movie data
+movieRouter.get('/:id', (req, res) => {
+  requestDelay(() => {
+    const { id } = req.params;
+    const { db } = res.locals;
+
+    try {
+      const movie = db.movies.getDetail(id);
+
+      if (!movie) {
+        res.status(404).json({ error: 'Movie not found!' });
+      } else {
+        res.json(movie);
+      }
+    } catch (error) {
+      res.status(500).json({ error });
+    }
+  });
+});
