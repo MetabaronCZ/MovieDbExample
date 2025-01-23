@@ -3,6 +3,7 @@ import { QueryClient, useQuery } from '@tanstack/react-query';
 import { FetchMoviesResponse } from '@project/api-types';
 
 import { Logger } from './logger';
+import { parseMoviesResponse } from 'modules/movie';
 
 const root = '/api';
 
@@ -26,8 +27,8 @@ export const client = {
     return useQuery<FetchMoviesResponse, AxiosError>({
       queryKey: ['movies'],
       queryFn: async () => {
-        const response = await axios.get<FetchMoviesResponse>(`${root}/movie`);
-        return response.data;
+        const response = await axios.get(`${root}/movie`);
+        return parseMoviesResponse(response.data);
       },
     });
   },
