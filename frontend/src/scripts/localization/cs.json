@@ -3,7 +3,9 @@
     "name": "Databáze filmů USA (1900 - 1999)"
   },
   "page": {
-    "home": "Seznam filmů",
+    "home": "Domů",
+    "movieList": "Seznam filmů",
+    "movieDetail": "Detail filmu",
     "error404": "HTTP chyba 404",
     "error": "Chyba při zobrazení stránky"
   },

@@ -4,6 +4,7 @@ import { paths } from './paths';
 
 import { HomePage } from 'components/pages/HomePage';
 import { Error404Page } from 'components/pages/Error404Page';
+import { MovieListPage } from 'components/pages/MovieListPage';
 import { MovieDetailPage } from 'components/pages/MovieDetailPage';
 
 interface Route {
@@ -17,6 +18,11 @@ export const routes: Route[] = [
     id: 'home',
     path: paths.HOME,
     component: <HomePage />,
+  },
+  {
+    id: 'movie-list',
+    path: paths.MOVIE_LIST,
+    component: <MovieListPage />,
   },
   {
     id: 'movie-detail',

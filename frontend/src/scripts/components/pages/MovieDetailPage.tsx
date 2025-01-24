@@ -18,10 +18,10 @@ export const MovieDetailPage: FC = () => {
   const { t } = useTranslation();
   const { id } = useParams<Params>();
   const { data, isLoading, isError } = client.useFetchMovie(id ?? '');
-  const title = data?.titleCs || data?.titleOriginal;
+  const title = data ? data.titleCs || data.titleOriginal : '';
 
   return (
-    <Page title={title}>
+    <Page title={title} breadcrumbs={['moviesList', 'moviesDetail']}>
       <FetchContainer isLoading={isLoading} isError={isError}>
         {!data ? (
           <Infobox type="error">{t('movie.notFound')}</Infobox>

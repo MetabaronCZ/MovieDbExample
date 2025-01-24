@@ -12,6 +12,7 @@ import {
   faPlus,
   faGear,
   faInfo,
+  faHouse,
   faCheck,
   faXmark,
   faTrashCan,
@@ -42,6 +43,7 @@ import { ColorId, colors } from 'modules/colors';
 const icons = {
   gear: faGear,
   plus: faPlus,
+  home: faHouse,
   trash: faTrashCan,
   edit: faPenToSquare,
   info: faInfo,

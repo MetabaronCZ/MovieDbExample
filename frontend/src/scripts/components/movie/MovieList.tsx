@@ -21,7 +21,15 @@ export const MovieList: FC = () => {
 
   const fetchData = useCallback(
     (page?: number, perPage?: number): Promise<unknown> => {
-      return mutateAsync({ page, perPage }, { onSuccess: setData });
+      return mutateAsync(
+        { page, perPage },
+        {
+          onSuccess: (response) => {
+            setData(response);
+            setInitialized(true);
+          },
+        },
+      );
     },
     [mutateAsync],
   );
@@ -39,12 +47,9 @@ export const MovieList: FC = () => {
 
   // initial data load
   useEffect(() => {
-    if (initialized) {
-      return;
+    if (!initialized) {
+      void fetchData();
     }
-    void fetchData().finally(() => {
-      setInitialized(true);
-    });
   }, [initialized, fetchData]);
 
   return !initialized ? (

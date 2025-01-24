@@ -1,14 +1,10 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Page } from 'components/Page';
-import { MovieList } from 'components/movie/MovieList';
+import { Paragraph } from 'components/common/Paragraph';
 
-export const HomePage: FC = () => {
-  const { t } = useTranslation();
-  return (
-    <Page title={t('page.home')}>
-      <MovieList />
-    </Page>
-  );
-};
+export const HomePage: FC = () => (
+  <Page>
+    <Paragraph>-homepage-</Paragraph>
+  </Page>
+);

@@ -17,13 +17,13 @@ interface MenuItem {
 
 const getMenuItems = (t: TFunction): MenuItem[] => [
   { title: t('page.home'), url: paths.HOME },
+  { title: t('page.movieList'), url: paths.MOVIE_LIST },
 ];
 
 const isActiveMenuItem = (path: string): boolean => {
-  if ('/' === path) {
-    return location.pathname === path || location.pathname.startsWith('/movie');
-  }
-  return location.pathname.startsWith(path);
+  return '/' === path
+    ? location.pathname === path
+    : location.pathname.startsWith(path);
 };
 
 const Container = styled(Grid)`
