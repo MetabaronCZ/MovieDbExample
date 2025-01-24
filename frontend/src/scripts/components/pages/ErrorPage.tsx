@@ -2,13 +2,13 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Page } from 'components/Page';
-import { MovieList } from 'components/movie/MovieList';
+import { Infobox } from 'components/common/Infobox';
 
-export const HomePage: FC = () => {
+export const ErrorPage: FC = () => {
   const { t } = useTranslation();
   return (
-    <Page title={t('page.home')}>
-      <MovieList />
+    <Page title={t('page.error')}>
+      <Infobox type="error">{t('error.render')}</Infobox>
     </Page>
   );
 };

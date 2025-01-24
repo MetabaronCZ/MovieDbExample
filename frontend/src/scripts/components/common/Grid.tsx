@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import styled, { CSSProperties, WebTarget } from 'styled-components';
 
 import { toVU } from 'modules/theme';
@@ -35,7 +35,7 @@ interface Props extends PropsWithChildren {
   readonly wrap?: boolean;
 }
 
-export const Grid: React.FC<Props> = ({
+export const Grid: FC<Props> = ({
   className,
   component,
   orientation = 'horizontal',

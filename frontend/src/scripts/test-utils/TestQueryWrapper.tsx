@@ -1,7 +1,7 @@
-import React, { PropsWithChildren, useMemo } from 'react';
+import { FC, PropsWithChildren, useMemo } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-export const TestQueryWrapper: React.FC<PropsWithChildren> = ({ children }) => {
+export const TestQueryWrapper: FC<PropsWithChildren> = ({ children }) => {
   // create query client every time to prevent data caching in tests
   const queryClient = useMemo(() => {
     return new QueryClient({

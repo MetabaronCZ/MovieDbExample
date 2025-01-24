@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 import { toVU } from 'modules/theme';
@@ -11,6 +11,6 @@ const Container = styled(Grid)`
   box-shadow: ${({ theme }) => theme.shadow.default};
 `;
 
-export const Box: React.FC<PropsWithChildren> = ({ children }) => (
+export const Box: FC<PropsWithChildren> = ({ children }) => (
   <Container orientation="vertical">{children}</Container>
 );

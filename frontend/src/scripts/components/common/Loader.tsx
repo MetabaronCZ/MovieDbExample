@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import { toVU } from 'modules/theme';
@@ -29,7 +29,7 @@ const Ico = styled.i`
   animation: ${spinAnimation} 1s ease-in-out infinite;
 `;
 
-export const Loader: React.FC = () => (
+export const Loader: FC = () => (
   <Container align="center" justify="center">
     <Ico />
   </Container>

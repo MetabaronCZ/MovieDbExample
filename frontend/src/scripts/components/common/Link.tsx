@@ -1,8 +1,8 @@
-import React, { PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const StyledLink = styled.a`
+export const LinkStyles = css`
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -19,12 +19,16 @@ const StyledLink = styled.a`
   }
 `;
 
+const StyledLink = styled.a`
+  ${LinkStyles};
+`;
+
 interface Props extends PropsWithChildren {
   readonly to: string;
   readonly external?: boolean;
 }
 
-export const Link: React.FC<Props> = ({ to, external = false, children }) => {
+export const Link: FC<Props> = ({ to, external = false, children }) => {
   return external ? (
     <StyledLink href={to} target="_blank">
       {children}

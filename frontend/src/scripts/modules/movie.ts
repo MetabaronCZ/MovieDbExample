@@ -1,5 +1,9 @@
 import Joi from 'joi';
-import { FetchMoviesResponse, Movie } from '@project/api-types';
+import {
+  Movie,
+  FetchMovieResponse,
+  FetchMoviesResponse,
+} from '@project/api-types';
 
 import { createDataParser } from 'modules/parse';
 
@@ -20,6 +24,11 @@ const moviesReponseSchema = Joi.object<FetchMoviesResponse>({
   items: Joi.array<Movie[]>().items(movieSchema),
   total: Joi.number(),
 });
+
+export const parseMovieResponse = createDataParser<FetchMovieResponse>(
+  movieSchema,
+  'Could not parse API response for FetchMovieResponse',
+);
 
 export const parseMoviesResponse = createDataParser(
   moviesReponseSchema,

@@ -1,4 +1,5 @@
-export const defaultPerPage = 25;
+export const perPages = [25, 50, 100] as const;
+export const defaultPerPage = perPages[0];
 
 export interface Movie {
   readonly id: string;
@@ -38,4 +39,5 @@ export interface MoviesFiltered {
   readonly items: Movie[];
   readonly total: number;
 }
+export type FetchMovieResponse = Movie;
 export type FetchMoviesResponse = MoviesFiltered;

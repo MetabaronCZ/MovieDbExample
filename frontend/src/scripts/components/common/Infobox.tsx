@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import styled, { DefaultTheme } from 'styled-components';
 
 import { toVU } from 'modules/theme';
@@ -27,7 +27,6 @@ const Container = styled(Paragraph)<StyledProps>`
   background: ${({ theme }) => theme.color.surface};
   border: ${({ theme }) => theme.border.default};
   border-color: ${({ theme, $type }) => getColor(theme, $type)};
-  border-radius: ${({ theme }) => theme.radius.default};
   box-shadow: ${({ theme }) => theme.shadow.default};
 `;
 
@@ -35,6 +34,6 @@ interface Props extends PropsWithChildren {
   readonly type?: InfoboxType;
 }
 
-export const Infobox: React.FC<Props> = ({ type = 'info', children }) => (
+export const Infobox: FC<Props> = ({ type = 'info', children }) => (
   <Container $type={type}>{children}</Container>
 );

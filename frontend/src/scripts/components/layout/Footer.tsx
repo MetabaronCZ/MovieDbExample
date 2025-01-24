@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { Trans } from 'react-i18next';
 import styled from 'styled-components';
 
@@ -17,7 +17,7 @@ const Container = styled.footer`
   text-align: right;
 `;
 
-export const Footer: React.FC = () => (
+export const Footer: FC = () => (
   <Container>
     <Trans
       i18nKey="copyright"

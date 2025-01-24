@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { TFunction } from 'i18next';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
@@ -20,9 +20,10 @@ const getMenuItems = (t: TFunction): MenuItem[] => [
 ];
 
 const isActiveMenuItem = (path: string): boolean => {
-  return '/' === path
-    ? location.pathname === path
-    : location.pathname.startsWith(path);
+  if ('/' === path) {
+    return location.pathname === path || location.pathname.startsWith('/movie');
+  }
+  return location.pathname.startsWith(path);
 };
 
 const Container = styled(Grid)`
@@ -66,7 +67,7 @@ const MenuLink = styled(RouterLink)<StyledProps>`
   }
 `;
 
-export const MenuMain: React.FC = () => {
+export const MenuMain: FC = () => {
   const { t } = useTranslation();
   const items = getMenuItems(t);
   return (

@@ -9,7 +9,7 @@
     "target": "ES5",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "importHelpers": true, // importing helper functions from tslib
     "resolveJsonModule": true,
     "esModuleInterop": true,

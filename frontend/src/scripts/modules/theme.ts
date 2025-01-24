@@ -23,13 +23,9 @@ export const theme = {
   border: {
     default: `1px solid ${colors.base}`,
     divider: `1px solid ${colors.grey}`,
-    forms: `2px solid ${colors.base}`,
   },
   outline: {
     default: `1px dashed ${colors.base}`,
-  },
-  radius: {
-    default: '8px',
   },
   shadow: {
     default: `1px 1px 4px ${colors.grey}`,

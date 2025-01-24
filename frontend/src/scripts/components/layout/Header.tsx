@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
@@ -21,7 +21,7 @@ const Logo = styled.a`
   }
 `;
 
-export const Header: React.FC = () => {
+export const Header: FC = () => {
   const { t } = useTranslation();
   return (
     <Container>

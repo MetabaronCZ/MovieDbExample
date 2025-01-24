@@ -4,10 +4,8 @@
   },
   "page": {
     "home": "Seznam filmů",
-    "error404": "HTTP Error 404"
-  },
-  "movies": {
-    "empty": "Seznam filmů je prázdný."
+    "error404": "HTTP chyba 404",
+    "error": "Chyba při zobrazení stránky"
   },
   "movie": {
     "title": "Název",
@@ -16,7 +14,20 @@
     "score": "IMDB",
     "director": "Režie",
     "writer": "Scénář",
-    "stars": "Hrají"
+    "stars": "Hrají",
+    "detail": "Detail",
+    "notFound": "Film nebyl nalezen."
+  },
+  "table": {
+    "empty": "Tabulka neobsahuje žádná data."
+  },
+  "paging": {
+    "title": "Stránkování",
+    "prev": "Předchozí",
+    "next": "Další",
+    "first": "Na začátek",
+    "last": "Na konec",
+    "info": "Položky {{from}} až {{to}} z {{total}}"
   },
   "validations": {
     "REQUIRED": "Toto pole je povinné!",
@@ -35,7 +46,12 @@
   },
   "error": {
     "notFound": "Stránka nebyla nalezena",
-    "fetch": "Při načítání obsahu stránky došlo k chybě!"
+    "fetch": "Při načítání obsahu stránky došlo k chybě!",
+    "render": "Při zobrazení stránky došlo k chybě!"
   },
+  "back": "Zpět",
+  "moreItems_one": "{{count}} další",
+  "moreItems_few": "{{count}} další",
+  "moreItems_other": "{{count}} dalších",
   "copyright": "Copyright © {{year}} <0>{{author}}</0>"
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import { routes } from 'modules/routes';
@@ -10,4 +10,4 @@ const router = createBrowserRouter(
   })),
 );
 
-export const Router: React.FC = () => <RouterProvider router={router} />;
+export const Router: FC = () => <RouterProvider router={router} />;

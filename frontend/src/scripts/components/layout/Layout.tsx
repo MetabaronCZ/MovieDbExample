@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 import { toVU } from 'modules/theme';
@@ -22,7 +22,7 @@ const Sidebar = styled(Grid)`
   background: ${({ theme }) => theme.color.base};
 `;
 
-export const Layout: React.FC<PropsWithChildren> = ({ children }) => (
+export const Layout: FC<PropsWithChildren> = ({ children }) => (
   <Container gap={0}>
     <Sidebar orientation="vertical">
       <Header />

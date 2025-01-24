@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 import { Text } from 'components/Typography';
@@ -31,7 +31,7 @@ interface Props extends PropsWithChildren {
   readonly size?: HeadingSize;
 }
 
-export const Heading: React.FC<Props> = ({
+export const Heading: FC<Props> = ({
   className,
   tag = 'h2',
   size = 'default',
