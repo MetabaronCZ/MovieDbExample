@@ -27,16 +27,17 @@ export const Page: FC<Props> = ({ title, breadcrumbs, children }) => {
   return (
     <ErrorBoundary fallback={<ErrorPage />}>
       <Layout>
-        <Grid orientation="vertical" gap={1}>
-          <Breadcrumbs items={breadcrumbs} />
+        {(!!breadcrumbs || !!title) && (
+          <Grid orientation="vertical">
+            {!!breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
 
-          {!!title && (
-            <Heading tag="h2" size="large">
-              {title}
-            </Heading>
-          )}
-        </Grid>
-
+            {!!title && (
+              <Heading tag="h2" size="large">
+                {title}
+              </Heading>
+            )}
+          </Grid>
+        )}
         {children}
       </Layout>
     </ErrorBoundary>

@@ -5,9 +5,14 @@ import styled from 'styled-components';
 import { toVU } from 'modules/theme';
 import { useOpener } from 'hooks/useOpener';
 
+import { Ico } from 'components/common/Ico';
 import { Grid } from 'components/common/Grid';
 import { LinkButton } from 'components/common/LinkButton';
 import { TextEllipsis } from 'components/common/TextEllipsis';
+
+const Container = styled(Grid)`
+  min-width: 0;
+`;
 
 const List = styled.ul`
   list-style-type: none;
@@ -35,6 +40,10 @@ const ButtonColumn = styled.div`
   white-space: nowrap;
 `;
 
+const StyledIco = styled(Ico)`
+  margin-right: ${toVU(1)};
+`;
+
 interface Props {
   readonly values: string[];
 }
@@ -52,7 +61,7 @@ export const MovieListExpandable: FC<Props> = ({ values }) => {
     return firstItem;
   }
   return (
-    <Grid gap={0.5}>
+    <Container gap={0.5}>
       {firstItem}
 
       <ButtonColumn>
@@ -67,11 +76,14 @@ export const MovieListExpandable: FC<Props> = ({ values }) => {
         {opened && (
           <List>
             {values.slice(1).map((item, i) => (
-              <ListItem key={i}>{item}</ListItem>
+              <ListItem key={i}>
+                <StyledIco ico="angleRight" color="base" />
+                {item}
+              </ListItem>
             ))}
           </List>
         )}
       </ExpandColumn>
-    </Grid>
+    </Container>
   );
 };

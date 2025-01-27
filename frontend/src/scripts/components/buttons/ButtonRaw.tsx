@@ -21,7 +21,7 @@ interface Props extends PropsWithChildren {
   readonly type?: ButtonType;
   readonly title?: string;
   readonly disabled?: boolean;
-  readonly onClick: () => void;
+  readonly onClick?: () => void;
 }
 
 export const ButtonRaw: FC<Props> = ({
@@ -39,10 +39,14 @@ export const ButtonRaw: FC<Props> = ({
     type={type}
     title={title}
     disabled={disabled}
-    onClick={(e) => {
-      e.preventDefault();
-      onClick();
-    }}
+    onClick={
+      onClick
+        ? (e) => {
+            e.preventDefault();
+            onClick();
+          }
+        : undefined
+    }
   >
     {children}
   </StyledButton>

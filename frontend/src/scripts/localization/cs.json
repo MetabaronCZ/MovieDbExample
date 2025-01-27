@@ -20,8 +20,18 @@
     "detail": "Detail",
     "notFound": "Film nebyl nalezen."
   },
+  "movies": {
+    "top": "Nejlépe hodnocené filmy (TOP 10)",
+    "topMore": "Zobrazit další filmy"
+  },
   "table": {
     "empty": "Tabulka neobsahuje žádná data."
+  },
+  "sort": {
+    "action": {
+      "ascending": "Seřadit vzestupně",
+      "descending": "Seřadit sestupně"
+    }
   },
   "paging": {
     "title": "Stránkování",

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Movie } from '@project/api-types/lib/movie';
+
+import { Movie, SortDirection } from '@project/api-types';
 
 import { paths } from 'modules/paths';
 
@@ -24,15 +25,26 @@ interface Props {
   readonly data: Movie[];
   readonly isLoading?: boolean;
   readonly error?: string | null;
+  readonly sort?: keyof TableData;
+  readonly sortDirection?: SortDirection;
+  readonly onSort?: (column: keyof TableData, direction: SortDirection) => void;
 }
 
-export const MovieTable: FC<Props> = ({ data, error, isLoading }) => {
+export const MovieTable: FC<Props> = ({
+  data,
+  error,
+  isLoading,
+  sort,
+  sortDirection,
+  onSort,
+}) => {
   const { t } = useTranslation();
   return (
     <Table<TableData>
       columns={{
         title: {
           title: t('movie.title'),
+          sort: true,
           render: (value) => {
             const titles = value.filter((item) => item.length > 0);
             return <MovieListExpandable values={titles} />;
@@ -40,15 +52,17 @@ export const MovieTable: FC<Props> = ({ data, error, isLoading }) => {
         },
         year: {
           title: t('movie.year'),
-          width: toVU(5),
+          width: toVU(7),
           align: 'center',
+          sort: true,
           render: (value) => value ?? '-',
         },
         score: {
           title: t('movie.score'),
-          width: toVU(6),
+          width: toVU(8),
           align: 'center',
-          render: (value) => (value ? `${value}/10` : '-'),
+          sort: true,
+          render: (value) => (value ? `${value} / 10` : '-'),
         },
         genre: {
           title: t('movie.genre'),
@@ -88,6 +102,9 @@ export const MovieTable: FC<Props> = ({ data, error, isLoading }) => {
         stars: item.stars,
         detail: item.id,
       }))}
+      sort={sort}
+      sortDirection={sortDirection}
+      onSort={onSort}
     />
   );
 };

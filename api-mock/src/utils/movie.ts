@@ -2,21 +2,21 @@ import {
   Movie,
   MovieSort,
   MovieFilter,
-  MovieSortDirection,
   movieSorts,
-  movieSortDirections,
+  sortDirections,
+  SortDirection,
 } from '@project/api-types';
 
 import { parseQueryParam, Query } from 'utils/common';
 
 const movieSortValues = [...movieSorts] as string[];
-const movieSortDirectionValues = [...movieSortDirections] as string[];
+const movieSortDirectionValues = [...sortDirections] as string[];
 
 const isMovieSort = (value: string): value is MovieSort => {
   return movieSortValues.includes(value);
 };
 
-const isMovieSortDirection = (value: string): value is MovieSortDirection => {
+const isMovieSortDirection = (value: string): value is SortDirection => {
   return movieSortDirectionValues.includes(value);
 };
 
@@ -99,46 +99,47 @@ const filterContained = (filter?: string[], value?: string[]): boolean => {
 const compareNumeric = (
   a: number | null,
   b: number | null,
-  direction?: MovieSortDirection,
+  direction?: SortDirection,
 ): number => {
   if (null === b && null === a) {
     return 0;
   } else if (null === a) {
     return 'descending' === direction ? +1 : -1;
-  } else {
+  } else if (null === b) {
     return 'descending' === direction ? -1 : +1;
+  } else {
+    return 'descending' === direction ? b - a : a - b;
   }
 };
 
 export const sortMovies = (
   movies: Movie[],
   sort?: MovieSort,
-  direction?: MovieSortDirection,
+  direction?: SortDirection,
 ): Movie[] => {
   const sorted = [...movies];
 
-  if (!sort) {
-    return sorted;
-  }
-  sorted.sort((a, b) => {
-    switch (sort) {
-      case 'title': {
+  switch (sort) {
+    case 'title': {
+      return sorted.sort((a, b) => {
         const aTitle = a.titleCs || a.titleOriginal;
         const bTitle = b.titleCs || b.titleOriginal;
         return 'descending' === direction
           ? bTitle.localeCompare(aTitle)
           : aTitle.localeCompare(bTitle);
-      }
-      case 'year':
-        return compareNumeric(a.year, b.year, direction);
-      case 'score':
-        return compareNumeric(a.score, b.score, direction);
-      default:
-        return 0;
+      });
     }
-  });
-
-  return sorted;
+    case 'year':
+      return sorted.sort((a, b) => {
+        return compareNumeric(a.year, b.year, direction);
+      });
+    case 'score':
+      return sorted.sort((a, b) => {
+        return compareNumeric(a.score, b.score, direction);
+      });
+    default:
+      return sorted;
+  }
 };
 
 export const filterMovies = (movies: Movie[], filter: MovieFilter): Movie[] => {

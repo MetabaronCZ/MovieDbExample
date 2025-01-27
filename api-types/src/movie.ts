@@ -1,5 +1,4 @@
-export const perPages = [25, 50, 100] as const;
-export const defaultPerPage = perPages[0];
+import { SortDirection } from './common';
 
 export interface Movie {
   readonly id: string;
@@ -15,9 +14,8 @@ export interface Movie {
 }
 
 export const movieSorts = ['title', 'year', 'score'] as const;
-export const movieSortDirections = ['ascending', 'descending'] as const;
 export type MovieSort = (typeof movieSorts)[number];
-export type MovieSortDirection = (typeof movieSortDirections)[number];
+export const defaultMovieSort = movieSorts[1];
 
 export interface MovieFilter {
   readonly query?: string;
@@ -32,7 +30,7 @@ export interface MovieFilter {
   readonly page?: number;
   readonly perPage?: number;
   readonly sort?: MovieSort;
-  readonly sortDirection?: MovieSortDirection;
+  readonly sortDirection?: SortDirection;
 }
 
 export interface MoviesFiltered {

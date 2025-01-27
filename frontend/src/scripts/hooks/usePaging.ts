@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { defaultPerPage } from '@project/api-types';
 
 export interface PagingConfig<T extends number> {
+  readonly page?: number;
   readonly perPage?: T;
   readonly perPages?: T[];
   readonly totalCount: number;
@@ -88,6 +89,13 @@ export const usePaging = <T extends number>(
     setPerPage(perPage);
     setPerPages(perPages);
   }, [config.perPage, config.perPages]);
+
+  // update page from config
+  useEffect(() => {
+    if ('number' === typeof config.page) {
+      setPage(config.page);
+    }
+  }, [config.page]);
 
   const start = page * perPage;
   const end = Math.min(start + perPage, totalCount);

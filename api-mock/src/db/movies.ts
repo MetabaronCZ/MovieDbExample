@@ -20,13 +20,29 @@ const parseHash = (value: string): string => {
 };
 
 export const createMovieData = async (): Promise<Movie[]> => {
+  // read data
   const buffer = fs.readFileSync(dataPath);
   const archive = await unzipper.Open.buffer(buffer);
   const file = archive.files[0];
   const fileBuffer = await file.buffer(parseHash(hash));
   const fileString = fileBuffer.toString();
   const movies = JSON.parse(fileString) as Movie[];
-  return movies;
+
+  // filter valid movie data
+  const validItems = movies.filter((item) => {
+    if (item.year && (item.year < 1900 || item.year > 1999)) {
+      return false;
+    }
+    if (!item.score || item.score < 5) {
+      return false;
+    }
+    return !!item.titleCs || !!item.titleOriginal;
+  });
+
+  // initial sort
+  const sorted = sortMovies(validItems, 'year', 'ascending');
+
+  return sorted;
 };
 
 // get movie by ID

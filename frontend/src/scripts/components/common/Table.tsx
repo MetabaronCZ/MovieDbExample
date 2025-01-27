@@ -2,6 +2,8 @@ import { JSX, ReactNode, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled, { CSSProperties } from 'styled-components';
 
+import { SortDirection } from '@project/api-types';
+
 import { toVU } from 'modules/theme';
 import { getObjectEntries } from 'modules/core';
 
@@ -9,26 +11,25 @@ import { Text } from 'components/Typography';
 import { Grid } from 'components/common/Grid';
 import { Paragraph } from 'components/common/Paragraph';
 import { UpdatedContent } from 'components/common/UpdatedContent';
+import { TableHeaderContent } from 'components/common/TableHeaderContent';
 
-type TableColumnAlign = CSSProperties['textAlign'];
+type TableColumnAlign = CSSProperties['justifyContent'];
 
 interface TableColumnData<T> {
   readonly title?: string;
   readonly width?: number | string;
   readonly align?: TableColumnAlign;
+  readonly sort?: boolean;
   readonly render: (value: T) => ReactNode;
 }
 type TableColumnsData<T> = {
   readonly [column in keyof T]: TableColumnData<T[column]>;
 };
 
-const getCellStyles = <T,>(column: TableColumnData<T>): CSSProperties => {
-  return {
-    flex: 'string' === typeof column.width ? 'initial' : column.width,
-    width: 'string' === typeof column.width ? column.width : '',
-    textAlign: column.align,
-  };
-};
+const getCellStyles = <T,>(column: TableColumnData<T>): CSSProperties => ({
+  flex: 'string' === typeof column.width ? 'initial' : column.width,
+  width: 'string' === typeof column.width ? column.width : '',
+});
 
 const TableHead = styled(Grid)`
   padding-bottom: ${toVU(1)};
@@ -41,14 +42,16 @@ const TableRow = styled(Grid)`
   }
 `;
 
-const TableColumn = styled.div`
+const TableColumn = styled(Grid)`
   ${Text.Base};
   flex: 1;
   min-width: 0;
+  gap: ${toVU(1)};
 `;
 
 const TableHeader = styled(TableColumn)`
   font-weight: 700;
+  line-height: ${({ theme }) => theme.lineHeight.larger};
 `;
 
 const TableInfo = styled(Paragraph)`
@@ -65,37 +68,72 @@ interface Props<T> {
   readonly data: T[];
   readonly isLoading?: boolean;
   readonly error?: string | null;
+  readonly sort?: keyof T;
+  readonly sortDirection?: SortDirection;
+  readonly onSort?: (column: keyof T, direction: SortDirection) => void;
 }
 
-export const Table = <T,>(props: Props<T>): JSX.Element => {
+export const Table = <T,>({
+  columns,
+  data,
+  isLoading,
+  error,
+  sort,
+  sortDirection,
+  onSort,
+}: Props<T>): JSX.Element => {
   const { t } = useTranslation();
-
-  const columns = useMemo(
-    () => getObjectEntries(props.columns),
-    [props.columns],
-  );
+  const columnItems = useMemo(() => getObjectEntries(columns), [columns]);
 
   return (
-    <UpdatedContent loading={props.isLoading}>
+    <UpdatedContent loading={isLoading}>
       <Grid orientation="vertical" gap={1}>
         <TableHead>
-          {columns.map(([id, column]) => (
-            <TableHeader style={getCellStyles(column)} key={String(id)}>
-              {column.title ?? '\u00A0'}
+          {columnItems.map(([id, column]) => (
+            <TableHeader
+              justify={column.align}
+              style={getCellStyles(column)}
+              key={String(id)}
+            >
+              <TableHeaderContent
+                title={column.title}
+                sortDirection={id === sort ? sortDirection : null}
+                disabled={isLoading}
+                onSort={
+                  column.sort && onSort
+                    ? () => {
+                        if (id === sort) {
+                          onSort(
+                            id,
+                            'ascending' === sortDirection
+                              ? 'descending'
+                              : 'ascending',
+                          );
+                        } else {
+                          onSort(id, 'ascending');
+                        }
+                      }
+                    : undefined
+                }
+              />
             </TableHeader>
           ))}
         </TableHead>
 
-        {props.error ? (
-          <TableError>{props.error}</TableError>
-        ) : 0 === props.data.length ? (
+        {error ? (
+          <TableError>{error}</TableError>
+        ) : 0 === data.length ? (
           <TableInfo>{t('table.empty')}</TableInfo>
         ) : (
           <Grid orientation="vertical" gap={0.5}>
-            {props.data.map((row, r) => (
+            {data.map((row, r) => (
               <TableRow key={r}>
-                {columns.map(([id, column]) => (
-                  <TableColumn style={getCellStyles(column)} key={String(id)}>
+                {columnItems.map(([id, column]) => (
+                  <TableColumn
+                    justify={column.align}
+                    style={getCellStyles(column)}
+                    key={String(id)}
+                  >
                     {column.render(row[id])}
                   </TableColumn>
                 ))}

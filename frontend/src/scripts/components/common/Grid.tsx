@@ -33,6 +33,7 @@ interface Props extends PropsWithChildren {
   readonly justify?: GridJustify;
   readonly gap?: number;
   readonly wrap?: boolean;
+  readonly style?: CSSProperties;
 }
 
 export const Grid: FC<Props> = ({
@@ -43,6 +44,7 @@ export const Grid: FC<Props> = ({
   align,
   justify,
   wrap = false,
+  style,
   children,
 }) => (
   <Container
@@ -53,6 +55,7 @@ export const Grid: FC<Props> = ({
     $justify={justify}
     $gap={gap}
     $wrap={wrap}
+    style={style}
   >
     {children}
   </Container>
