@@ -9,6 +9,7 @@ import { toVU } from 'modules/theme';
 import { Link } from 'components/common/Link';
 import { Table } from 'components/common/Table';
 import { MovieListExpandable } from 'components/movie/MovieListExpandable';
+import { formatScore } from 'modules/movie';
 
 type TableData = {
   readonly title: string[];
@@ -62,7 +63,7 @@ export const MovieTable: FC<Props> = ({
           width: toVU(8),
           align: 'center',
           sort: true,
-          render: (value) => (value ? `${value} / 10` : '-'),
+          render: formatScore,
         },
         genre: {
           title: t('movie.genre'),

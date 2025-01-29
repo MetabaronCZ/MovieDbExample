@@ -7,6 +7,10 @@ import {
 
 import { createDataParser } from 'modules/parse';
 
+export const formatScore = (value: number | null): string => {
+  return value ? `${value} / 10` : '-';
+};
+
 export const movieSchema = Joi.object<Movie>({
   id: Joi.string().required(),
   titleCs: Joi.string().allow('').required(),

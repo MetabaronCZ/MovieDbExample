@@ -10,6 +10,8 @@
     "error": "Chyba při zobrazení stránky"
   },
   "movie": {
+    "titleCs": "Název (česky)",
+    "titleOriginal": "Název (původní)",
     "title": "Název",
     "year": "Rok",
     "genre": "Žánr",
@@ -17,7 +19,9 @@
     "director": "Režie",
     "writer": "Scénář",
     "stars": "Hrají",
+    "plot": "Děj filmu (anglicky)",
     "detail": "Detail",
+    "noPlot": "Neuvedeno",
     "notFound": "Film nebyl nalezen."
   },
   "movies": {
