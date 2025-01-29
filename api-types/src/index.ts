@@ -8,9 +8,11 @@ export {
 export {
   Movie,
   MovieSort,
+  MovieGenre,
   MovieFilter,
   MoviesFiltered,
   FetchMovieResponse,
   FetchMoviesResponse,
   movieSorts,
+  movieGenres,
 } from './movie';

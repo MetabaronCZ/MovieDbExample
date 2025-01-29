@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Movie, SortDirection } from '@project/api-types';
+import { Movie, MovieGenre, SortDirection } from '@project/api-types';
 
 import { paths } from 'modules/paths';
 
@@ -14,7 +14,7 @@ type TableData = {
   readonly title: string[];
   readonly year: number | null;
   readonly score: number | null;
-  readonly genre: string[];
+  readonly genre: MovieGenre[];
   readonly director: string[];
   readonly writer: string[];
   readonly stars: string[];
@@ -67,7 +67,10 @@ export const MovieTable: FC<Props> = ({
         genre: {
           title: t('movie.genre'),
           width: toVU(20),
-          render: (value) => <MovieListExpandable values={value} />,
+          render: (value) => {
+            const genres = value.map((item) => t(`genre.${item}`));
+            return <MovieListExpandable values={genres} />;
+          },
         },
         director: {
           title: t('movie.director'),

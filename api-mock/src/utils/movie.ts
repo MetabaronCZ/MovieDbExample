@@ -5,11 +5,14 @@ import {
   movieSorts,
   sortDirections,
   SortDirection,
+  movieGenres,
+  MovieGenre,
 } from '@project/api-types';
 
 import { parseQueryParam, Query } from 'utils/common';
 
 const movieSortValues = [...movieSorts] as string[];
+const movieGenreValues = [...movieGenres] as string[];
 const movieSortDirectionValues = [...sortDirections] as string[];
 
 const isMovieSort = (value: string): value is MovieSort => {
@@ -18,6 +21,10 @@ const isMovieSort = (value: string): value is MovieSort => {
 
 const isMovieSortDirection = (value: string): value is SortDirection => {
   return movieSortDirectionValues.includes(value);
+};
+
+const isMovieGenre = (value: string): value is MovieGenre => {
+  return movieGenreValues.includes(value);
 };
 
 const parseInteger = (value: string): number | undefined => {
@@ -63,13 +70,15 @@ export const parseMovieFilter = (requestQuery: Query): MovieFilter => {
   const starsParsed = parseArray(stars);
   const directorsParsed = parseArray(directors);
   const writersParsed = parseArray(writers);
+
   const genresParsed = parseArray(genres);
+  const genresFiltered = genresParsed.filter(isMovieGenre);
 
   const filter: MovieFilter = {
     query: queryParsed,
     yearFrom: yearFromParsed,
     yearTo: yearToParsed,
-    genres: genresParsed,
+    genres: genresFiltered,
     directors: directorsParsed,
     writers: writersParsed,
     stars: starsParsed,

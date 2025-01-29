@@ -1,11 +1,37 @@
 import { SortDirection } from './common';
 
+export const movieGenres = [
+  'Western',
+  'Horror',
+  'Adventure',
+  'Fantasy',
+  'Romance',
+  'Sci-Fi',
+  'Thriller',
+  'Drama',
+  'Comedy',
+  'Crime',
+  'Action',
+  'Musical',
+  'Mystery',
+  'Music',
+  'Sport',
+  'Family',
+  'War',
+  'Film-Noir',
+  'Biography',
+  'History',
+  'Documentary',
+  'Animation',
+] as const;
+export type MovieGenre = (typeof movieGenres)[number];
+
 export interface Movie {
   readonly id: string;
   readonly titleCs: string;
   readonly titleOriginal: string;
   readonly year: number | null;
-  readonly genres: string[];
+  readonly genres: MovieGenre[];
   readonly directors: string[];
   readonly writers: string[];
   readonly stars: string[];
@@ -24,7 +50,7 @@ export interface MovieFilter {
   readonly directors?: string[];
   readonly writers?: string[];
   readonly stars?: string[];
-  readonly genres?: string[];
+  readonly genres?: MovieGenre[];
   readonly scoreFrom?: number;
   readonly scoreTo?: number;
   readonly page?: number;

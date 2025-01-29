@@ -24,6 +24,30 @@
     "top": "Nejlépe hodnocené filmy (TOP 10)",
     "topMore": "Zobrazit další filmy"
   },
+  "genre": {
+    "Western": "Western",
+    "Horror": "Horor",
+    "Adventure": "Dobrodružný",
+    "Fantasy": "Fantasy",
+    "Romance": "Romantický",
+    "Sci-Fi": "Sci-fi",
+    "Thriller": "Thriller",
+    "Drama": "Drama",
+    "Comedy": "Komedie",
+    "Crime": "Kriminální",
+    "Action": "Akční",
+    "Musical": "Muzikál",
+    "Mystery": "Mysteriózní",
+    "Music": "Hudební",
+    "Sport": "Sportovní",
+    "Family": "Rodinný",
+    "War": "Válečný",
+    "Film-Noir": "Film noir",
+    "Biography": "Životopisný",
+    "History": "Historický",
+    "Documentary": "Dokumentární",
+    "Animation": "Animovaný"
+  },
   "table": {
     "empty": "Tabulka neobsahuje žádná data."
   },
