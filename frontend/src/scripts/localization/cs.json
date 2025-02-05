@@ -36,7 +36,10 @@
     "writer": "Scénárista",
     "star": "Herec",
     "detail": "Detail",
-    "notFound": "Osoba nebyla nalezena."
+    "notFound": "Osoba nebyla nalezena.",
+    "noDirector": "Není režisérem žádného filmu.",
+    "noWriter": "Není scénaristou žádného filmu.",
+    "noStar": "Není hercem v žádném filmu."
   },
   "movies": {
     "top": "Nejlépe hodnocené filmy (TOP 10)",

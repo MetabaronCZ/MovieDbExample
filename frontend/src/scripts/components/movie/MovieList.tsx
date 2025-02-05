@@ -7,6 +7,7 @@ import {
   MoviesFiltered,
   perPages,
   movieSorts,
+  defaultPerPage,
   defaultMovieSort,
 } from '@project/api-types';
 
@@ -26,11 +27,21 @@ const isMovieStort = (value: string): value is MovieSort => {
   return movieSortValues.includes(value);
 };
 
-export const MovieList: FC = () => {
+interface Props {
+  readonly filter?: MovieFilter;
+}
+
+export const MovieList: FC<Props> = ({ filter: initialFilter }) => {
   const { t } = useTranslation();
   const [initialized, setInitialized] = useState(false);
   const [data, setData] = useState<MoviesFiltered>({ items: [], total: 0 });
-  const [filter, setFilter] = useState<MovieFilter>({ sort: defaultMovieSort });
+
+  const [filter, setFilter] = useState<MovieFilter>({
+    perPage: defaultPerPage,
+    sort: defaultMovieSort,
+    ...initialFilter,
+  });
+
   const { isPending, isError, mutateAsync } = client.useFetchMovies();
 
   const fetchData = useCallback(
@@ -85,7 +96,9 @@ export const MovieList: FC = () => {
           }
         }}
       />
-      <Paging paging={paging} />
+      {(!filter.perPage || data.total > filter.perPage) && (
+        <Paging paging={paging} />
+      )}
     </Box>
   );
 };

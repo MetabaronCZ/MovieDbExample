@@ -5,9 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { client } from 'modules/api';
 
 import { Page } from 'components/Page';
-import { Box } from 'components/common/Box';
-import { Grid } from 'components/common/Grid';
 import { Infobox } from 'components/common/Infobox';
+import { PersonDetail } from 'components/person/PersonDetail';
 import { FetchContainer } from 'components/common/FetchContainer';
 
 type Params = {
@@ -25,9 +24,7 @@ export const PersonDetailPage: FC = () => {
         {!data ? (
           <Infobox type="error">{t('person.notFound')}</Infobox>
         ) : (
-          <Grid>
-            <Box>- TODO -</Box>
-          </Grid>
+          <PersonDetail data={data} />
         )}
       </FetchContainer>
     </Page>
