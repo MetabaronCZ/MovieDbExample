@@ -1,35 +1,33 @@
-import { FC, useMemo } from 'react';
+import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { client } from 'modules/api';
-import { getMovieTitle } from 'modules/movie';
 
 import { Page } from 'components/Page';
+import { Box } from 'components/common/Box';
+import { Grid } from 'components/common/Grid';
 import { Infobox } from 'components/common/Infobox';
-import { MovieDetail } from 'components/movie/MovieDetail';
 import { FetchContainer } from 'components/common/FetchContainer';
 
 type Params = {
   readonly id: string;
 };
 
-export const MovieDetailPage: FC = () => {
+export const PersonDetailPage: FC = () => {
   const { t } = useTranslation();
   const { id } = useParams<Params>();
-  const { data, isLoading, isError } = client.useFetchMovie(id ?? '');
-
-  const movieTitle = useMemo(() => {
-    return data ? getMovieTitle(data) : '';
-  }, [data]);
+  const { data, isLoading, isError } = client.useFetchPerson(id ?? '');
 
   return (
-    <Page title={movieTitle} breadcrumbs={['movieList', 'movieDetail']}>
+    <Page title={data?.name} breadcrumbs={['personList', 'personDetail']}>
       <FetchContainer isLoading={isLoading} isError={isError}>
         {!data ? (
-          <Infobox type="error">{t('movie.notFound')}</Infobox>
+          <Infobox type="error">{t('person.notFound')}</Infobox>
         ) : (
-          <MovieDetail data={data} />
+          <Grid>
+            <Box>- TODO -</Box>
+          </Grid>
         )}
       </FetchContainer>
     </Page>

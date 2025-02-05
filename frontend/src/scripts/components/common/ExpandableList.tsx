@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
@@ -7,6 +7,7 @@ import { useOpener } from 'hooks/useOpener';
 
 import { Ico } from 'components/common/Ico';
 import { Grid } from 'components/common/Grid';
+import { Link } from 'components/common/Link';
 import { LinkButton } from 'components/common/LinkButton';
 import { TextEllipsis } from 'components/common/TextEllipsis';
 
@@ -44,18 +45,31 @@ const StyledIco = styled(Ico)`
   margin-right: ${toVU(1)};
 `;
 
-interface Props {
-  readonly values: string[];
+interface ExpandableItem {
+  readonly title: string;
+  readonly url?: string;
 }
 
-export const MovieListExpandable: FC<Props> = ({ values }) => {
+const renderExpandableItem = (item: ExpandableItem): ReactNode => {
+  return item.url ? <Link to={item.url}>{item.title}</Link> : item.title;
+};
+
+interface Props {
+  readonly values: ExpandableItem[];
+}
+
+export const ExpandableList: FC<Props> = ({ values }) => {
   const { t } = useTranslation();
   const { opened, toggle } = useOpener();
 
   if (0 === values.length) {
     return '-';
   }
-  const firstItem = <TextEllipsis title={values[0]}>{values[0]}</TextEllipsis>;
+  const firstItem = (
+    <TextEllipsis title={values[0].title}>
+      {renderExpandableItem(values[0])}
+    </TextEllipsis>
+  );
 
   if (1 === values.length) {
     return firstItem;
@@ -78,7 +92,7 @@ export const MovieListExpandable: FC<Props> = ({ values }) => {
             {values.slice(1).map((item, i) => (
               <ListItem key={i}>
                 <StyledIco ico="angleRight" color="base" />
-                {item}
+                {renderExpandableItem(item)}
               </ListItem>
             ))}
           </List>

@@ -3,6 +3,7 @@ import {
   Movie,
   FetchMovieResponse,
   FetchMoviesResponse,
+  MoviePersonData,
 } from '@project/api-types';
 
 import { createDataParser } from 'modules/parse';
@@ -20,15 +21,20 @@ export const formatScore = (value: number | null): string => {
   return value ? `${value} / 10` : '-';
 };
 
-export const movieSchema = Joi.object<Movie>({
+const moviePersonDataSchema = Joi.object<MoviePersonData>({
+  id: Joi.string().required(),
+  name: Joi.string().allow('').required(),
+}).unknown();
+
+export const movieSchema = Joi.object<FetchMovieResponse>({
   id: Joi.string().required(),
   titleCs: Joi.string().allow('').required(),
   titleOriginal: Joi.string().allow('').required(),
   year: Joi.number().allow(null).required(),
   genres: Joi.array().items(Joi.string()),
-  directors: Joi.array().items(Joi.string()),
-  writers: Joi.array().items(Joi.string()),
-  stars: Joi.array().items(Joi.string()),
+  directors: Joi.array().items(moviePersonDataSchema),
+  writers: Joi.array().items(moviePersonDataSchema),
+  stars: Joi.array().items(moviePersonDataSchema),
   plot: Joi.string().allow('').required(),
   score: Joi.number().allow(null).required(),
 }).unknown();
@@ -38,7 +44,7 @@ const moviesReponseSchema = Joi.object<FetchMoviesResponse>({
   total: Joi.number(),
 });
 
-export const parseMovieResponse = createDataParser<FetchMovieResponse>(
+export const parseMovieResponse = createDataParser(
   movieSchema,
   'Could not parse API response for FetchMovieResponse',
 );

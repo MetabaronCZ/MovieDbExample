@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 
 import { createDb } from 'db';
 import { movieRouter } from 'routes/movie';
+import { peopleRouter } from 'routes/person';
 
 export const port = 3001;
 export const pathStatic = path.join(__dirname, 'public');
@@ -29,6 +30,7 @@ const init = async (): Promise<void> => {
 
   // routing
   app.use('/movie', movieRouter);
+  app.use('/person', peopleRouter);
 
   // error 404 handler
   app.use((req, res) => {

@@ -13,7 +13,7 @@ movieRouter.get('/', (req, res) => {
 
     try {
       const filter = parseMovieFilter(req.query);
-      const response = db.movies.getList(filter);
+      const response = db.movie.getList(filter);
       res.json(response);
     } catch (error) {
       res.status(500).json({ error });
@@ -28,7 +28,7 @@ movieRouter.get('/:id', (req, res) => {
     const { db } = res.locals;
 
     try {
-      const movie = db.movies.getDetail(id);
+      const movie = db.movie.getDetail(id);
 
       if (!movie) {
         res.status(404).json({ error: 'Movie not found!' });
@@ -49,7 +49,7 @@ movieRouter.patch('/:id', (req, res) => {
     const data = req.body ?? {};
 
     try {
-      const movie = db.movies.edit(id, data as MovieData);
+      const movie = db.movie.edit(id, data as MovieData);
 
       if (!movie) {
         res.status(404).json({ error: 'Movie not found!' });

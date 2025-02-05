@@ -1,24 +1,37 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Movie, MovieGenre, SortDirection } from '@project/api-types';
+import {
+  Movie,
+  MovieGenre,
+  MoviePersonData,
+  SortDirection,
+} from '@project/api-types';
 
 import { paths } from 'modules/paths';
-
-import { toVU } from 'modules/theme';
-import { Link } from 'components/common/Link';
-import { Table } from 'components/common/Table';
-import { MovieListExpandable } from 'components/movie/MovieListExpandable';
 import { formatScore } from 'modules/movie';
 
+import { toVU } from 'modules/theme';
+import { Ico } from 'components/common/Ico';
+import { Grid } from 'components/common/Grid';
+import { Link } from 'components/common/Link';
+import { Table } from 'components/common/Table';
+import { ExpandableList } from 'components/common/ExpandableList';
+
+interface TitleTableData {
+  readonly id: string;
+  readonly titleCs: string;
+  readonly titleOriginal: string;
+}
+
 type TableData = {
-  readonly title: string[];
+  readonly title: TitleTableData;
   readonly year: number | null;
   readonly score: number | null;
   readonly genre: MovieGenre[];
-  readonly director: string[];
-  readonly writer: string[];
-  readonly stars: string[];
+  readonly director: MoviePersonData[];
+  readonly writer: MoviePersonData[];
+  readonly stars: MoviePersonData[];
   readonly detail: string;
 };
 
@@ -46,9 +59,11 @@ export const MovieTable: FC<Props> = ({
         title: {
           title: t('movie.title'),
           sort: true,
-          render: (value) => {
-            const titles = value.filter((item) => item.length > 0);
-            return <MovieListExpandable values={titles} />;
+          render: ({ id, titleCs, titleOriginal }) => {
+            const titles = [titleCs, titleOriginal]
+              .filter((item) => item.length > 0)
+              .map((item) => ({ title: item, url: paths.MOVIE_DETAIL(id) }));
+            return <ExpandableList values={titles} />;
           },
         },
         year: {
@@ -69,35 +84,60 @@ export const MovieTable: FC<Props> = ({
           title: t('movie.genre'),
           width: toVU(20),
           render: (value) => {
-            const genres = value.map((item) => t(`genre.${item}`));
-            return <MovieListExpandable values={genres} />;
+            const items = value.map((item) => ({ title: t(`genre.${item}`) }));
+            return <ExpandableList values={items} />;
           },
         },
         director: {
           title: t('movie.director'),
           width: toVU(30),
-          render: (value) => <MovieListExpandable values={value} />,
+          render: (value) => {
+            const items = value.map((item) => ({
+              title: item.name,
+              url: paths.PERSON_DETAIL(item.id),
+            }));
+            return <ExpandableList values={items} />;
+          },
         },
         writer: {
           title: t('movie.writer'),
-          render: (value) => <MovieListExpandable values={value} />,
+          render: (value) => {
+            const items = value.map((item) => ({
+              title: item.name,
+              url: paths.PERSON_DETAIL(item.id),
+            }));
+            return <ExpandableList values={items} />;
+          },
         },
         stars: {
           title: t('movie.stars'),
-          render: (value) => <MovieListExpandable values={value} />,
+          render: (value) => {
+            const items = value.map((item) => ({
+              title: item.name,
+              url: paths.PERSON_DETAIL(item.id),
+            }));
+            return <ExpandableList values={items} />;
+          },
         },
         detail: {
           width: toVU(6),
           align: 'right',
           render: (id) => (
-            <Link to={paths.MOVIE_DETAIL(id)}>{t('movie.detail')}</Link>
+            <Grid align="center" gap={1}>
+              <Link to={paths.MOVIE_DETAIL(id)}>{t('movie.detail')}</Link>
+              <Ico ico="angleRight" />
+            </Grid>
           ),
         },
       }}
       isLoading={isLoading}
       error={error}
       data={data.map((item) => ({
-        title: [item.titleCs, item.titleOriginal],
+        title: {
+          id: item.id,
+          titleCs: item.titleCs,
+          titleOriginal: item.titleOriginal,
+        },
         year: item.year,
         score: item.score,
         genre: item.genres,

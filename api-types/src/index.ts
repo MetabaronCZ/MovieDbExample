@@ -1,8 +1,8 @@
 export {
+  SortDirection,
   perPages,
   defaultPerPage,
   sortDirections,
-  SortDirection,
 } from './common';
 
 export {
@@ -12,6 +12,7 @@ export {
   MovieGenre,
   MovieFilter,
   MoviesFiltered,
+  MoviePersonData,
   EditMoviePayload,
   FetchMovieResponse,
   FetchMoviesResponse,
@@ -19,3 +20,16 @@ export {
   movieGenres,
   defaultMovieSort,
 } from './movie';
+
+export {
+  Person,
+  PersonRole,
+  PersonSort,
+  PersonFilter,
+  PeopleFiltered,
+  FetchPeopleResponse,
+  FetchPersonResponse,
+  personSorts,
+  personRoles,
+  defaultPersonSort,
+} from './person';

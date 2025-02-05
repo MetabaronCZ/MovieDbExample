@@ -6,6 +6,8 @@ export const paths = {
   MOVIE_LIST: '/movies',
   MOVIE_DETAIL: (id: string) => `/movies/${id}`,
   MOVIE_EDIT: (id: string) => `/movies/${id}/edit`,
+  PERSON_LIST: '/people',
+  PERSON_DETAIL: (id: string) => `/people/${id}`,
   ERROR404: '*',
 };
 

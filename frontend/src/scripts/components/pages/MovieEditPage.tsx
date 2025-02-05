@@ -21,7 +21,7 @@ export const MovieEditPage: FC = () => {
   const movieTitle = useMemo(() => (data ? getMovieTitle(data) : ''), [data]);
 
   return (
-    <Page title={movieTitle} breadcrumbs={['moviesList', 'movieEdit']}>
+    <Page title={movieTitle} breadcrumbs={['movieList', 'movieEdit']}>
       <FetchContainer isLoading={isLoading} isError={isError}>
         {!data ? (
           <Infobox type="error">{t('movie.notFound')}</Infobox>

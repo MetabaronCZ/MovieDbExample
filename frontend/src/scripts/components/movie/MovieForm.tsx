@@ -2,7 +2,12 @@ import { FC, useMemo } from 'react';
 import { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
-import { Movie, MovieGenre, movieGenres } from '@project/api-types';
+import {
+  Movie,
+  MovieGenre,
+  movieGenres,
+  MoviePersonData,
+} from '@project/api-types';
 
 import { client } from 'modules/api';
 import { paths } from 'modules/paths';
@@ -45,9 +50,9 @@ type FormData = {
   readonly year: string;
   readonly score: string;
   readonly genres: MovieGenre[];
-  readonly directors: string[];
-  readonly writers: string[];
-  readonly stars: string[];
+  readonly directors: MoviePersonData[];
+  readonly writers: MoviePersonData[];
+  readonly stars: MoviePersonData[];
   readonly plot: string;
 };
 
@@ -90,9 +95,9 @@ export const MovieForm: FC<Props> = ({ data }) => {
           year: year ? parseInt(year, 10) : null,
           score: score ? parseFloat(score) : null,
           genres: formData.genres,
-          directors: formData.directors,
-          writers: formData.writers,
-          stars: formData.stars,
+          directors: formData.directors.map((item) => item.id),
+          writers: formData.writers.map((item) => item.id),
+          stars: formData.stars.map((item) => item.id),
           plot: formData.plot.trim(),
         },
       });
@@ -165,15 +170,27 @@ export const MovieForm: FC<Props> = ({ data }) => {
           />
 
           <FormField label={t('movie.director')} error={errors.directors}>
-            <Paragraph>{values.directors.join(', ') || '-'}</Paragraph>
+            <Paragraph>
+              {values.directors
+                .map((item) => `${item.name} (${item.id})`)
+                .join(', ') || '-'}
+            </Paragraph>
           </FormField>
 
           <FormField label={t('movie.writer')} error={errors.writers}>
-            <Paragraph>{values.writers.join(', ') || '-'}</Paragraph>
+            <Paragraph>
+              {values.writers
+                .map((item) => `${item.name} (${item.id})`)
+                .join(', ') || '-'}
+            </Paragraph>
           </FormField>
 
           <FormField label={t('movie.stars')} error={errors.stars}>
-            <Paragraph>{values.stars.join(', ') || '-'}</Paragraph>
+            <Paragraph>
+              {values.stars
+                .map((item) => `${item.name} (${item.id})`)
+                .join(', ') || '-'}
+            </Paragraph>
           </FormField>
 
           <TextareaField

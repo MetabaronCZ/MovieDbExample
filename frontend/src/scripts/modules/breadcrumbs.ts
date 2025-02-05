@@ -7,8 +7,10 @@ export interface BreadcrumbsItem {
 }
 export type BreadcrumbsItemId =
   | 'homepage'
-  | 'moviesList'
+  | 'movieList'
   | 'movieDetail'
+  | 'personList'
+  | 'personDetail'
   | 'movieEdit';
 
 type BreadcumbsData = Record<BreadcrumbsItemId, BreadcrumbsItem>;
@@ -18,7 +20,7 @@ const getBreadcrumbData = (t: TFunction): BreadcumbsData => ({
     title: t('page.home'),
     path: paths.HOME,
   },
-  moviesList: {
+  movieList: {
     title: t('page.movieList'),
     path: paths.MOVIE_LIST,
   },
@@ -29,6 +31,14 @@ const getBreadcrumbData = (t: TFunction): BreadcumbsData => ({
   movieEdit: {
     title: t('page.movieEdit'),
     path: paths.MOVIE_LIST,
+  },
+  personList: {
+    title: t('page.personList'),
+    path: paths.PERSON_LIST,
+  },
+  personDetail: {
+    title: t('page.personDetail'),
+    path: paths.PERSON_LIST,
   },
 });
 

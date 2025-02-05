@@ -4,9 +4,11 @@
   },
   "page": {
     "home": "Domů",
-    "movieList": "Seznam filmů",
+    "movieList": "Filmy",
     "movieDetail": "Detail filmu",
     "movieEdit": "Editace filmu",
+    "personList": "Lidé",
+    "personDetail": "Detail osoby",
     "error404": "HTTP chyba 404",
     "error": "Chyba při zobrazení stránky"
   },
@@ -24,6 +26,9 @@
     "detail": "Detail",
     "noPlot": "Neuvedeno",
     "notFound": "Film nebyl nalezen."
+  },
+  "person": {
+    "notFound": "Osoba nebyla nalezena."
   },
   "movies": {
     "top": "Nejlépe hodnocené filmy (TOP 10)",

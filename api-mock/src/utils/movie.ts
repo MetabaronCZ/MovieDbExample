@@ -1,26 +1,22 @@
 import {
   Movie,
   MovieSort,
-  MovieFilter,
-  movieSorts,
-  sortDirections,
-  SortDirection,
-  movieGenres,
   MovieGenre,
+  MovieFilter,
+  SortDirection,
+  movieSorts,
+  movieGenres,
+  MoviePersonData,
 } from '@project/api-types';
 
 import { parseQueryParam, Query } from 'utils/common';
+import { compareNumeric, isSortDirection } from 'utils/sort';
 
 const movieSortValues = [...movieSorts] as string[];
 const movieGenreValues = [...movieGenres] as string[];
-const movieSortDirectionValues = [...sortDirections] as string[];
 
 const isMovieSort = (value: string): value is MovieSort => {
   return movieSortValues.includes(value);
-};
-
-const isMovieSortDirection = (value: string): value is SortDirection => {
-  return movieSortDirectionValues.includes(value);
 };
 
 const isMovieGenre = (value: string): value is MovieGenre => {
@@ -87,12 +83,24 @@ export const parseMovieFilter = (requestQuery: Query): MovieFilter => {
     page: pageParsed,
     perPage: perPageParsed,
     sort: isMovieSort(sortParsed) ? sortParsed : undefined,
-    sortDirection: isMovieSortDirection(sortDirectionParsed)
+    sortDirection: isSortDirection(sortDirectionParsed)
       ? sortDirectionParsed
       : undefined,
   };
 
   return filter;
+};
+
+// movie person list filter helper
+const filterPersonContained = (
+  filter?: string[],
+  value?: MoviePersonData[],
+): boolean => {
+  return (
+    !filter ||
+    0 === filter.length ||
+    !!value?.some((item) => filter.includes(item.id))
+  );
 };
 
 // movie array filter helper
@@ -102,23 +110,6 @@ const filterContained = (filter?: string[], value?: string[]): boolean => {
     0 === filter.length ||
     !!value?.some((item) => filter.includes(item.toLowerCase()))
   );
-};
-
-// movie numeral value comparison
-const compareNumeric = (
-  a: number | null,
-  b: number | null,
-  direction?: SortDirection,
-): number => {
-  if (null === b && null === a) {
-    return 0;
-  } else if (null === a) {
-    return 'descending' === direction ? +1 : -1;
-  } else if (null === b) {
-    return 'descending' === direction ? -1 : +1;
-  } else {
-    return 'descending' === direction ? b - a : a - b;
-  }
 };
 
 export const sortMovies = (
@@ -174,17 +165,17 @@ export const filterMovies = (movies: Movie[], filter: MovieFilter): Movie[] => {
     }
 
     // filter by directors
-    if (!filterContained(filter.directors, item.directors)) {
+    if (!filterPersonContained(filter.directors, item.directors)) {
       return false;
     }
 
     // filter by writers
-    if (!filterContained(filter.writers, item.writers)) {
+    if (!filterPersonContained(filter.writers, item.writers)) {
       return false;
     }
 
     // filter by cast
-    if (!filterContained(filter.stars, item.stars)) {
+    if (!filterPersonContained(filter.stars, item.stars)) {
       return false;
     }
 

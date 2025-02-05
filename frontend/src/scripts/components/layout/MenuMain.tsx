@@ -18,6 +18,7 @@ interface MenuItem {
 const getMenuItems = (t: TFunction): MenuItem[] => [
   { title: t('page.home'), url: paths.HOME },
   { title: t('page.movieList'), url: paths.MOVIE_LIST },
+  { title: t('page.personList'), url: paths.PERSON_LIST },
 ];
 
 const isActiveMenuItem = (path: string): boolean => {

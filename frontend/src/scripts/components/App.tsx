@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { QueryClientProvider } from '@tanstack/react-query';
 
 import { theme } from 'modules/theme';
-import { queryClient } from 'modules/api';
+import { queryClient } from 'modules/query';
 
 import { Router } from './Router';
 import { GlobalStyles } from './GlobalStyles';

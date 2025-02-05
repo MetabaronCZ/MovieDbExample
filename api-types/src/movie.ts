@@ -26,15 +26,20 @@ export const movieGenres = [
 ] as const;
 export type MovieGenre = (typeof movieGenres)[number];
 
+export interface MoviePersonData {
+  readonly id: string;
+  readonly name: string;
+}
+
 export interface Movie {
   readonly id: string;
   readonly titleCs: string;
   readonly titleOriginal: string;
   readonly year: number | null;
   readonly genres: MovieGenre[];
-  readonly directors: string[];
-  readonly writers: string[];
-  readonly stars: string[];
+  readonly directors: MoviePersonData[];
+  readonly writers: MoviePersonData[];
+  readonly stars: MoviePersonData[];
   readonly plot: string;
   readonly score: number | null;
 }
@@ -44,9 +49,9 @@ export interface MovieData {
   readonly titleOriginal?: string;
   readonly year?: number | null;
   readonly genres?: MovieGenre[];
-  readonly directors?: string[];
-  readonly writers?: string[];
-  readonly stars?: string[];
+  readonly directors?: string[]; // person ID
+  readonly writers?: string[]; // person ID
+  readonly stars?: string[]; // person ID
   readonly plot?: string;
   readonly score?: number | null;
 }
@@ -59,9 +64,9 @@ export interface MovieFilter {
   readonly query?: string;
   readonly yearFrom?: number;
   readonly yearTo?: number;
-  readonly directors?: string[];
-  readonly writers?: string[];
-  readonly stars?: string[];
+  readonly directors?: string[]; // person IDs
+  readonly writers?: string[]; // person IDs
+  readonly stars?: string[]; // person IDs
   readonly genres?: MovieGenre[];
   readonly scoreFrom?: number;
   readonly scoreTo?: number;
