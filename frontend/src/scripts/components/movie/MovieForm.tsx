@@ -185,7 +185,7 @@ export const MovieForm: FC<Props> = ({ data }) => {
             </Paragraph>
           </FormField>
 
-          <FormField label={t('movie.stars')} error={errors.stars}>
+          <FormField label={t('movie.star')} error={errors.stars}>
             <Paragraph>
               {values.stars
                 .map((item) => `${item.name} (${item.id})`)

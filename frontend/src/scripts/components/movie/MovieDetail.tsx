@@ -42,7 +42,7 @@ const getMovieData = (t: TFunction, movie: Movie): MovieDataItem[] => [
   },
   { title: t('movie.director'), value: renderPersonList(movie.directors) },
   { title: t('movie.writer'), value: renderPersonList(movie.writers) },
-  { title: t('movie.stars'), value: renderPersonList(movie.stars) },
+  { title: t('movie.star'), value: renderPersonList(movie.stars) },
 ];
 
 interface Props {

@@ -21,13 +21,21 @@
     "score": "IMDB",
     "director": "Režie",
     "writer": "Scénář",
-    "stars": "Hrají",
+    "star": "Hrají",
     "plot": "Děj filmu",
     "detail": "Detail",
+    "item_one": "film",
+    "item_few": "filmy",
+    "item_other": "filmů",
     "noPlot": "Neuvedeno",
     "notFound": "Film nebyl nalezen."
   },
   "person": {
+    "name": "Jméno",
+    "director": "Režisér",
+    "writer": "Scénárista",
+    "star": "Herec",
+    "detail": "Detail",
     "notFound": "Osoba nebyla nalezena."
   },
   "movies": {

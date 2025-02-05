@@ -31,7 +31,7 @@ type TableData = {
   readonly genre: MovieGenre[];
   readonly director: MoviePersonData[];
   readonly writer: MoviePersonData[];
-  readonly stars: MoviePersonData[];
+  readonly star: MoviePersonData[];
   readonly detail: string;
 };
 
@@ -109,8 +109,8 @@ export const MovieTable: FC<Props> = ({
             return <ExpandableList values={items} />;
           },
         },
-        stars: {
-          title: t('movie.stars'),
+        star: {
+          title: t('movie.star'),
           render: (value) => {
             const items = value.map((item) => ({
               title: item.name,
@@ -143,7 +143,7 @@ export const MovieTable: FC<Props> = ({
         genre: item.genres,
         director: item.directors,
         writer: item.writers,
-        stars: item.stars,
+        star: item.stars,
         detail: item.id,
       }))}
       sort={sort}
