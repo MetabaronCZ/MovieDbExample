@@ -6,13 +6,15 @@ import { TFunction } from 'i18next';
 import { Movie } from '@project/api-types';
 
 import { client } from 'modules/api';
-import { formatScore } from 'modules/movie';
+import { paths } from 'modules/paths';
+import { formatScore, getMovieTitle } from 'modules/movie';
 
 import { Page } from 'components/Page';
 import { Box } from 'components/common/Box';
 import { Grid } from 'components/common/Grid';
 import { Infobox } from 'components/common/Infobox';
 import { Paragraph } from 'components/common/Paragraph';
+import { ButtonLink } from 'components/buttons/ButtonLink';
 import { FetchContainer } from 'components/common/FetchContainer';
 
 const formatArray = (array: string[]): string => {
@@ -48,40 +50,46 @@ export const MovieDetailPage: FC = () => {
     if (!data) {
       return ['', []];
     }
+    const title = getMovieTitle(data);
     const dataItems = getMovieData(t, data);
-    let title = data.titleCs || data.titleOriginal;
-
-    if (!!title && data.year) {
-      title = `${title} (${data.year})`;
-    }
     return [title, dataItems];
   }, [t, data]);
 
   return (
-    <Page title={movieTitle} breadcrumbs={['moviesList', 'moviesDetail']}>
+    <Page title={movieTitle} breadcrumbs={['moviesList', 'movieDetail']}>
       <FetchContainer isLoading={isLoading} isError={isError}>
         {!data ? (
           <Infobox type="error">{t('movie.notFound')}</Infobox>
         ) : (
-          <Grid>
-            <Box>
-              <Grid orientation="vertical" gap={1}>
-                {movieData.map((item, i) => (
-                  <Paragraph key={i}>
-                    <strong>{item.title}:</strong> {item.value}
-                  </Paragraph>
-                ))}
-              </Grid>
-            </Box>
+          <>
+            <Grid>
+              <Box>
+                <Grid orientation="vertical" gap={1}>
+                  {movieData.map((item, i) => (
+                    <Paragraph key={i}>
+                      <strong>{item.title}:</strong> {item.value}
+                    </Paragraph>
+                  ))}
+                </Grid>
+              </Box>
 
-            <Box>
-              <Paragraph>
-                <strong>{t('movie.plot')}:</strong>
-                <br />
-                {data.plot || <em>{t('movie.noPlot')}</em>}
-              </Paragraph>
-            </Box>
-          </Grid>
+              <Box>
+                <Paragraph>
+                  <strong>{t('movie.plot')}:</strong>
+                  <br />
+                  {data.plot || <em>{t('movie.noPlot')}</em>}
+                </Paragraph>
+              </Box>
+            </Grid>
+
+            <div>
+              <ButtonLink
+                icoBefore="edit"
+                to={paths.MOVIE_EDIT(data.id)}
+                text={t('edit')}
+              />
+            </div>
+          </>
         )}
       </FetchContainer>
     </Page>

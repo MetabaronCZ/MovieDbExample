@@ -24,18 +24,25 @@ const StyledLink = styled.a`
 `;
 
 interface Props extends PropsWithChildren {
+  readonly className?: string;
+  readonly title?: string;
   readonly to: string;
   readonly external?: boolean;
+  readonly onClick?: () => void;
 }
 
-export const Link: FC<Props> = ({ to, external = false, children }) => {
+export const Link: FC<Props> = ({
+  className,
+  title,
+  to,
+  external = false,
+  children,
+  onClick,
+}) => {
+  const sharedProps = { className, title, onClick, children };
   return external ? (
-    <StyledLink href={to} target="_blank">
-      {children}
-    </StyledLink>
+    <StyledLink {...sharedProps} href={to} target="_blank" />
   ) : (
-    <StyledLink as={RouterLink} to={to}>
-      {children}
-    </StyledLink>
+    <StyledLink as={RouterLink} {...sharedProps} to={to} />
   );
 };

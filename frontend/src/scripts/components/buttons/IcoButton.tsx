@@ -38,7 +38,7 @@ interface Props {
 export const IcoButton: FC<Props> = ({
   className,
   ico,
-  icoSize = 'larger',
+  icoSize = 'large',
   icoSpin,
   title,
   color = 'base',

@@ -1,6 +1,10 @@
 import axios, { AxiosError } from 'axios';
 import { QueryClient, useMutation, useQuery } from '@tanstack/react-query';
-import { MovieFilter, FetchMoviesResponse } from '@project/api-types';
+import {
+  MovieFilter,
+  FetchMoviesResponse,
+  EditMoviePayload,
+} from '@project/api-types';
 
 import { Logger } from './logger';
 import { ParseFn } from 'modules/parse';
@@ -61,4 +65,11 @@ export const client = {
     });
   },
   useFetchMovie: getDetailQuery('movie', '/movie', parseMovieResponse),
+  useEditMovie: () => {
+    return useMutation<unknown, AxiosError, EditMoviePayload>({
+      mutationFn: async ({ id, data }) => {
+        return await axios.patch(`${root}/movie/${id}`, data);
+      },
+    });
+  },
 };

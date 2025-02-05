@@ -39,6 +39,18 @@ export interface Movie {
   readonly score: number | null;
 }
 
+export interface MovieData {
+  readonly titleCs?: string;
+  readonly titleOriginal?: string;
+  readonly year?: number | null;
+  readonly genres?: MovieGenre[];
+  readonly directors?: string[];
+  readonly writers?: string[];
+  readonly stars?: string[];
+  readonly plot?: string;
+  readonly score?: number | null;
+}
+
 export const movieSorts = ['title', 'year', 'score'] as const;
 export type MovieSort = (typeof movieSorts)[number];
 export const defaultMovieSort = movieSorts[1];
@@ -63,5 +75,11 @@ export interface MoviesFiltered {
   readonly items: Movie[];
   readonly total: number;
 }
+
+export interface EditMoviePayload {
+  readonly id: string;
+  readonly data: MovieData;
+}
+
 export type FetchMovieResponse = Movie;
 export type FetchMoviesResponse = MoviesFiltered;

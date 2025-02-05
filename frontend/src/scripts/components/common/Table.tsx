@@ -79,7 +79,7 @@ export const Table = <T,>({
   isLoading,
   error,
   sort,
-  sortDirection,
+  sortDirection = 'ascending',
   onSort,
 }: Props<T>): JSX.Element => {
   const { t } = useTranslation();

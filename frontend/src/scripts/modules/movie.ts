@@ -7,6 +7,15 @@ import {
 
 import { createDataParser } from 'modules/parse';
 
+export const getMovieTitle = (novie: Movie): string => {
+  let title = novie.titleCs || novie.titleOriginal;
+
+  if (!!title && novie.year) {
+    title = `${title} (${novie.year})`;
+  }
+  return title;
+};
+
 export const formatScore = (value: number | null): string => {
   return value ? `${value} / 10` : '-';
 };

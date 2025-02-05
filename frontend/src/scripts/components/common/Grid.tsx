@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
-import styled, { CSSProperties, WebTarget } from 'styled-components';
+import styled, { CSSProperties } from 'styled-components';
+import { KnownTarget } from 'styled-components/dist/types';
 
 import { toVU } from 'modules/theme';
 
@@ -27,7 +28,7 @@ const Container = styled.div<StyledProps>`
 
 interface Props extends PropsWithChildren {
   readonly className?: string;
-  readonly component?: WebTarget;
+  readonly component?: KnownTarget;
   readonly orientation?: GridOrientation;
   readonly align?: GridAlign;
   readonly justify?: GridJustify;

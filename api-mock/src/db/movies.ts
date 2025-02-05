@@ -2,10 +2,13 @@ import fs from 'fs';
 import unzipper from 'unzipper';
 import {
   Movie,
+  MovieData,
   MovieFilter,
   MoviesFiltered,
   defaultPerPage,
+  defaultMovieSort,
 } from '@project/api-types';
+
 import { filterMovies, sortMovies } from 'utils/movie';
 
 const dataPath = './src/data/movies.zip';
@@ -40,7 +43,7 @@ export const createMovieData = async (): Promise<Movie[]> => {
   });
 
   // initial sort
-  const sorted = sortMovies(validItems, 'year', 'ascending');
+  const sorted = sortMovies(validItems, defaultMovieSort);
 
   return sorted;
 };
@@ -48,6 +51,23 @@ export const createMovieData = async (): Promise<Movie[]> => {
 // get movie by ID
 export const getMovie = (movies: Movie[], id: string): Movie | null => {
   return movies.find((item) => id === item.id) ?? null;
+};
+
+// update movie data
+export const editMovie = (
+  movies: Movie[],
+  id: string,
+  data: MovieData,
+): Movie | null => {
+  const index = movies.findIndex((item) => id === item.id);
+
+  if (-1 === index) {
+    return null;
+  }
+  const movie: Movie = { ...movies[index], ...data };
+  movies[index] = movie;
+
+  return movie;
 };
 
 // get sorted / filtered movie list

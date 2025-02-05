@@ -2,11 +2,12 @@ import { FC, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
-  perPages,
-  movieSorts,
+  MovieSort,
   MovieFilter,
   MoviesFiltered,
-  MovieSort,
+  perPages,
+  movieSorts,
+  defaultMovieSort,
 } from '@project/api-types';
 
 import { client } from 'modules/api';
@@ -28,8 +29,8 @@ const isMovieStort = (value: string): value is MovieSort => {
 export const MovieList: FC = () => {
   const { t } = useTranslation();
   const [initialized, setInitialized] = useState(false);
-  const [filter, setFilter] = useState<MovieFilter>({});
   const [data, setData] = useState<MoviesFiltered>({ items: [], total: 0 });
+  const [filter, setFilter] = useState<MovieFilter>({ sort: defaultMovieSort });
   const { isPending, isError, mutateAsync } = client.useFetchMovies();
 
   const fetchData = useCallback(

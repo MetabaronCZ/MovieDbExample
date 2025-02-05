@@ -8,7 +8,7 @@ import { UsePaging } from 'hooks/usePaging';
 import { Text } from 'components/Typography';
 import { IcoButton } from 'components/buttons/IcoButton';
 import { SelectField } from 'components/forms/SelectField';
-import { SelectOption } from 'components/forms/select/Select';
+import { SelectOption } from 'components/forms/select/SelectShared';
 
 const getPerPageOptions = <T extends number>(
   options: T[],

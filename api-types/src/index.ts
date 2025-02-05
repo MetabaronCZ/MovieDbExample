@@ -7,12 +7,15 @@ export {
 
 export {
   Movie,
+  MovieData,
   MovieSort,
   MovieGenre,
   MovieFilter,
   MoviesFiltered,
+  EditMoviePayload,
   FetchMovieResponse,
   FetchMoviesResponse,
   movieSorts,
   movieGenres,
+  defaultMovieSort,
 } from './movie';

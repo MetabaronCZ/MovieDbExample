@@ -5,7 +5,10 @@ import { toVU } from 'modules/theme';
 
 import { Text } from 'components/Typography';
 import { ButtonRaw } from 'components/buttons/ButtonRaw';
-import { SelectAlign, SelectOption } from 'components/forms/select/Select';
+import {
+  SelectAlign,
+  SelectOption,
+} from 'components/forms/select/SelectShared';
 
 const resultsMinWidth = 30; // in vertical units (VU)
 const resultsMaxHeight = 45; // in vertical units (VU)

@@ -15,13 +15,13 @@ export interface ButtonProps {
   readonly title?: string;
 }
 
-interface StyledProps {
+export interface ButtonStyledProps {
   readonly $hasText?: boolean;
   readonly $hasIcoLeft?: boolean;
   readonly $hasIcoRight?: boolean;
 }
 
-export const ButtonStyles = css<StyledProps>`
+export const ButtonStyles = css<ButtonStyledProps>`
   ${Text.Base};
   display: inline-flex;
   flex-direction: row;
@@ -29,13 +29,13 @@ export const ButtonStyles = css<StyledProps>`
   gap: ${toVU(1.5)};
   line-height: 1;
   font-weight: 700;
-  height: ${toVU(4)};
+  height: ${toVU(5)};
   padding: 0 ${toVU(2)};
   padding-left: ${({ $hasIcoLeft, $hasText }) =>
     $hasIcoLeft || !$hasText ? toVU(1.5) : ''};
   padding-right: ${({ $hasIcoRight, $hasText }) =>
     $hasIcoRight || !$hasText ? toVU(1.5) : ''};
-  border: ${({ theme }) => theme.border.default};
+  border: ${({ theme }) => theme.border.forms};
   background: ${({ theme }) => theme.color.surface};
 
   &:hover:not(:disabled) {

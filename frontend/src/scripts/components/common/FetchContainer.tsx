@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Loader } from './Loader';
@@ -10,7 +10,7 @@ interface Props extends PropsWithChildren {
   readonly errorMessage?: string;
 }
 
-export const FetchContainer: React.FC<Props> = ({
+export const FetchContainer: FC<Props> = ({
   isLoading,
   isError,
   errorMessage,

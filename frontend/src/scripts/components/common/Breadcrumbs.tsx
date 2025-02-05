@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
@@ -19,11 +19,7 @@ interface BreadcrumbsLinkProps extends BreadcrumbsItem {
   readonly ico?: IcoId;
 }
 
-const BreadcrumbLink: React.FC<BreadcrumbsLinkProps> = ({
-  title,
-  path,
-  ico,
-}) => {
+const BreadcrumbLink: FC<BreadcrumbsLinkProps> = ({ title, path, ico }) => {
   const link = <Link to={path}>{title}</Link>;
   return ico ? (
     <Grid align="center" gap={0.5}>
@@ -55,7 +51,7 @@ interface Props {
   readonly items?: BreadcrumbsItemId[];
 }
 
-export const Breadcrumbs: React.FC<Props> = ({ items = [] }) => {
+export const Breadcrumbs: FC<Props> = ({ items = [] }) => {
   const { t } = useTranslation();
   const breadcrumbs = useMemo(() => createBreadcrumbs(t, items), [t, items]);
 

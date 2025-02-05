@@ -6,6 +6,7 @@
     "home": "Domů",
     "movieList": "Seznam filmů",
     "movieDetail": "Detail filmu",
+    "movieEdit": "Editace filmu",
     "error404": "HTTP chyba 404",
     "error": "Chyba při zobrazení stránky"
   },
@@ -19,7 +20,7 @@
     "director": "Režie",
     "writer": "Scénář",
     "stars": "Hrají",
-    "plot": "Děj filmu (anglicky)",
+    "plot": "Děj filmu",
     "detail": "Detail",
     "noPlot": "Neuvedeno",
     "notFound": "Film nebyl nalezen."
@@ -87,9 +88,14 @@
   "error": {
     "notFound": "Stránka nebyla nalezena",
     "fetch": "Při načítání obsahu stránky došlo k chybě!",
-    "render": "Při zobrazení stránky došlo k chybě!"
+    "render": "Při zobrazení stránky došlo k chybě!",
+    "submit": "Při odesílání dat došlo k chybě!"
   },
   "back": "Zpět",
+  "edit": "Editovat",
+  "cancel": "Zrušit",
+  "submit": "Odeslat",
+  "select": "- vyberte -",
   "moreItems_one": "{{count}} další",
   "moreItems_few": "{{count}} další",
   "moreItems_other": "{{count}} dalších",

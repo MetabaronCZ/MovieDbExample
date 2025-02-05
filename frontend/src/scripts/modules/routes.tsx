@@ -4,6 +4,7 @@ import { paths } from './paths';
 
 import { HomePage } from 'components/pages/HomePage';
 import { Error404Page } from 'components/pages/Error404Page';
+import { MovieEditPage } from 'components/pages/MovieEditPage';
 import { MovieListPage } from 'components/pages/MovieListPage';
 import { MovieDetailPage } from 'components/pages/MovieDetailPage';
 
@@ -28,6 +29,11 @@ export const routes: Route[] = [
     id: 'movie-detail',
     path: paths.MOVIE_DETAIL(':id'),
     component: <MovieDetailPage />,
+  },
+  {
+    id: 'movie-edit',
+    path: paths.MOVIE_EDIT(':id'),
+    component: <MovieEditPage />,
   },
   {
     id: 'error404',

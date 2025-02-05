@@ -11,7 +11,7 @@ import { ButtonStyles } from 'components/buttons/ButtonShared';
 export const SelectHandleStyles = css`
   ${ButtonStyles};
   width: 100%;
-  height: ${toVU(4)};
+  height: ${toVU(5)};
   gap: ${toVU(1)};
   padding-left: ${toVU(1.5)};
   padding-right: ${toVU(1.5)};
@@ -43,6 +43,6 @@ export const SelectHandle: FC<Props> = ({
 }) => (
   <Container id={id} disabled={disabled} onClick={onClick}>
     <Content>{children}</Content>
-    <Ico ico={opened ? 'angleUp' : 'angleDown'} />
+    <Ico ico={opened ? 'angleUp' : 'angleDown'} size="large" />
   </Container>
 );

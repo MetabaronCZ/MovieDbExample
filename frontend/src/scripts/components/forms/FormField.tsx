@@ -29,19 +29,19 @@ const OrientationWrapper = styled.div<StyledProps>`
         ? 'row-reverse'
         : 'column'};
   gap: ${({ $orientation }) =>
-    'vertical' === $orientation ? toVU(0.5) : toVU(1)};
+    'vertical' === $orientation ? toVU(0.5) : toVU(2)};
   align-items: ${({ $orientation }) =>
     'vertical' === $orientation ? 'flex-start' : 'center'};
   justify-content: start;
 `;
 
 const Error = styled.p`
-  ${Text.Small};
+  ${Text.Base};
   color: ${({ theme }) => theme.color.error};
 `;
 
 const Info = styled.p`
-  ${Text.Small};
+  ${Text.Base};
   color: ${({ theme }) => theme.color.disabled};
 `;
 

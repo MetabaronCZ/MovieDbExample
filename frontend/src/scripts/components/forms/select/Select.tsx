@@ -1,19 +1,11 @@
-import { JSX, ReactNode } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { useOpener } from 'hooks/useOpener';
 
+import { SelectProps } from './SelectShared';
 import { SelectHandle } from './SelectHandle';
 import { SelectResults } from './SelectResults';
-
-export type SelectAlign = 'left' | 'right';
-
-export interface SelectOption<T> {
-  readonly title: string;
-  readonly extra?: JSX.Element;
-  readonly description?: string;
-  readonly value: T;
-}
 
 const Container = styled.div`
   position: relative;
@@ -21,14 +13,7 @@ const Container = styled.div`
   width: 100%;
 `;
 
-interface Props<T> {
-  readonly id?: string;
-  readonly value: T;
-  readonly align?: SelectAlign;
-  readonly options: SelectOption<T>[];
-  readonly disabled?: boolean;
-  readonly onSelect: (value: T) => void;
-}
+type Props<T> = SelectProps<T, false>;
 
 export const Select = <T,>({
   id,
@@ -37,7 +22,7 @@ export const Select = <T,>({
   options,
   disabled = false,
   onSelect,
-}: Props<T>): ReactNode => {
+}: Props<T>): React.ReactNode => {
   const {
     ref: containerElement,
     opened,
