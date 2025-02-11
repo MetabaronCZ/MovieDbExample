@@ -1,14 +1,10 @@
 import { forwardRef, HTMLInputTypeAttribute } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { TextBaseSharedStyles, TextSharedProps } from './TextShared';
 
-export const TextInputBaseStyles = css`
-  ${TextBaseSharedStyles};
-`;
-
 const StyledInput = styled.input<TextSharedProps>`
-  ${TextInputBaseStyles};
+  ${TextBaseSharedStyles};
 `;
 
 export interface TextInputBaseProps {

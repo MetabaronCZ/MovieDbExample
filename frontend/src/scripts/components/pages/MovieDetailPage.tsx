@@ -17,7 +17,9 @@ type Params = {
 export const MovieDetailPage: FC = () => {
   const { t } = useTranslation();
   const { id } = useParams<Params>();
-  const { data, isLoading, isError } = client.useFetchMovie(id ?? '');
+  const { data, isLoading, isRefetching, isError } = client.useFetchMovie(
+    id ?? '',
+  );
 
   const movieTitle = useMemo(() => {
     return data ? getMovieTitle(data) : '';
@@ -29,7 +31,7 @@ export const MovieDetailPage: FC = () => {
         {!data ? (
           <Infobox type="error">{t('movie.notFound')}</Infobox>
         ) : (
-          <MovieDetail data={data} />
+          <MovieDetail data={data} loading={isRefetching} />
         )}
       </FetchContainer>
     </Page>

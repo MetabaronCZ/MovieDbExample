@@ -12,6 +12,7 @@ import { Grid } from 'components/common/Grid';
 import { Link } from 'components/common/Link';
 import { Paragraph } from 'components/common/Paragraph';
 import { ButtonLink } from 'components/buttons/ButtonLink';
+import { UpdatedContent } from 'components/common/UpdatedContent';
 
 const formatArray = (array: string[]): string => {
   return array.join(', ') || '-';
@@ -47,9 +48,10 @@ const getMovieData = (t: TFunction, movie: Movie): MovieDataItem[] => [
 
 interface Props {
   readonly data: Movie;
+  readonly loading?: boolean;
 }
 
-export const MovieDetail: FC<Props> = ({ data }) => {
+export const MovieDetail: FC<Props> = ({ data, loading = false }) => {
   const { t } = useTranslation();
 
   const movieData = useMemo(() => {
@@ -57,34 +59,36 @@ export const MovieDetail: FC<Props> = ({ data }) => {
   }, [t, data]);
 
   return (
-    <>
-      <Grid>
-        <Box>
-          <Grid orientation="vertical" gap={1}>
-            {movieData.map((item, i) => (
-              <Paragraph key={i}>
-                <strong>{item.title}:</strong> {item.value}
-              </Paragraph>
-            ))}
-          </Grid>
-        </Box>
+    <UpdatedContent loading={loading}>
+      <Grid orientation="vertical">
+        <Grid>
+          <Box>
+            <Grid orientation="vertical" gap={1}>
+              {movieData.map((item, i) => (
+                <Paragraph key={i}>
+                  <strong>{item.title}:</strong> {item.value}
+                </Paragraph>
+              ))}
+            </Grid>
+          </Box>
 
-        <Box>
-          <Paragraph>
-            <strong>{t('movie.plot')}:</strong>
-            <br />
-            {data.plot || <em>{t('movie.noPlot')}</em>}
-          </Paragraph>
-        </Box>
+          <Box>
+            <Paragraph>
+              <strong>{t('movie.plot')}:</strong>
+              <br />
+              {data.plot || <em>{t('movie.noPlot')}</em>}
+            </Paragraph>
+          </Box>
+        </Grid>
+
+        <div>
+          <ButtonLink
+            icoBefore="edit"
+            to={paths.MOVIE_EDIT(data.id)}
+            text={t('edit')}
+          />
+        </div>
       </Grid>
-
-      <div>
-        <ButtonLink
-          icoBefore="edit"
-          to={paths.MOVIE_EDIT(data.id)}
-          text={t('edit')}
-        />
-      </div>
-    </>
+    </UpdatedContent>
   );
 };

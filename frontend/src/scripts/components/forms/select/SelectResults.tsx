@@ -1,9 +1,11 @@
 import { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { toVU } from 'modules/theme';
 
 import { Text } from 'components/Typography';
+import { Loader } from 'components/common/Loader';
 import { ButtonRaw } from 'components/buttons/ButtonRaw';
 import {
   SelectAlign,
@@ -62,32 +64,51 @@ const ResultButton = styled(ButtonRaw)`
   }
 `;
 
+const ResultInfo = styled.div`
+  ${Text.Base};
+  padding: ${toVU(1)};
+  text-align: center;
+`;
+
 interface Props<T> {
   readonly align?: SelectAlign;
+  readonly loading?: boolean;
   readonly options: SelectOption<T>[];
   readonly onSelect: (value: T) => void;
 }
 
 export const SelectResults = <T,>({
   align = 'right',
+  loading = false,
   options,
   onSelect,
-}: Props<T>): ReactNode => (
-  <Container $align={align}>
-    <List>
-      {options.map((item, i) => (
-        <ListItem key={i}>
-          <ResultButton
-            title={item.description}
-            onClick={() => {
-              onSelect(item.value);
-            }}
-          >
-            {item.title}
-            {item.extra}
-          </ResultButton>
-        </ListItem>
-      ))}
-    </List>
-  </Container>
-);
+}: Props<T>): ReactNode => {
+  const { t } = useTranslation();
+  return (
+    <Container $align={align}>
+      {loading ? (
+        <Loader />
+      ) : 0 === options.length ? (
+        <ResultInfo>
+          <em>{t('searchEmpty')}</em>
+        </ResultInfo>
+      ) : (
+        <List>
+          {options.map((item, i) => (
+            <ListItem key={i}>
+              <ResultButton
+                title={item.description}
+                onClick={() => {
+                  onSelect(item.value);
+                }}
+              >
+                {item.title}
+                {item.extra}
+              </ResultButton>
+            </ListItem>
+          ))}
+        </List>
+      )}
+    </Container>
+  );
+};

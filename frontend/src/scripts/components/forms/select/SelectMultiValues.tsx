@@ -3,10 +3,13 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { toVU } from 'modules/theme';
+import { useSearch } from 'hooks/useSearch';
+
 import { Ico } from 'components/common/Ico';
 import { Text } from 'components/Typography';
 import { ButtonRaw } from 'components/buttons/ButtonRaw';
 import { SelectOption } from 'components/forms/select/SelectShared';
+import { TextInputBase } from 'components/forms/text-input/TextInputBase';
 
 interface StyledProps {
   readonly $wrapped?: boolean;
@@ -28,6 +31,15 @@ const ListItem = styled.li`
   flex-direction: row;
   align-items: center;
   gap: 1px;
+`;
+
+const SearchListItem = styled(ListItem)`
+  flex: 1;
+  padding-left: ${toVU(0.5)};
+`;
+
+const StyledInput = styled(TextInputBase)`
+  width: 100%;
 `;
 
 const StyledButton = styled(ButtonRaw)`
@@ -63,37 +75,31 @@ interface Props<T> {
   readonly items: SelectOption<T>[];
   readonly wrapped?: boolean;
   readonly disabled?: boolean;
-  readonly onSelect?: (key: T) => void;
   readonly onRemove: (key: T) => void;
+  readonly onSearch?: (value: string) => void;
 }
 
 export const SelectMultiValues = <T,>({
   items,
   wrapped = false,
   disabled = false,
-  onSelect,
   onRemove,
+  onSearch,
 }: Props<T>): React.ReactNode => {
   const { t } = useTranslation();
 
-  if (0 === items.length) {
+  const { query, search } = useSearch({
+    onSearch: onSearch ?? (() => null),
+  });
+
+  if (!onSearch && 0 === items.length) {
     return;
   }
   return (
     <List $wrapped={wrapped}>
       {items.map(({ title, description, value }, i) => (
         <ListItem key={i}>
-          <StyledButton
-            title={description}
-            disabled={disabled || !onSelect}
-            onClick={() => {
-              if (onSelect) {
-                onSelect(value);
-              }
-            }}
-          >
-            {title}
-          </StyledButton>
+          <StyledButton title={description}>{title}</StyledButton>
 
           <ClearButton
             title={t('cancel')}
@@ -106,6 +112,16 @@ export const SelectMultiValues = <T,>({
           </ClearButton>
         </ListItem>
       ))}
+
+      {!!onSearch && (
+        <SearchListItem>
+          <StyledInput
+            placeholder={t('search')}
+            value={query}
+            onChange={search}
+          />
+        </SearchListItem>
+      )}
     </List>
   );
 };

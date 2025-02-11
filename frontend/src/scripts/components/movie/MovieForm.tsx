@@ -19,13 +19,12 @@ import { Grid } from 'components/common/Grid';
 import { Form } from 'components/forms/Form';
 import { Button } from 'components/buttons/Button';
 import { Infobox } from 'components/common/Infobox';
-import { FormField } from 'components/forms/FormField';
 import { TextField } from 'components/forms/TextField';
-import { Paragraph } from 'components/common/Paragraph';
 import { SelectField } from 'components/forms/SelectField';
 import { ButtonLink } from 'components/buttons/ButtonLink';
 import { TextareaField } from 'components/forms/TextareaField';
 import { SelectOption } from 'components/forms/select/SelectShared';
+import { MovieRoleSelect } from 'components/movie/MovieRoleSelect';
 
 // movie year values for select options
 const years = Array(100)
@@ -62,10 +61,11 @@ interface Props {
 
 export const MovieForm: FC<Props> = ({ data }) => {
   const { t } = useTranslation();
+  const { isPending, isError, mutate: editMovie } = client.useEditMovie();
+
   const validations = useMemo(() => getValidations(t), [t]);
   const yearOptions = useMemo(() => getYearOptions(t), [t]);
   const genreOptions = useMemo(() => getGenreOptions(t), [t]);
-  const { isPending, isError, mutate: editMovie } = client.useEditMovie();
 
   const { values, errors, setValue, submit } = useForm<FormData>({
     initialValues: {
@@ -119,7 +119,6 @@ export const MovieForm: FC<Props> = ({ data }) => {
               setValue('titleCs', value);
             }}
           />
-
           <TextField
             label={t('movie.titleOriginal')}
             value={values.titleOriginal}
@@ -129,7 +128,6 @@ export const MovieForm: FC<Props> = ({ data }) => {
               setValue('titleOriginal', value);
             }}
           />
-
           <SelectField
             label={t('movie.year')}
             value={values.year}
@@ -141,7 +139,6 @@ export const MovieForm: FC<Props> = ({ data }) => {
               setValue('year', value);
             }}
           />
-
           <TextField
             label={t('movie.score')}
             type="number"
@@ -155,7 +152,6 @@ export const MovieForm: FC<Props> = ({ data }) => {
               setValue('score', value);
             }}
           />
-
           <SelectField
             label={t('movie.genre')}
             value={values.genres}
@@ -168,31 +164,36 @@ export const MovieForm: FC<Props> = ({ data }) => {
               setValue('genres', value);
             }}
           />
-
-          <FormField label={t('movie.director')} error={errors.directors}>
-            <Paragraph>
-              {values.directors
-                .map((item) => `${item.name} (${item.id})`)
-                .join(', ') || '-'}
-            </Paragraph>
-          </FormField>
-
-          <FormField label={t('movie.writer')} error={errors.writers}>
-            <Paragraph>
-              {values.writers
-                .map((item) => `${item.name} (${item.id})`)
-                .join(', ') || '-'}
-            </Paragraph>
-          </FormField>
-
-          <FormField label={t('movie.star')} error={errors.stars}>
-            <Paragraph>
-              {values.stars
-                .map((item) => `${item.name} (${item.id})`)
-                .join(', ') || '-'}
-            </Paragraph>
-          </FormField>
-
+          <MovieRoleSelect
+            title={t('movie.director')}
+            role="director"
+            value={values.directors}
+            error={errors.directors}
+            disabled={isPending}
+            onSelect={(value) => {
+              setValue('directors', value);
+            }}
+          />
+          <MovieRoleSelect
+            title={t('movie.writer')}
+            role="writer"
+            value={values.writers}
+            error={errors.writers}
+            disabled={isPending}
+            onSelect={(value) => {
+              setValue('writers', value);
+            }}
+          />
+          <MovieRoleSelect
+            title={t('movie.star')}
+            role="star"
+            value={values.stars}
+            error={errors.stars}
+            disabled={isPending}
+            onSelect={(value) => {
+              setValue('stars', value);
+            }}
+          />
           <TextareaField
             label={t('movie.plot')}
             value={values.plot}
@@ -211,7 +212,6 @@ export const MovieForm: FC<Props> = ({ data }) => {
           to={paths.MOVIE_DETAIL(data.id)}
           text={t('back')}
         />
-
         <Button
           ico={isPending ? 'spinner' : null}
           icoSpin={isPending}
