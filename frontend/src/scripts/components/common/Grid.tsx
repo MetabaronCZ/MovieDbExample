@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, RefObject } from 'react';
 import styled, { CSSProperties } from 'styled-components';
 import { KnownTarget } from 'styled-components/dist/types';
 
@@ -27,6 +27,7 @@ const Container = styled.div<StyledProps>`
 `;
 
 interface Props extends PropsWithChildren {
+  readonly ref?: RefObject<HTMLDivElement | null>;
   readonly className?: string;
   readonly component?: KnownTarget;
   readonly orientation?: GridOrientation;
@@ -38,6 +39,7 @@ interface Props extends PropsWithChildren {
 }
 
 export const Grid: FC<Props> = ({
+  ref,
   className,
   component,
   orientation = 'horizontal',
@@ -49,6 +51,7 @@ export const Grid: FC<Props> = ({
   children,
 }) => (
   <Container
+    ref={ref}
     className={className}
     as={component}
     $orientation={orientation}

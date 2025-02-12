@@ -1,4 +1,4 @@
-import { forwardRef, HTMLInputTypeAttribute } from 'react';
+import { FC, HTMLInputTypeAttribute, RefObject } from 'react';
 import styled from 'styled-components';
 
 import { TextBaseSharedStyles, TextSharedProps } from './TextShared';
@@ -8,6 +8,7 @@ const StyledInput = styled.input<TextSharedProps>`
 `;
 
 export interface TextInputBaseProps {
+  readonly ref?: RefObject<HTMLInputElement | null>;
   readonly id?: string;
   readonly className?: string;
   readonly type?: HTMLInputTypeAttribute;
@@ -25,49 +26,45 @@ export interface TextInputBaseProps {
   readonly onFocus?: () => void;
 }
 
-export const TextInputBase = forwardRef<HTMLInputElement, TextInputBaseProps>(
-  (
-    {
-      id,
-      className,
-      type = 'text',
-      placeholder,
-      value,
-      name,
-      min,
-      max,
-      step,
-      maxLength,
-      invalid = false,
-      disabled = false,
-      autoFocus = false,
-      onChange,
-      onFocus,
-    },
-    ref,
-  ) => (
-    <StyledInput
-      id={id}
-      ref={ref}
-      className={className}
-      placeholder={placeholder}
-      type={type}
-      value={value}
-      name={name}
-      $invalid={invalid}
-      disabled={disabled}
-      autoFocus={autoFocus}
-      autoComplete="one-time-code"
-      min={min}
-      max={max}
-      step={step}
-      maxLength={maxLength}
-      onFocus={onFocus}
-      onChange={(e) => {
-        if (!disabled) {
-          onChange(e.target.value);
-        }
-      }}
-    />
-  ),
+export const TextInputBase: FC<TextInputBaseProps> = ({
+  id,
+  ref,
+  className,
+  type = 'text',
+  placeholder,
+  value,
+  name,
+  min,
+  max,
+  step,
+  maxLength,
+  invalid = false,
+  disabled = false,
+  autoFocus = false,
+  onChange,
+  onFocus,
+}) => (
+  <StyledInput
+    id={id}
+    ref={ref}
+    className={className}
+    placeholder={placeholder}
+    type={type}
+    value={value}
+    name={name}
+    $invalid={invalid}
+    disabled={disabled}
+    autoFocus={autoFocus}
+    autoComplete="one-time-code"
+    min={min}
+    max={max}
+    step={step}
+    maxLength={maxLength}
+    onFocus={onFocus}
+    onChange={(e) => {
+      if (!disabled) {
+        onChange(e.target.value);
+      }
+    }}
+  />
 );

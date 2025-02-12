@@ -60,7 +60,7 @@ interface Props {
 
 export const ExpandableList: FC<Props> = ({ values }) => {
   const { t } = useTranslation();
-  const { opened, toggle } = useOpener();
+  const { ref: containerElement, opened, toggle } = useOpener<HTMLDivElement>();
 
   if (0 === values.length) {
     return '-';
@@ -75,7 +75,7 @@ export const ExpandableList: FC<Props> = ({ values }) => {
     return firstItem;
   }
   return (
-    <Container gap={0.5}>
+    <Container ref={containerElement} gap={0.5}>
       {firstItem}
 
       <ButtonColumn>
