@@ -72,6 +72,7 @@ const ClearButton = styled(StyledButton)`
 `;
 
 interface Props<T> {
+  readonly id?: string;
   readonly items: SelectOption<T>[];
   readonly wrapped?: boolean;
   readonly disabled?: boolean;
@@ -80,6 +81,7 @@ interface Props<T> {
 }
 
 export const SelectMultiValues = <T,>({
+  id,
   items,
   wrapped = false,
   disabled = false,
@@ -116,6 +118,7 @@ export const SelectMultiValues = <T,>({
       {!!onSearch && (
         <SearchListItem>
           <StyledInput
+            id={id}
             placeholder={t('search')}
             value={query}
             onChange={search}

@@ -3,7 +3,7 @@ import React from 'react';
 import { Select } from './select/Select';
 import { SelectMulti } from './select/SelectMulti';
 import { FormField } from 'components/forms/FormField';
-import { SelectAlign, SelectOption, SelectSearch } from './select/SelectShared';
+import { SelectAlign, SelectOption } from './select/SelectShared';
 
 // track number of rendered items to generate auto ID
 let instanceId = 0;
@@ -23,15 +23,12 @@ interface BaseProps<T> {
 interface DefaultProps<T> {
   readonly value: T;
   readonly multi?: false;
-  readonly loading?: false;
-  readonly search?: never;
   readonly onSelect: (value: T) => void;
 }
 
 interface MultiProps<T> {
   readonly value: T[];
   readonly multi: true;
-  readonly search?: SelectSearch<T>;
   readonly onSelect: (value: T[]) => void;
 }
 type Props<T> = BaseProps<T> & (DefaultProps<T> | MultiProps<T>);
@@ -43,7 +40,6 @@ export const SelectField = <T,>({
   info,
   value,
   options,
-  search,
   align,
   vertical = false,
   multi,
@@ -65,7 +61,6 @@ export const SelectField = <T,>({
         align={align}
         value={value}
         options={options}
-        search={search}
         disabled={disabled}
         onSelect={onSelect}
       />

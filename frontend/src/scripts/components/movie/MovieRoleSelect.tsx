@@ -3,8 +3,8 @@ import { MoviePersonData, PersonRole } from '@project/api-types';
 
 import { client } from 'modules/api';
 
-import { SelectField } from 'components/forms/SelectField';
 import { SelectOption } from 'components/forms/select/SelectShared';
+import { SelectSearchField } from 'components/forms/SelectSearchField';
 
 interface Props {
   readonly title: string;
@@ -37,14 +37,11 @@ export const MovieRoleSelect: FC<Props> = ({
     [fetchPeople, role],
   );
 
-  const options: SelectOption<MoviePersonData>[] = useMemo(() => {
-    return value.map((item) => ({
-      title: item.name,
-      value: item,
-    }));
+  const values: SelectOption<MoviePersonData>[] = useMemo(() => {
+    return value.map((item) => ({ title: item.name, value: item }));
   }, [value]);
 
-  const searchItems: SelectOption<MoviePersonData>[] = useMemo(() => {
+  const options: SelectOption<MoviePersonData>[] = useMemo(() => {
     if (!data) {
       return [];
     }
@@ -54,19 +51,15 @@ export const MovieRoleSelect: FC<Props> = ({
   }, [data, value]);
 
   return (
-    <SelectField<MoviePersonData>
+    <SelectSearchField<MoviePersonData>
       label={title}
-      value={value}
+      value={values}
       error={error}
       options={options}
-      search={{
-        loading: isPending,
-        items: searchItems,
-        onSearch: searchPeople,
-      }}
+      loading={isPending}
       disabled={disabled}
-      multi
       vertical
+      onSearch={searchPeople}
       onSelect={onSelect}
     />
   );

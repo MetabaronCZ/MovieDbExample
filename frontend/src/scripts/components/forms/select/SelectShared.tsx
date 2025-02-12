@@ -10,9 +10,9 @@ export interface SelectOption<T> {
   readonly value: T;
 }
 
-export interface SelectSearch<T> {
-  readonly items: SelectOption<T>[];
+export interface SelectSearchProps<T> {
   readonly loading?: boolean;
+  readonly value: SelectOption<T>[];
   readonly onSearch: (query: string) => Promise<SelectOption<T>[]>;
 }
 

@@ -9,11 +9,8 @@ import { Grid } from 'components/common/Grid';
 import { SelectResults } from './SelectResults';
 import { IcoButton } from 'components/buttons/IcoButton';
 import { SelectHandle, SelectHandleStyles } from './SelectHandle';
+import { SelectProps } from 'components/forms/select/SelectShared';
 import { SelectMultiValues } from 'components/forms/select/SelectMultiValues';
-import {
-  SelectProps,
-  SelectSearch,
-} from 'components/forms/select/SelectShared';
 
 interface StyledProps {
   readonly $disabled?: boolean;
@@ -40,25 +37,19 @@ const MultiHandle = styled.div<StyledProps>`
   }
 `;
 
-interface Props<T> extends SelectProps<T, true> {
-  readonly search?: SelectSearch<T>;
-}
-
 export const SelectMulti = <T,>({
   id,
   align,
   value,
-  search,
   options,
   disabled = false,
   onSelect,
-}: Props<T>): React.ReactNode => {
+}: SelectProps<T, true>): React.ReactNode => {
   const { t } = useTranslation();
 
   const {
     ref: containerElement,
     opened,
-    open,
     close,
     toggle,
   } = useOpener<HTMLDivElement>();
@@ -86,51 +77,18 @@ export const SelectMulti = <T,>({
     [value, onSelect],
   );
 
-  const processSearch = useCallback(
-    (query: string) => {
-      if (search) {
-        open();
-        void search.onSearch(query);
-      }
-    },
-    [open, search],
-  );
-
-  if (!search && 0 === options.length) {
+  if (0 === options.length) {
     return;
   }
 
   if (value.length !== selected.length) {
     throw new Error(
-      `Could not render Select component: Invalid value "${value.join(', ')}"!`,
+      `Could not render SelectMulti component: Invalid value "${value.join(', ')}"!`,
     );
   }
-  const closeButton = (
-    <IcoButton
-      ico="cross"
-      title={t('cancel')}
-      disabled={disabled}
-      onClick={() => {
-        onSelect([]);
-        close();
-      }}
-    />
-  );
-
   return (
     <Container ref={containerElement}>
-      {search ? (
-        <MultiHandle $disabled={disabled}>
-          <SelectMultiValues
-            items={selected}
-            disabled={disabled}
-            wrapped
-            onRemove={selectValue}
-            onSearch={processSearch}
-          />
-          {selected.length > 0 && <Grid gap={0}>{closeButton}</Grid>}
-        </MultiHandle>
-      ) : selected.length > 0 ? (
+      {selected.length > 0 ? (
         <MultiHandle $disabled={disabled}>
           <SelectMultiValues
             items={selected}
@@ -140,8 +98,15 @@ export const SelectMulti = <T,>({
           />
 
           <Grid gap={0}>
-            <Grid gap={0}>{closeButton}</Grid>
-
+            <IcoButton
+              ico="cross"
+              title={t('cancel')}
+              disabled={disabled}
+              onClick={() => {
+                onSelect([]);
+                close();
+              }}
+            />
             <IcoButton
               ico={opened ? 'angleUp' : 'angleDown'}
               disabled={disabled}
@@ -161,12 +126,7 @@ export const SelectMulti = <T,>({
       )}
 
       {opened && !disabled && (
-        <SelectResults
-          align={align}
-          loading={search?.loading}
-          options={search ? search.items : items}
-          onSelect={selectValue}
-        />
+        <SelectResults align={align} options={items} onSelect={selectValue} />
       )}
     </Container>
   );
