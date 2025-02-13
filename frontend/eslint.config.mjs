@@ -9,7 +9,13 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 export default tseslint.config(
   // ignores
   {
-    ignores: ['node_modules', 'build', 'coverage', 'eslint.config.mjs'],
+    ignores: [
+      'node_modules',
+      'build',
+      'coverage',
+      '.storybook',
+      'eslint.config.mjs',
+    ],
   },
 
   // base rules

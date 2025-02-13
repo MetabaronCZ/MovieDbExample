@@ -22,5 +22,6 @@
     "baseUrl": "./src/scripts"
   },
   "compileOnSave": false,
+  "include": ["./src/scripts", "./.storybook/preview.tsx"],
   "exclude": ["node_modules", "build", "coverage"]
 }

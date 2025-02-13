@@ -5,3 +5,4 @@
 **/.env
 api-data
 TODO.txt
+*storybook.log
