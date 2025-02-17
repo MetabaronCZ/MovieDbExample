@@ -1,4 +1,5 @@
 import Joi from 'joi';
+import { TFunction } from 'i18next';
 import {
   Movie,
   FetchMovieResponse,
@@ -19,6 +20,13 @@ export const getMovieTitle = (novie: Movie): string => {
 
 export const formatScore = (value: number | null): string => {
   return value ? `${value} / 10` : '-';
+};
+
+export const formatMovieCount = (t: TFunction, count: number): string => {
+  if (0 === count) {
+    return '-';
+  }
+  return `${count} ${t('movie.item', { count })}`;
 };
 
 const moviePersonDataSchema = Joi.object<MoviePersonData>({

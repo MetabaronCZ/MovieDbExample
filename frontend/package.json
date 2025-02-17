@@ -84,11 +84,5 @@
     "react-i18next": "^15.4.0",
     "react-router-dom": "^7.1.5",
     "styled-components": "^6.1.15"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
-  },
-  "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
+  }
 }

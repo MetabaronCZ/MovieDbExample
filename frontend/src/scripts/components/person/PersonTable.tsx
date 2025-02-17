@@ -1,23 +1,16 @@
 import { FC } from 'react';
-import { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 import { Person, SortDirection } from '@project/api-types';
 
 import { toVU } from 'modules/theme';
 import { paths } from 'modules/paths';
+import { formatMovieCount } from 'modules/movie';
 
 import { Ico } from 'components/common/Ico';
 import { Grid } from 'components/common/Grid';
 import { Link } from 'components/common/Link';
 import { Table } from 'components/common/Table';
-
-const formatMovieCount = (t: TFunction, count: number): string => {
-  if (0 === count) {
-    return '-';
-  }
-  return `${count} ${t('movie.item', { count })}`;
-};
 
 interface NameTableData {
   readonly id: string;

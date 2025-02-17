@@ -1,12 +1,26 @@
 import { FC } from 'react';
+import { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 import { Person } from '@project/api-types';
+
+import { formatMovieCount } from 'modules/movie';
 
 import { Grid } from 'components/common/Grid';
 import { Heading } from 'components/common/Heading';
 import { Infobox } from 'components/common/Infobox';
 import { MovieList } from 'components/movie/MovieList';
+
+const formatTableHeading = (
+  t: TFunction,
+  title: string,
+  count: number,
+): string => {
+  if (0 === count) {
+    return title;
+  }
+  return `${title} (${formatMovieCount(t, count)})`;
+};
 
 interface Props {
   readonly data: Person;
@@ -14,12 +28,17 @@ interface Props {
 
 export const PersonDetail: FC<Props> = ({ data }) => {
   const { t } = useTranslation();
+  const directorCount = data.director.length;
+  const writerCount = data.writer.length;
+  const starCount = data.star.length;
   return (
     <Grid orientation="vertical">
       <Grid orientation="vertical" gap={1}>
-        <Heading tag="h3">{t('person.director')}</Heading>
+        <Heading tag="h3">
+          {formatTableHeading(t, t('person.director'), directorCount)}
+        </Heading>
 
-        {data.director.length > 0 ? (
+        {directorCount > 0 ? (
           <MovieList filter={{ directors: [data.id] }} />
         ) : (
           <Infobox>{t('person.noDirector')}</Infobox>
@@ -27,9 +46,11 @@ export const PersonDetail: FC<Props> = ({ data }) => {
       </Grid>
 
       <Grid orientation="vertical" gap={1}>
-        <Heading tag="h3">{t('person.writer')}</Heading>
+        <Heading tag="h3">
+          {formatTableHeading(t, t('person.writer'), writerCount)}
+        </Heading>
 
-        {data.writer.length > 0 ? (
+        {writerCount > 0 ? (
           <MovieList filter={{ writers: [data.id] }} />
         ) : (
           <Infobox>{t('person.noWriter')}</Infobox>
@@ -37,9 +58,11 @@ export const PersonDetail: FC<Props> = ({ data }) => {
       </Grid>
 
       <Grid orientation="vertical" gap={1}>
-        <Heading tag="h3">{t('person.star')}</Heading>
+        <Heading tag="h3">
+          {formatTableHeading(t, t('person.star'), starCount)}
+        </Heading>
 
-        {data.star.length > 0 ? (
+        {starCount > 0 ? (
           <MovieList filter={{ stars: [data.id] }} />
         ) : (
           <Infobox>{t('person.noStar')}</Infobox>
