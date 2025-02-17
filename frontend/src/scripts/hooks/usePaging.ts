@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { defaultPerPage } from '@project/api-types';
 
-export interface PagingConfig<T extends number> {
+interface PagingConfig<T extends number> {
   readonly page?: number;
   readonly perPage?: T;
   readonly perPages?: T[];

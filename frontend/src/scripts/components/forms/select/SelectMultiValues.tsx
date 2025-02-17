@@ -121,6 +121,7 @@ export const SelectMultiValues = <T,>({
             id={id}
             placeholder={t('search')}
             value={query}
+            disabled={disabled}
             onChange={search}
           />
         </SearchListItem>

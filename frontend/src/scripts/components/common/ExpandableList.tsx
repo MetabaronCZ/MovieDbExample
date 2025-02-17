@@ -6,12 +6,14 @@ import { toVU } from 'modules/theme';
 import { useOpener } from 'hooks/useOpener';
 
 import { Ico } from 'components/common/Ico';
+import { Text } from 'components/Typography';
 import { Grid } from 'components/common/Grid';
 import { Link } from 'components/common/Link';
 import { LinkButton } from 'components/common/LinkButton';
 import { TextEllipsis } from 'components/common/TextEllipsis';
 
 const Container = styled(Grid)`
+  ${Text.Base};
   min-width: 0;
 `;
 

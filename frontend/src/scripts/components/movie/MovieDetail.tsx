@@ -19,6 +19,9 @@ const formatArray = (array: string[]): string => {
 };
 
 const renderPersonList = (people: MoviePersonData[]): ReactNode => {
+  if (0 === people.length) {
+    return '-';
+  }
   return people.map((person, i) => (
     <Fragment key={person.id}>
       <Link to={paths.PERSON_DETAIL(person.id)}>{person.name}</Link>

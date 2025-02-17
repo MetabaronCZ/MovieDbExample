@@ -114,8 +114,8 @@ export const SelectSearch = <T,>({
       {opened && !disabled && (
         <SelectResults
           align={align}
-          loading={loading}
           options={items}
+          loading={loading}
           onSelect={selectValue}
         />
       )}

@@ -3,13 +3,13 @@ import { TFunction } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 import {
+  EditMoviePayload,
   Movie,
   MovieGenre,
   movieGenres,
   MoviePersonData,
 } from '@project/api-types';
 
-import { client } from 'modules/api';
 import { paths } from 'modules/paths';
 import { useForm } from 'hooks/useForm';
 import { getValidations } from 'modules/validations';
@@ -23,8 +23,8 @@ import { TextField } from 'components/forms/TextField';
 import { SelectField } from 'components/forms/SelectField';
 import { ButtonLink } from 'components/buttons/ButtonLink';
 import { TextareaField } from 'components/forms/TextareaField';
-import { SelectOption } from 'components/forms/select/SelectShared';
 import { MovieRoleSelect } from 'components/movie/MovieRoleSelect';
+import { SelectOption } from 'components/forms/select/SelectShared';
 
 // movie year values for select options
 const years = Array(100)
@@ -57,12 +57,18 @@ type FormData = {
 
 interface Props {
   readonly data: Movie;
+  readonly isLoading?: boolean;
+  readonly error?: string | null;
+  readonly onEdit: (data: EditMoviePayload) => void;
 }
 
-export const MovieForm: FC<Props> = ({ data }) => {
+export const MovieForm: FC<Props> = ({
+  data,
+  isLoading = false,
+  error = null,
+  onEdit,
+}) => {
   const { t } = useTranslation();
-  const { isPending, isError, mutate: editMovie } = client.useEditMovie();
-
   const validations = useMemo(() => getValidations(t), [t]);
   const yearOptions = useMemo(() => getYearOptions(t), [t]);
   const genreOptions = useMemo(() => getGenreOptions(t), [t]);
@@ -87,7 +93,7 @@ export const MovieForm: FC<Props> = ({ data }) => {
       const score = formData.score.trim();
 
       // send form data
-      editMovie({
+      onEdit({
         id: data.id,
         data: {
           titleCs: formData.titleCs.trim(),
@@ -105,8 +111,8 @@ export const MovieForm: FC<Props> = ({ data }) => {
   });
 
   return (
-    <Form loading={isPending} onSubmit={submit}>
-      {isError && <Infobox type="error">{t('error.submit')}</Infobox>}
+    <Form loading={isLoading} onSubmit={submit}>
+      {error && <Infobox type="error">{error}</Infobox>}
 
       <Box>
         <Grid orientation="vertical" gap={1}>
@@ -114,7 +120,7 @@ export const MovieForm: FC<Props> = ({ data }) => {
             label={t('movie.titleCs')}
             value={values.titleCs}
             error={errors.titleCs}
-            disabled={isPending}
+            disabled={isLoading}
             onChange={(value) => {
               setValue('titleCs', value);
             }}
@@ -123,7 +129,7 @@ export const MovieForm: FC<Props> = ({ data }) => {
             label={t('movie.titleOriginal')}
             value={values.titleOriginal}
             error={errors.titleOriginal}
-            disabled={isPending}
+            disabled={isLoading}
             onChange={(value) => {
               setValue('titleOriginal', value);
             }}
@@ -133,7 +139,7 @@ export const MovieForm: FC<Props> = ({ data }) => {
             value={values.year}
             error={errors.year}
             options={yearOptions}
-            disabled={isPending}
+            disabled={isLoading}
             vertical
             onSelect={(value) => {
               setValue('year', value);
@@ -147,7 +153,7 @@ export const MovieForm: FC<Props> = ({ data }) => {
             min={0}
             max={10}
             step={0.1}
-            disabled={isPending}
+            disabled={isLoading}
             onChange={(value) => {
               setValue('score', value);
             }}
@@ -157,7 +163,7 @@ export const MovieForm: FC<Props> = ({ data }) => {
             value={values.genres}
             error={errors.genres}
             options={genreOptions}
-            disabled={isPending}
+            disabled={isLoading}
             multi
             vertical
             onSelect={(value) => {
@@ -169,7 +175,7 @@ export const MovieForm: FC<Props> = ({ data }) => {
             role="director"
             value={values.directors}
             error={errors.directors}
-            disabled={isPending}
+            disabled={isLoading}
             onSelect={(value) => {
               setValue('directors', value);
             }}
@@ -179,7 +185,7 @@ export const MovieForm: FC<Props> = ({ data }) => {
             role="writer"
             value={values.writers}
             error={errors.writers}
-            disabled={isPending}
+            disabled={isLoading}
             onSelect={(value) => {
               setValue('writers', value);
             }}
@@ -189,7 +195,7 @@ export const MovieForm: FC<Props> = ({ data }) => {
             role="star"
             value={values.stars}
             error={errors.stars}
-            disabled={isPending}
+            disabled={isLoading}
             onSelect={(value) => {
               setValue('stars', value);
             }}
@@ -198,7 +204,7 @@ export const MovieForm: FC<Props> = ({ data }) => {
             label={t('movie.plot')}
             value={values.plot}
             error={errors.plot}
-            disabled={isPending}
+            disabled={isLoading}
             onChange={(value) => {
               setValue('plot', value);
             }}
@@ -213,10 +219,10 @@ export const MovieForm: FC<Props> = ({ data }) => {
           text={t('back')}
         />
         <Button
-          ico={isPending ? 'spinner' : null}
-          icoSpin={isPending}
+          ico={isLoading ? 'spinner' : null}
+          icoSpin={isLoading}
           text={t('submit')}
-          disabled={isPending}
+          disabled={isLoading}
           onClick={submit}
         />
       </Grid>

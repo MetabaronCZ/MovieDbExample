@@ -17,6 +17,7 @@ type Params = {
 export const MovieEditPage: FC = () => {
   const { t } = useTranslation();
   const { id } = useParams<Params>();
+  const editMovie = client.useEditMovie();
   const { data, isLoading, isError } = client.useFetchMovie(id ?? '');
   const movieTitle = useMemo(() => (data ? getMovieTitle(data) : ''), [data]);
 
@@ -26,7 +27,12 @@ export const MovieEditPage: FC = () => {
         {!data ? (
           <Infobox type="error">{t('movie.notFound')}</Infobox>
         ) : (
-          <MovieForm data={data} />
+          <MovieForm
+            data={data}
+            isLoading={editMovie.isPending}
+            error={editMovie.isError ? t('error.submit') : null}
+            onEdit={editMovie.mutate}
+          />
         )}
       </FetchContainer>
     </Page>

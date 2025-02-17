@@ -31,7 +31,8 @@ interface MultiProps<T> {
   readonly multi: true;
   readonly onSelect: (value: T[]) => void;
 }
-type Props<T> = BaseProps<T> & (DefaultProps<T> | MultiProps<T>);
+export type SelectFieldProps<T> = BaseProps<T> &
+  (DefaultProps<T> | MultiProps<T>);
 
 export const SelectField = <T,>({
   id = `select-${instanceId++}`,
@@ -46,7 +47,7 @@ export const SelectField = <T,>({
   required,
   disabled,
   onSelect,
-}: Props<T>): React.ReactNode => (
+}: SelectFieldProps<T>): React.ReactNode => (
   <FormField
     id={id}
     label={label}
