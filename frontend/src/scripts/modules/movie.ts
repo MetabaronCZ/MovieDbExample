@@ -2,9 +2,9 @@ import Joi from 'joi';
 import { TFunction } from 'i18next';
 import {
   Movie,
+  MoviePersonData,
   FetchMovieResponse,
   FetchMoviesResponse,
-  MoviePersonData,
 } from '@project/api-types';
 
 import { createDataParser } from 'modules/parse';
@@ -19,11 +19,14 @@ export const getMovieTitle = (novie: Movie): string => {
 };
 
 export const formatScore = (value: number | null): string => {
-  return value ? `${value} / 10` : '-';
+  if (null === value || value < 0 || value > 10) {
+    return '-';
+  }
+  return `${value} / 10`;
 };
 
 export const formatMovieCount = (t: TFunction, count: number): string => {
-  if (0 === count) {
+  if (count <= 0) {
     return '-';
   }
   return `${count} ${t('movie.item', { count })}`;

@@ -32,7 +32,7 @@ export const useSearch = (config: UseSearchConfig): UseSearch => {
       }
       setQuery(value);
 
-      if (value.length < minQueryLength) {
+      if (!force && value.length < minQueryLength) {
         return;
       }
       timeout.current = window.setTimeout(

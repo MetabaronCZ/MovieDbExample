@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 import { defaultPerPage } from '@project/api-types';
 
-interface PagingConfig<T extends number> {
+export interface PagingConfig<T extends number> {
   readonly page?: number;
   readonly perPage?: T;
   readonly perPages?: T[];
   readonly totalCount: number;
-  readonly onPage: (page: number, perPage: T) => Promise<unknown>;
-  readonly onPerPage: (perPage: T) => Promise<unknown>;
+  readonly onPage: (page: number, perPage: T) => Promise<void>;
+  readonly onPerPage: (perPage: T) => Promise<void>;
 }
 
 export interface UsePaging<T extends number> {
@@ -19,11 +19,11 @@ export interface UsePaging<T extends number> {
   readonly perPage: T;
   readonly perPages: T[];
   readonly disabled: boolean;
-  readonly setPerPage: (perPage: T) => void;
-  readonly gotoFirst: () => void;
-  readonly gotoPrev: () => void;
-  readonly gotoNext: () => void;
-  readonly gotoLast: () => void;
+  readonly setPerPage: (perPage: T) => Promise<void>;
+  readonly gotoFirst: () => Promise<void>;
+  readonly gotoPrev: () => Promise<void>;
+  readonly gotoNext: () => Promise<void>;
+  readonly gotoLast: () => Promise<void>;
 }
 
 export const usePaging = <T extends number>(
@@ -114,24 +114,20 @@ export const usePaging = <T extends number>(
     perPage,
     perPages,
     disabled,
-    setPerPage: (value) => {
-      void updatePerPage(value);
-    },
-    gotoFirst: () => {
-      void updatePage(0);
-    },
+    setPerPage: updatePerPage,
+    gotoFirst: () => updatePage(0),
     gotoPrev: () => {
       if (page > 0) {
-        void updatePage(page - 1);
+        return updatePage(page - 1);
       }
+      return Promise.resolve();
     },
     gotoNext: () => {
       if (page < lastPage) {
-        void updatePage(page + 1);
+        return updatePage(page + 1);
       }
+      return Promise.resolve();
     },
-    gotoLast: () => {
-      void updatePage(lastPage);
-    },
+    gotoLast: () => updatePage(lastPage),
   };
 };
