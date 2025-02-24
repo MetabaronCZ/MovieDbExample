@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/button/ButtonRaw should render properly 1`] = `
+.c0 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+}
+
+<div>
+  <button
+    class="c0"
+    type="button"
+  >
+    CONTENT
+  </button>
+</div>
+`;
+
+exports[`components/button/ButtonRaw should render props 1`] = `
+.c0 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+}
+
+<div>
+  <button
+    class="c0 CLASSNAME"
+    disabled=""
+    id="ID"
+    title="TITLE"
+    type="submit"
+  >
+    CONTENT
+  </button>
+</div>
+`;
