@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/layout/MenuMain should render properly 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.c1 {
+  flex: 1;
+}
+
+.c2 {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.c3 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  padding: 8px 16px;
+  color: #002d56;
+  background: #98c3d9;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: #dae0e3;
+}
+
+.c3:focus {
+  outline: 1px dashed #002d56;
+  outline-color: #0af;
+  outline-offset: -1px;
+}
+
+.c4 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  padding: 8px 16px;
+  color: #f2f7fa;
+  background: #002d56;
+  text-decoration: none;
+}
+
+.c4:hover {
+  background-color: #0f426e;
+}
+
+.c4:focus {
+  outline: 1px dashed #002d56;
+  outline-color: #0af;
+  outline-offset: -1px;
+}
+
+<div>
+  <nav
+    class="c0 c1"
+  >
+    <ul
+      class="c2"
+    >
+      <li
+        class=""
+      >
+        <a
+          class="c3"
+          data-discover="true"
+          href="/"
+        >
+          Domů
+        </a>
+      </li>
+      <li
+        class=""
+      >
+        <a
+          class="c4"
+          data-discover="true"
+          href="/movies"
+        >
+          Filmy
+        </a>
+      </li>
+      <li
+        class=""
+      >
+        <a
+          class="c4"
+          data-discover="true"
+          href="/people"
+        >
+          Lidé
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;

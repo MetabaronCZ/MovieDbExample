@@ -8,8 +8,8 @@ import { afterEach, describe, expect, it } from '@jest/globals';
 import { client } from 'modules/api';
 
 import { createTestMovie } from 'test-utils/movie';
+import { TestQueryWrapper } from 'test-utils/query';
 import { createTestPerson } from 'test-utils/person';
-import { TestQueryWrapper } from 'test-utils/TestQueryWrapper';
 
 const mock = new MockAdapter(axios, { onNoMatch: 'throwException' });
 

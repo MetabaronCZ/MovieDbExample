@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/layout/Footer should render properly 1`] = `
+.c1 {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.c1:hover {
+  text-decoration: none;
+}
+
+.c1:focus {
+  outline: 1px dashed #002d56;
+  outline-color: inherit;
+}
+
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 12px;
+  line-height: 24px;
+  padding: 0 16px;
+  color: #98c3d9;
+  text-align: right;
+}
+
+<div>
+  <footer
+    class="c0"
+  >
+    Copyright © 2025 
+    <a
+      class="c1"
+      href="https://github.com/MetabaronCZ"
+      target="_blank"
+    >
+      https://github.com/MetabaronCZ
+    </a>
+  </footer>
+</div>
+`;

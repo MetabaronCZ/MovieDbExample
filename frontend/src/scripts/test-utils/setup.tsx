@@ -1,3 +1,5 @@
+import { TextEncoder, TextDecoder } from 'util';
+
 // initialize jest-dom syntax (example: expect(elm).toBeInTheDocument())
 import '@testing-library/jest-dom';
 import '@testing-library/jest-dom/jest-globals';
@@ -7,3 +9,6 @@ import 'jest-styled-components';
 
 // initialize component text localization
 import 'localization';
+
+// jsdom polyfill
+Object.assign(global, { TextDecoder, TextEncoder });
