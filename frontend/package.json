@@ -75,7 +75,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@project/api-types": "file:../api-types",
     "@tanstack/react-query": "^5.66.0",
-    "axios": "^1.7.9",
+    "axios": "^1.7.8",
     "i18next": "^24.2.2",
     "joi": "^17.13.3",
     "react": "^19.0.0",

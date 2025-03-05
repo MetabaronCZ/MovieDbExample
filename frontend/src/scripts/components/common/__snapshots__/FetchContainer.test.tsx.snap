@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/common/FetchContainer should render error state 1`] = `
+<div>
+  <div
+    data-testid="info-mock"
+  />
+</div>
+`;
+
+exports[`components/common/FetchContainer should render loaded state 1`] = `
+<div>
+  CONTENT
+</div>
+`;
+
+exports[`components/common/FetchContainer should render loading state 1`] = `
+<div>
+  <div
+    data-testid="loader-mock"
+  />
+</div>
+`;

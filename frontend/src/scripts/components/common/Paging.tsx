@@ -92,7 +92,7 @@ export const Paging = <T extends number>({ paging }: Props<T>): ReactNode => {
           title={t('paging.first')}
           disabled={disabled || isFirstPage}
           onClick={() => {
-            gotoFirst();
+            void gotoFirst();
           }}
         />
 
@@ -102,7 +102,7 @@ export const Paging = <T extends number>({ paging }: Props<T>): ReactNode => {
           title={t('paging.prev')}
           disabled={disabled || isFirstPage}
           onClick={() => {
-            gotoPrev();
+            void gotoPrev();
           }}
         />
 
@@ -114,7 +114,7 @@ export const Paging = <T extends number>({ paging }: Props<T>): ReactNode => {
           title={t('paging.next')}
           disabled={disabled || isLastPage}
           onClick={() => {
-            gotoNext();
+            void gotoNext();
           }}
         />
 
@@ -124,7 +124,7 @@ export const Paging = <T extends number>({ paging }: Props<T>): ReactNode => {
           title={t('paging.last')}
           disabled={disabled || isLastPage}
           onClick={() => {
-            gotoLast();
+            void gotoLast();
           }}
         />
       </Pages>
@@ -135,7 +135,9 @@ export const Paging = <T extends number>({ paging }: Props<T>): ReactNode => {
         value={perPage}
         options={perPagesOptions}
         disabled={disabled}
-        onSelect={setPerPage}
+        onSelect={(value) => {
+          void setPerPage(value);
+        }}
       />
     </Container>
   );

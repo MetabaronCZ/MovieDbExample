@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/common/Heading should render different variations 1`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+<div>
+  <h1
+    class="c0"
+  >
+    HEADING_H1
+  </h1>
+</div>
+`;
+
+exports[`components/common/Heading should render different variations 2`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+<div>
+  <h2
+    class="c0"
+  >
+    HEADING_H2
+  </h2>
+</div>
+`;
+
+exports[`components/common/Heading should render different variations 3`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+<div>
+  <h3
+    class="c0"
+  >
+    HEADING_H3
+  </h3>
+</div>
+`;
+
+exports[`components/common/Heading should render different variations 4`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+<div>
+  <h4
+    class="c0"
+  >
+    HEADING_H4
+  </h4>
+</div>
+`;
+
+exports[`components/common/Heading should render properly 1`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+<div>
+  <h2
+    class="c0"
+  >
+    CONTENT
+  </h2>
+</div>
+`;

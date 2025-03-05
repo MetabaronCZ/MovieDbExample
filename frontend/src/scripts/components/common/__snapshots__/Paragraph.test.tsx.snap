@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/common/Paragraph should render properly 1`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+}
+
+<div>
+  <p
+    class="c0"
+  >
+    CONTENT
+  </p>
+</div>
+`;

@@ -55,11 +55,11 @@ export const PersonList: FC = () => {
     page: filter.page,
     totalCount: data.total,
     perPages: perPageValues,
-    onPage: (page, perPage) => {
-      return fetchData({ page, perPage });
+    onPage: async (page, perPage) => {
+      await fetchData({ page, perPage });
     },
-    onPerPage: (perPage) => {
-      return fetchData({ page: 0, perPage });
+    onPerPage: async (perPage) => {
+      await fetchData({ page: 0, perPage });
     },
   });
 

@@ -1,0 +1,453 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/common/ExpandableList should be expandable 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.c3 {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:focus {
+  outline: 1px dashed #002d56;
+  outline-color: inherit;
+}
+
+.c5 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c5:disabled {
+  cursor: not-allowed;
+}
+
+.c6 {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.c6:hover {
+  text-decoration: none;
+}
+
+.c6:focus {
+  outline: 1px dashed #002d56;
+  outline-color: inherit;
+}
+
+.c2 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.c1 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  min-width: 0;
+}
+
+.c7 {
+  position: relative;
+  flex: 1;
+}
+
+.c4 {
+  white-space: nowrap;
+}
+
+<div>
+  <div
+    class="c0 c1"
+  >
+    <div
+      class="c2"
+      title="Item 1"
+    >
+      <a
+        class="c3"
+        data-discover="true"
+        href="/item-1"
+      >
+        Item 1
+      </a>
+    </div>
+    <div
+      class="c4"
+    >
+      (+
+      <button
+        class="c5 c6"
+        type="button"
+      >
+        2 další
+      </button>
+      )
+    </div>
+    <div
+      class="c7"
+    />
+  </div>
+</div>
+`;
+
+exports[`components/common/ExpandableList should be expandable 2`] = `
+.c0 {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.c3 {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:focus {
+  outline: 1px dashed #002d56;
+  outline-color: inherit;
+}
+
+.c5 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c5:disabled {
+  cursor: not-allowed;
+}
+
+.c6 {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.c6:hover {
+  text-decoration: none;
+}
+
+.c6:focus {
+  outline: 1px dashed #002d56;
+  outline-color: inherit;
+}
+
+.c2 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.c1 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  min-width: 0;
+}
+
+.c8 {
+  list-style-type: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: 240px;
+  padding: 8px 16px;
+  background: #fff;
+  box-shadow: 1px 1px 4px #dae0e3;
+  z-index: 1000;
+}
+
+.c7 {
+  position: relative;
+  flex: 1;
+}
+
+.c4 {
+  white-space: nowrap;
+}
+
+.c9 {
+  margin-right: 8px;
+}
+
+<div>
+  <div
+    class="c0 c1"
+  >
+    <div
+      class="c2"
+      title="Item 1"
+    >
+      <a
+        class="c3"
+        data-discover="true"
+        href="/item-1"
+      >
+        Item 1
+      </a>
+    </div>
+    <div
+      class="c4"
+    >
+      (+
+      <button
+        class="c5 c6"
+        type="button"
+      >
+        2 další
+      </button>
+      )
+    </div>
+    <div
+      class="c7"
+    >
+      <ul
+        class="c8"
+      >
+        <li
+          class=""
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-right fa-sm c9"
+            color="#002d56"
+            data-icon="angle-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+              fill="currentColor"
+            />
+          </svg>
+          <a
+            class="c3"
+            data-discover="true"
+            href="/item-2"
+          >
+            Item 2
+          </a>
+        </li>
+        <li
+          class=""
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-right fa-sm c9"
+            color="#002d56"
+            data-icon="angle-right"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 320 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+              fill="currentColor"
+            />
+          </svg>
+          <a
+            class="c3"
+            data-discover="true"
+            href="/item-3"
+          >
+            Item 3
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/common/ExpandableList should render one item 1`] = `
+.c1 {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.c1:hover {
+  text-decoration: none;
+}
+
+.c1:focus {
+  outline: 1px dashed #002d56;
+  outline-color: inherit;
+}
+
+.c0 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+<div>
+  <div
+    class="c0"
+    title="Item 1"
+  >
+    <a
+      class="c1"
+      data-discover="true"
+      href="/item-1"
+    >
+      Item 1
+    </a>
+  </div>
+</div>
+`;
+
+exports[`components/common/ExpandableList should render properly 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.c3 {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: underline;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:focus {
+  outline: 1px dashed #002d56;
+  outline-color: inherit;
+}
+
+.c5 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c5:disabled {
+  cursor: not-allowed;
+}
+
+.c6 {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.c6:hover {
+  text-decoration: none;
+}
+
+.c6:focus {
+  outline: 1px dashed #002d56;
+  outline-color: inherit;
+}
+
+.c2 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.c1 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  min-width: 0;
+}
+
+.c7 {
+  position: relative;
+  flex: 1;
+}
+
+.c4 {
+  white-space: nowrap;
+}
+
+<div>
+  <div
+    class="c0 c1"
+  >
+    <div
+      class="c2"
+      title="Item 1"
+    >
+      <a
+        class="c3"
+        data-discover="true"
+        href="/item-1"
+      >
+        Item 1
+      </a>
+    </div>
+    <div
+      class="c4"
+    >
+      (+
+      <button
+        class="c5 c6"
+        type="button"
+      >
+        2 další
+      </button>
+      )
+    </div>
+    <div
+      class="c7"
+    />
+  </div>
+</div>
+`;

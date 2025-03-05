@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/common/Infobox should render properly 1`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+}
+
+.c1 {
+  padding: 8px 16px;
+  color: #002d56;
+  background: #fff;
+  border: 1px solid #002d56;
+  border-color: #002d56;
+  box-shadow: 1px 1px 4px #dae0e3;
+}
+
+<div>
+  <p
+    class="c0 c1"
+  >
+    CONTENT
+  </p>
+</div>
+`;
+
+exports[`components/common/Infobox should render variations 1`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+}
+
+.c1 {
+  padding: 8px 16px;
+  color: #002d56;
+  background: #fff;
+  border: 1px solid #002d56;
+  border-color: #002d56;
+  box-shadow: 1px 1px 4px #dae0e3;
+}
+
+<div>
+  <p
+    class="c0 c1"
+  >
+    INFO
+  </p>
+</div>
+`;
+
+exports[`components/common/Infobox should render variations 2`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+}
+
+.c1 {
+  padding: 8px 16px;
+  color: #f00;
+  background: #fff;
+  border: 1px solid #002d56;
+  border-color: #f00;
+  box-shadow: 1px 1px 4px #dae0e3;
+}
+
+<div>
+  <p
+    class="c0 c1"
+  >
+    ERROR
+  </p>
+</div>
+`;
+
+exports[`components/common/Infobox should render variations 3`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+}
+
+.c1 {
+  padding: 8px 16px;
+  color: #0a0;
+  background: #fff;
+  border: 1px solid #002d56;
+  border-color: #0a0;
+  box-shadow: 1px 1px 4px #dae0e3;
+}
+
+<div>
+  <p
+    class="c0 c1"
+  >
+    SUCCESS
+  </p>
+</div>
+`;

@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/common/LinkButton should render basic props 1`] = `
+.c0 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+}
+
+.c1 {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.c1:hover {
+  text-decoration: none;
+}
+
+.c1:focus {
+  outline: 1px dashed #002d56;
+  outline-color: inherit;
+}
+
+<div>
+  <button
+    class="c0 c1 CLASSNAME"
+    id="ID"
+    type="button"
+  >
+    CONTENT
+  </button>
+</div>
+`;
+
+exports[`components/common/LinkButton should render properly 1`] = `
+.c0 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+}
+
+.c1 {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.c1:hover {
+  text-decoration: none;
+}
+
+.c1:focus {
+  outline: 1px dashed #002d56;
+  outline-color: inherit;
+}
+
+<div>
+  <button
+    class="c0 c1"
+    type="button"
+  >
+    CONTENT
+  </button>
+</div>
+`;
