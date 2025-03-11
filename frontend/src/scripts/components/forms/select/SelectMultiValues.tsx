@@ -104,7 +104,7 @@ export const SelectMultiValues = <T,>({
           <StyledButton title={description}>{title}</StyledButton>
 
           <ClearButton
-            title={t('cancel')}
+            title={t('remove')}
             disabled={disabled}
             onClick={() => {
               onRemove(value);

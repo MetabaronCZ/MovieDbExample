@@ -22,6 +22,11 @@
     "baseUrl": "./src/scripts"
   },
   "compileOnSave": false,
-  "include": ["./src/scripts", "./.storybook/preview.tsx"],
+  "include": [
+    "./src/scripts",
+    "./webpack.config.ts",
+    "./jest.config.ts",
+    "./.storybook/preview.tsx"
+  ],
   "exclude": ["node_modules", "build", "coverage"]
 }

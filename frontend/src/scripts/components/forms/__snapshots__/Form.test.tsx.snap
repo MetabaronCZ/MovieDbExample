@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/forms/Form should render loading state 1`] = `
+.c0 {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <form
+      class="c1"
+    >
+      CONTENT
+    </form>
+  </div>
+</div>
+`;
+
+exports[`components/forms/Form should render properly 1`] = `
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+<div>
+  <form
+    class="c0"
+  >
+    CONTENT
+  </form>
+</div>
+`;

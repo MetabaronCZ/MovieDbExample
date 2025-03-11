@@ -109,6 +109,7 @@ export const SelectMulti = <T,>({
             />
             <IcoButton
               ico={opened ? 'angleUp' : 'angleDown'}
+              title={opened ? t('close') : t('open')}
               disabled={disabled}
               onClick={toggle}
             />

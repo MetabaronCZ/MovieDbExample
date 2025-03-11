@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/forms/Textarea should be disabled 1`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  resize: none;
+}
+
+.c0::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c0:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c0:disabled {
+  color: #98c3d9;
+}
+
+.c1 {
+  width: 100%;
+  padding: 0 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  height: calc(80px + 2 * 4px);
+}
+
+.c1:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c1:disabled {
+  border-color: #98c3d9;
+}
+
+<div>
+  <textarea
+    autocomplete="one-time-code"
+    class="c0 c1"
+    disabled=""
+  >
+    TEXT
+  </textarea>
+</div>
+`;
+
+exports[`components/forms/Textarea should render basic props 1`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  resize: none;
+}
+
+.c0::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c0:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c0:disabled {
+  color: #98c3d9;
+}
+
+.c1 {
+  width: 100%;
+  padding: 0 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  height: calc(80px + 2 * 4px);
+}
+
+.c1:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c1:disabled {
+  border-color: #98c3d9;
+}
+
+<div>
+  <textarea
+    autocomplete="one-time-code"
+    class="c0 c1"
+    disabled=""
+    id="ID"
+    maxlength="120"
+    placeholder="PLACEHOLDER"
+  >
+    TEXT
+  </textarea>
+</div>
+`;
+
+exports[`components/forms/Textarea should render properly 1`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  resize: none;
+}
+
+.c0::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c0:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c0:disabled {
+  color: #98c3d9;
+}
+
+.c1 {
+  width: 100%;
+  padding: 0 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  height: calc(80px + 2 * 4px);
+}
+
+.c1:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c1:disabled {
+  border-color: #98c3d9;
+}
+
+<div>
+  <textarea
+    autocomplete="one-time-code"
+    class="c0 c1"
+  >
+    TEXT
+  </textarea>
+</div>
+`;

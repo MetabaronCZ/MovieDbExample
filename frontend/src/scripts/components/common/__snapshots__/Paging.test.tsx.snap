@@ -276,6 +276,7 @@ exports[`components/common/Paging should contain perPage select 1`] = `
           <button
             class="c3 c10"
             id="select-16"
+            title="Otevřít"
             type="button"
           >
             <span
@@ -582,6 +583,7 @@ exports[`components/common/Paging should render properly 1`] = `
           <button
             class="c3 c10"
             id="select-1"
+            title="Otevřít"
             type="button"
           >
             <span

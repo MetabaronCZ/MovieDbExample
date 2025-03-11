@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled, { css } from 'styled-components';
 
 import { toVU } from 'modules/theme';
@@ -40,9 +41,17 @@ export const SelectHandle: FC<Props> = ({
   disabled = false,
   onClick,
   children,
-}) => (
-  <Container id={id} disabled={disabled} onClick={onClick}>
-    <Content>{children}</Content>
-    <Ico ico={opened ? 'angleUp' : 'angleDown'} size="large" />
-  </Container>
-);
+}) => {
+  const { t } = useTranslation();
+  return (
+    <Container
+      id={id}
+      title={opened ? t('close') : t('open')}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      <Content>{children}</Content>
+      <Ico ico={opened ? 'angleUp' : 'angleDown'} size="large" />
+    </Container>
+  );
+};

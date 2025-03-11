@@ -1,0 +1,286 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/forms/Select should be openable / closeable 1`] = `
+.c1 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c1:disabled {
+  cursor: not-allowed;
+}
+
+.c3 {
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+  font-weight: 700;
+  height: 40px;
+  padding: 0 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  width: 100%;
+  height: 40px;
+  gap: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.c2:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c2:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c2:disabled {
+  color: #98c3d9;
+  border-color: #98c3d9;
+  background-color: #fff;
+}
+
+.c4 {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.c5 {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 240px;
+  overflow: hidden;
+  z-index: 1000;
+  background: #fff;
+  border: 1px solid #002d56;
+  box-shadow: 1px 1px 4px #dae0e3;
+}
+
+.c6 {
+  list-style-type: none;
+  overflow-y: auto;
+  max-height: 360px;
+}
+
+.c7 {
+  border-bottom: 1px solid #dae0e3;
+}
+
+.c7:last-child {
+  border-bottom: none;
+}
+
+.c8 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  width: 100%;
+  padding: 4px 8px;
+  background: #fff;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.c8:hover {
+  background-color: #f2f7fa;
+}
+
+.c8:focus {
+  outline: 1px dashed #002d56;
+  outline-offset: -1px;
+}
+
+.c0 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <button
+      class="c1 c2"
+      title="Zavřít"
+      type="button"
+    >
+      <span
+        class="c3 c4"
+      >
+        Item 1
+      </span>
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-angle-up fa-lg "
+        data-icon="angle-up"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
+    <div
+      class="c5"
+    >
+      <ul
+        class="c6"
+      >
+        <li
+          class="c7"
+        >
+          <button
+            class="c1 c8"
+            type="button"
+          >
+            Item 1
+          </button>
+        </li>
+        <li
+          class="c7"
+        >
+          <button
+            class="c1 c8"
+            type="button"
+          >
+            Item 2
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/forms/Select should not render when no options 1`] = `<div />`;
+
+exports[`components/forms/Select should render properly 1`] = `
+.c1 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c1:disabled {
+  cursor: not-allowed;
+}
+
+.c3 {
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+  font-weight: 700;
+  height: 40px;
+  padding: 0 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  width: 100%;
+  height: 40px;
+  gap: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.c2:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c2:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c2:disabled {
+  color: #98c3d9;
+  border-color: #98c3d9;
+  background-color: #fff;
+}
+
+.c4 {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.c0 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <button
+      class="c1 c2"
+      title="Otevřít"
+      type="button"
+    >
+      <span
+        class="c3 c4"
+      >
+        Item 1
+      </span>
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-angle-down fa-lg "
+        data-icon="angle-down"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;

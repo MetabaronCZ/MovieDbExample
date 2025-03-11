@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/forms/Label should render properly 1`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+<div>
+  <label
+    class="c0"
+    for="ID"
+  >
+    CONTENT
+  </label>
+</div>
+`;
+
+exports[`components/forms/Label should render required state 1`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.c1 {
+  color: #f00;
+}
+
+.c1::after {
+  content: '*';
+}
+
+<div>
+  <label
+    class="c0"
+  >
+    <span
+      class="c1"
+    />
+    CONTENT
+  </label>
+</div>
+`;
