@@ -11,7 +11,9 @@ import { createTestMovie } from 'test-utils/movie';
 import { TestQueryWrapper } from 'test-utils/query';
 import { createTestPerson } from 'test-utils/person';
 
-const mock = new MockAdapter(axios, { onNoMatch: 'throwException' });
+// Temporary fix for MockAdapter issue (https://github.com/ctimmerm/axios-mock-adapter/issues/400)
+// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
+const mock = new MockAdapter(axios as any, { onNoMatch: 'throwException' });
 
 afterEach(() => {
   mock.reset();

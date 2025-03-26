@@ -16,21 +16,21 @@
     "prettier:fix": "prettier . --write"
   },
   "devDependencies": {
-    "@eslint/js": "^9.20.0",
-    "@types/express": "^5.0.0",
+    "@eslint/js": "^9.23.0",
+    "@types/express": "^5.0.1",
     "@types/morgan": "^1.9.9",
-    "@types/node": "^22.13.1",
-    "eslint": "^9.20.1",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-prettier": "^5.2.3",
-    "prettier": "^3.5.0",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.24.0"
+    "@types/node": "^22.13.13",
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.5",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.28.0"
   },
   "dependencies": {
     "@project/api-types": "file:../api-types",
-    "@types/unzipper": "^0.10.10",
-    "body-parser": "^1.20.2",
+    "@types/unzipper": "^0.10.11",
+    "body-parser": "^1.20.3",
     "express": "^4.21.2",
     "morgan": "^1.10.0",
     "ts-node": "^10.9.2",

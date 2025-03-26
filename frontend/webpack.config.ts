@@ -74,7 +74,6 @@ const config = (env: Args, argv: Args): Configuration => {
         filename: `${pathBuild}/index.html`,
       }),
       new ESLintPlugin({
-        configType: 'flat',
         extensions: ['ts', 'tsx', 'js'],
         exclude: ['node_modules', 'build', 'coverage'],
       }),
