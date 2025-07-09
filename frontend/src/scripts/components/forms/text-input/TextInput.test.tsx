@@ -58,7 +58,7 @@ describe('components/forms/TextInput', () => {
       <TextInput value="" onChange={onChange} />,
       { wrapper: TestComponentWrapper },
     );
-    expect(onChange).not.toBeCalled();
+    expect(onChange).not.toHaveBeenCalled();
 
     const input = getByRole(container, 'textbox');
     expect(input).toHaveAttribute('value', '');
@@ -68,8 +68,8 @@ describe('components/forms/TextInput', () => {
       fireEvent.change(input, { target: { value: 'TEXT' } });
     });
 
-    expect(onChange).toBeCalledTimes(1);
-    expect(onChange).toBeCalledWith('TEXT');
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith('TEXT');
   });
 
   it('should be disabled', async () => {
@@ -80,7 +80,7 @@ describe('components/forms/TextInput', () => {
       { wrapper: TestComponentWrapper },
     );
     expect(container).toMatchSnapshot();
-    expect(onChange).not.toBeCalled();
+    expect(onChange).not.toHaveBeenCalled();
 
     const input = getByRole(container, 'textbox');
     expect(input).toBeInTheDocument();
@@ -93,6 +93,6 @@ describe('components/forms/TextInput', () => {
       fireEvent.change(input, { target: { value: 'NEW_TEXT' } });
     });
 
-    expect(onChange).not.toBeCalled();
+    expect(onChange).not.toHaveBeenCalled();
   });
 });

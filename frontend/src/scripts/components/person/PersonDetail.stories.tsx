@@ -1,5 +1,5 @@
 import { Person } from '@project/api-types';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { PersonDetail } from 'components/person/PersonDetail';
 

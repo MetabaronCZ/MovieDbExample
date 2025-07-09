@@ -14,8 +14,8 @@ describe('modules/logger', () => {
       ENV.isDevMode.mockReturnValue(true);
 
       Logger.log('Logger.log OK');
-      expect(logMock).toBeCalledTimes(1);
-      expect(logMock).toBeCalledWith('Logger.log OK');
+      expect(logMock).toHaveBeenCalledTimes(1);
+      expect(logMock).toHaveBeenCalledWith('Logger.log OK');
     });
 
     it('should call not console.log when not in dev mode', () => {
@@ -23,7 +23,7 @@ describe('modules/logger', () => {
       ENV.isDevMode.mockReturnValue(false);
 
       Logger.log('Logger.log OK');
-      expect(logMock).not.toBeCalled();
+      expect(logMock).not.toHaveBeenCalled();
     });
   });
 
@@ -36,8 +36,8 @@ describe('modules/logger', () => {
         .mockImplementation(() => null);
 
       Logger.error('Logger.error OK');
-      expect(errorMock).toBeCalledTimes(1);
-      expect(errorMock).toBeCalledWith('Logger.error OK');
+      expect(errorMock).toHaveBeenCalledTimes(1);
+      expect(errorMock).toHaveBeenCalledWith('Logger.error OK');
     });
 
     it('should call not console.error when not in dev mode', () => {
@@ -48,7 +48,7 @@ describe('modules/logger', () => {
         .mockImplementation(() => null);
 
       Logger.error('Logger.error OK');
-      expect(errorMock).not.toBeCalled();
+      expect(errorMock).not.toHaveBeenCalled();
     });
   });
 });

@@ -130,7 +130,7 @@ describe('components/forms/SelectMulti', () => {
       />,
       { wrapper: TestComponentWrapper },
     );
-    expect(onSelect).not.toBeCalled();
+    expect(onSelect).not.toHaveBeenCalled();
 
     const handle = getByTitle(container, 'Otevřít');
 
@@ -156,8 +156,8 @@ describe('components/forms/SelectMulti', () => {
     act(() => {
       fireEvent.click(selectableItems[0]);
     });
-    expect(onSelect).toBeCalledTimes(1);
-    expect(onSelect).toBeCalledWith([1, 2]); // Item 1 + Item 2 values
+    expect(onSelect).toHaveBeenCalledTimes(1);
+    expect(onSelect).toHaveBeenCalledWith([1, 2]); // Item 1 + Item 2 values
 
     // Select is still opened for next selection
     list = getAllByRole(container, 'list');

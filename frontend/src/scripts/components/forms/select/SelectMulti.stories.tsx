@@ -1,7 +1,7 @@
 import { FC, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { SelectMulti } from './SelectMulti';
 import { Grid } from 'components/common/Grid';

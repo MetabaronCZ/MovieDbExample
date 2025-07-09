@@ -57,7 +57,7 @@ describe('components/forms/Textarea', () => {
       <Textarea value="" onChange={onChange} />,
       { wrapper: TestComponentWrapper },
     );
-    expect(onChange).not.toBeCalled();
+    expect(onChange).not.toHaveBeenCalled();
 
     const textarea = getByRole(container, 'textbox');
     expect(textarea).toHaveValue('');
@@ -67,8 +67,8 @@ describe('components/forms/Textarea', () => {
       fireEvent.change(textarea, { target: { value: 'TEXT' } });
     });
 
-    expect(onChange).toBeCalledTimes(1);
-    expect(onChange).toBeCalledWith('TEXT');
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith('TEXT');
   });
 
   it('should be disabled', async () => {
@@ -79,7 +79,7 @@ describe('components/forms/Textarea', () => {
       { wrapper: TestComponentWrapper },
     );
     expect(container).toMatchSnapshot();
-    expect(onChange).not.toBeCalled();
+    expect(onChange).not.toHaveBeenCalled();
 
     const textarea = getByRole(container, 'textbox');
     expect(textarea).toBeInTheDocument();
@@ -91,6 +91,6 @@ describe('components/forms/Textarea', () => {
       fireEvent.change(textarea, { target: { value: 'NEW_TEXT' } });
     });
 
-    expect(onChange).not.toBeCalled();
+    expect(onChange).not.toHaveBeenCalled();
   });
 });

@@ -5,11 +5,7 @@ import type { StorybookConfig } from '@storybook/react-webpack5';
 const config: StorybookConfig = {
   stories: ['../src/scripts/**/*.mdx', '../src/scripts/**/*.stories.@(ts|tsx)'],
   staticDirs: ['../build'],
-  addons: [
-    '@storybook/addon-webpack5-compiler-swc',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-  ],
+  addons: ['@storybook/addon-webpack5-compiler-swc'],
   framework: {
     name: '@storybook/react-webpack5',
     options: {},
@@ -17,9 +13,6 @@ const config: StorybookConfig = {
   core: {
     disableTelemetry: true,
     disableWhatsNewNotifications: true,
-  },
-  docs: {
-    autodocs: 'tag',
   },
   webpackFinal: (config) => {
     config.resolve = config.resolve ?? {};

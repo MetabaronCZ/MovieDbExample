@@ -41,7 +41,7 @@ describe('components/forms/Form', () => {
       </Form>,
       { wrapper: TestComponentWrapper },
     );
-    expect(onSubmit).not.toBeCalled();
+    expect(onSubmit).not.toHaveBeenCalled();
 
     const button = getByText(container, 'SUBMIT');
     expect(button).toBeInTheDocument();
@@ -51,6 +51,6 @@ describe('components/forms/Form', () => {
       fireEvent.click(button);
     });
 
-    expect(onSubmit).toBeCalledTimes(1);
+    expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });

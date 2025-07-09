@@ -34,18 +34,18 @@ describe('hooks/useSearch', () => {
       }),
     );
     expect(result.current.query).toEqual('');
-    expect(onSearch).not.toBeCalled();
+    expect(onSearch).not.toHaveBeenCalled();
 
     act(() => {
       result.current.search('QUERY');
     });
 
     await waitFor(() => {
-      expect(onSearch).toBeCalledTimes(1);
+      expect(onSearch).toHaveBeenCalledTimes(1);
     });
 
     expect(result.current.query).toEqual('QUERY');
-    expect(onSearch).toBeCalledWith('QUERY');
+    expect(onSearch).toHaveBeenCalledWith('QUERY');
   });
 
   it('should force-search given query', async () => {
@@ -57,18 +57,18 @@ describe('hooks/useSearch', () => {
       }),
     );
     expect(result.current.query).toEqual('');
-    expect(onSearch).not.toBeCalled();
+    expect(onSearch).not.toHaveBeenCalled();
 
     act(() => {
       result.current.search('QUERY', true); // forced search
     });
 
     await waitFor(() => {
-      expect(onSearch).toBeCalledTimes(1);
+      expect(onSearch).toHaveBeenCalledTimes(1);
     });
 
     expect(result.current.query).toEqual('QUERY');
-    expect(onSearch).toBeCalledWith('QUERY');
+    expect(onSearch).toHaveBeenCalledWith('QUERY');
   });
 
   it('should callback only once on fast serial search', async () => {
@@ -80,7 +80,7 @@ describe('hooks/useSearch', () => {
       }),
     );
     expect(result.current.query).toEqual('');
-    expect(onSearch).not.toBeCalled();
+    expect(onSearch).not.toHaveBeenCalled();
 
     act(() => {
       result.current.search('QUERY 1');
@@ -91,11 +91,11 @@ describe('hooks/useSearch', () => {
     });
 
     await waitFor(() => {
-      expect(onSearch).toBeCalledTimes(1);
+      expect(onSearch).toHaveBeenCalledTimes(1);
     });
 
     expect(result.current.query).toEqual('QUERY 5');
-    expect(onSearch).toBeCalledWith('QUERY 5');
+    expect(onSearch).toHaveBeenCalledWith('QUERY 5');
   });
 
   it('should clear searched query', async () => {
@@ -107,17 +107,17 @@ describe('hooks/useSearch', () => {
       }),
     );
     expect(result.current.query).toEqual('');
-    expect(onSearch).not.toBeCalled();
+    expect(onSearch).not.toHaveBeenCalled();
 
     act(() => {
       result.current.clear();
     });
 
     await waitFor(() => {
-      expect(onSearch).toBeCalledTimes(1);
+      expect(onSearch).toHaveBeenCalledTimes(1);
     });
 
     expect(result.current.query).toEqual('');
-    expect(onSearch).toBeCalledWith('');
+    expect(onSearch).toHaveBeenCalledWith('');
   });
 });

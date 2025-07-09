@@ -109,17 +109,17 @@ describe('hooks/useForm', () => {
         onSubmitError,
       }),
     );
-    expect(onSubmit).toBeCalledTimes(0);
-    expect(onSubmitError).toBeCalledTimes(0);
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+    expect(onSubmitError).toHaveBeenCalledTimes(0);
 
     act(() => {
       result.current.submit();
     });
 
-    expect(onSubmit).toBeCalledTimes(1);
-    expect(onSubmit).toBeCalledWith({ x: 1, y: 'A' });
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+    expect(onSubmit).toHaveBeenCalledWith({ x: 1, y: 'A' });
 
-    expect(onSubmitError).toBeCalledTimes(0);
+    expect(onSubmitError).toHaveBeenCalledTimes(0);
     expect(result.current.isModified).toEqual(false);
   });
 
@@ -137,16 +137,16 @@ describe('hooks/useForm', () => {
         onSubmitError,
       }),
     );
-    expect(onSubmit).toBeCalledTimes(0);
-    expect(onSubmitError).toBeCalledTimes(0);
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+    expect(onSubmitError).toHaveBeenCalledTimes(0);
     expect(result.current.isModified).toEqual(false);
 
     act(() => {
       result.current.submit();
     });
 
-    expect(onSubmit).toBeCalledTimes(0);
-    expect(onSubmitError).toBeCalledTimes(1);
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+    expect(onSubmitError).toHaveBeenCalledTimes(1);
     expect(result.current.isModified).toEqual(false);
     expect(result.current.errors).toEqual({ x: 'ERROR', y: null });
   });

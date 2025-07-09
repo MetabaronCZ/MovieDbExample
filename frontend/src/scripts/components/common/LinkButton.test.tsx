@@ -42,7 +42,7 @@ describe('components/common/LinkButton', () => {
       <LinkButton onClick={onClick}>CONTENT</LinkButton>,
       { wrapper: TestComponentWrapper },
     );
-    expect(onClick).not.toBeCalled();
+    expect(onClick).not.toHaveBeenCalled();
 
     const button = getByRole(container, 'button');
     expect(button).toBeInTheDocument();
@@ -51,6 +51,6 @@ describe('components/common/LinkButton', () => {
     act(() => {
       fireEvent.click(button);
     });
-    expect(onClick).toBeCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

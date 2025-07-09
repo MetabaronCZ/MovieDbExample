@@ -64,7 +64,9 @@ describe('hooks/usePaging', () => {
   });
 
   it('should be able to change perPage value', async () => {
-    const onPerPage = jest.fn(() => Promise.resolve());
+    const onPerPage = jest.fn<(perPage: number) => Promise<void>>(() => {
+      return Promise.resolve();
+    });
 
     const pagingConfig: PagingConfig<number> = {
       perPage: 5,
@@ -74,7 +76,7 @@ describe('hooks/usePaging', () => {
       onPerPage,
     };
     const { result } = renderHook(() => usePaging(pagingConfig));
-    expect(onPerPage).not.toBeCalled();
+    expect(onPerPage).not.toHaveBeenCalled();
 
     expect(result.current.perPage).toEqual(5);
 
@@ -83,12 +85,14 @@ describe('hooks/usePaging', () => {
     });
 
     expect(result.current.perPage).toEqual(10);
-    expect(onPerPage).toBeCalledTimes(1);
-    expect(onPerPage).toBeCalledWith(10);
+    expect(onPerPage).toHaveBeenCalledTimes(1);
+    expect(onPerPage).toHaveBeenCalledWith(10);
   });
 
   it('should be able to navigate pages', async () => {
-    const onPage = jest.fn(() => Promise.resolve());
+    const onPage = jest.fn<(page: number, perPage: number) => Promise<void>>(
+      () => Promise.resolve(),
+    );
 
     const pagingConfig: PagingConfig<number> = {
       perPage: 3,
@@ -98,7 +102,7 @@ describe('hooks/usePaging', () => {
       onPerPage: () => Promise.resolve(),
     };
     const { result } = renderHook(() => usePaging(pagingConfig));
-    expect(onPage).not.toBeCalled();
+    expect(onPage).not.toHaveBeenCalled();
     expect(result.current.page).toEqual(0);
     expect(result.current.lastPage).toEqual(3);
 
@@ -106,7 +110,7 @@ describe('hooks/usePaging', () => {
     await act(async () => {
       await result.current.gotoPrev();
     });
-    expect(onPage).toBeCalledTimes(0);
+    expect(onPage).toHaveBeenCalledTimes(0);
     expect(result.current.page).toEqual(0);
     expect(result.current.from).toEqual(0);
     expect(result.current.to).toEqual(3);
@@ -115,8 +119,8 @@ describe('hooks/usePaging', () => {
     await act(async () => {
       await result.current.gotoNext();
     });
-    expect(onPage).toBeCalledTimes(1);
-    expect(onPage).lastCalledWith(1, 3);
+    expect(onPage).toHaveBeenCalledTimes(1);
+    expect(onPage).toHaveBeenLastCalledWith(1, 3);
     expect(result.current.page).toEqual(1);
     expect(result.current.from).toEqual(3);
     expect(result.current.to).toEqual(6);
@@ -124,8 +128,8 @@ describe('hooks/usePaging', () => {
     await act(async () => {
       await result.current.gotoNext();
     });
-    expect(onPage).toBeCalledTimes(2);
-    expect(onPage).lastCalledWith(2, 3);
+    expect(onPage).toHaveBeenCalledTimes(2);
+    expect(onPage).toHaveBeenLastCalledWith(2, 3);
     expect(result.current.page).toEqual(2);
     expect(result.current.from).toEqual(6);
     expect(result.current.to).toEqual(9);
@@ -133,8 +137,8 @@ describe('hooks/usePaging', () => {
     await act(async () => {
       await result.current.gotoNext();
     });
-    expect(onPage).toBeCalledTimes(3);
-    expect(onPage).lastCalledWith(3, 3);
+    expect(onPage).toHaveBeenCalledTimes(3);
+    expect(onPage).toHaveBeenLastCalledWith(3, 3);
     expect(result.current.page).toEqual(3);
     expect(result.current.from).toEqual(9);
     expect(result.current.to).toEqual(10);
@@ -143,29 +147,33 @@ describe('hooks/usePaging', () => {
     await act(async () => {
       await result.current.gotoNext();
     });
-    expect(onPage).toBeCalledTimes(3);
+    expect(onPage).toHaveBeenCalledTimes(3);
     expect(result.current.page).toEqual(3);
 
     // got to first page
     await act(async () => {
       await result.current.gotoFirst();
     });
-    expect(onPage).toBeCalledTimes(4);
-    expect(onPage).lastCalledWith(0, 3);
+    expect(onPage).toHaveBeenCalledTimes(4);
+    expect(onPage).toHaveBeenLastCalledWith(0, 3);
     expect(result.current.page).toEqual(0);
 
     // got to last page
     await act(async () => {
       await result.current.gotoLast();
     });
-    expect(onPage).toBeCalledTimes(5);
-    expect(onPage).lastCalledWith(3, 3);
+    expect(onPage).toHaveBeenCalledTimes(5);
+    expect(onPage).toHaveBeenLastCalledWith(3, 3);
     expect(result.current.page).toEqual(3);
   });
 
   it('should set page to zero when perPage changes', async () => {
-    const onPage = jest.fn(() => Promise.resolve());
-    const onPerPage = jest.fn(() => Promise.resolve());
+    const onPage = jest.fn<(page: number, perPage: number) => Promise<void>>(
+      () => Promise.resolve(),
+    );
+    const onPerPage = jest.fn<(perPage: number) => Promise<void>>(() => {
+      return Promise.resolve();
+    });
 
     const pagingConfig: PagingConfig<number> = {
       perPage: 3,
@@ -175,26 +183,26 @@ describe('hooks/usePaging', () => {
       onPerPage,
     };
     const { result } = renderHook(() => usePaging(pagingConfig));
-    expect(onPage).not.toBeCalled();
-    expect(onPerPage).not.toBeCalled();
+    expect(onPage).not.toHaveBeenCalled();
+    expect(onPerPage).not.toHaveBeenCalled();
     expect(result.current.page).toEqual(0);
 
     // got to next page
     await act(async () => {
       await result.current.gotoNext();
     });
-    expect(onPage).toBeCalledTimes(1);
-    expect(onPage).toBeCalledWith(1, 3);
-    expect(onPerPage).not.toBeCalled();
+    expect(onPage).toHaveBeenCalledTimes(1);
+    expect(onPage).toHaveBeenCalledWith(1, 3);
+    expect(onPerPage).not.toHaveBeenCalled();
     expect(result.current.page).toEqual(1);
 
     // change paging
     await act(async () => {
       await result.current.setPerPage(4);
     });
-    expect(onPage).toBeCalledTimes(1);
-    expect(onPerPage).toBeCalledTimes(1);
-    expect(onPerPage).toBeCalledWith(4);
+    expect(onPage).toHaveBeenCalledTimes(1);
+    expect(onPerPage).toHaveBeenCalledTimes(1);
+    expect(onPerPage).toHaveBeenCalledWith(4);
     expect(result.current.page).toEqual(0);
   });
 });

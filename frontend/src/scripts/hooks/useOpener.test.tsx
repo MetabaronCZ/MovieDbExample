@@ -24,14 +24,14 @@ describe('hooks/useOpener', () => {
     const onClose = jest.fn();
 
     const { result } = renderHook(() => useOpener({ onClose }));
-    expect(onClose).toBeCalledTimes(0);
+    expect(onClose).toHaveBeenCalledTimes(0);
     expect(result.current.opened).toEqual(false);
 
     // open
     act(() => {
       result.current.open();
     });
-    expect(onClose).toBeCalledTimes(0);
+    expect(onClose).toHaveBeenCalledTimes(0);
     expect(result.current.opened).toEqual(true);
   });
 
@@ -39,21 +39,21 @@ describe('hooks/useOpener', () => {
     const onClose = jest.fn();
 
     const { result } = renderHook(() => useOpener({ onClose }));
-    expect(onClose).toBeCalledTimes(0);
+    expect(onClose).toHaveBeenCalledTimes(0);
     expect(result.current.opened).toEqual(false);
 
     // open
     act(() => {
       result.current.open();
     });
-    expect(onClose).toBeCalledTimes(0);
+    expect(onClose).toHaveBeenCalledTimes(0);
     expect(result.current.opened).toEqual(true);
 
     // close
     act(() => {
       result.current.close();
     });
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
     expect(result.current.opened).toEqual(false);
   });
 
@@ -61,35 +61,35 @@ describe('hooks/useOpener', () => {
     const onClose = jest.fn();
 
     const { result } = renderHook(() => useOpener({ onClose }));
-    expect(onClose).toBeCalledTimes(0);
+    expect(onClose).toHaveBeenCalledTimes(0);
     expect(result.current.opened).toEqual(false);
 
     // toggle (open)
     act(() => {
       result.current.toggle();
     });
-    expect(onClose).toBeCalledTimes(0);
+    expect(onClose).toHaveBeenCalledTimes(0);
     expect(result.current.opened).toEqual(true);
 
     // toggle (close)
     act(() => {
       result.current.toggle();
     });
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
     expect(result.current.opened).toEqual(false);
 
     // toggle (open)
     act(() => {
       result.current.toggle();
     });
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
     expect(result.current.opened).toEqual(true);
 
     // toggle (close)
     act(() => {
       result.current.toggle();
     });
-    expect(onClose).toBeCalledTimes(2);
+    expect(onClose).toHaveBeenCalledTimes(2);
     expect(result.current.opened).toEqual(false);
   });
 
@@ -97,7 +97,7 @@ describe('hooks/useOpener', () => {
     const onClose = jest.fn();
 
     const { result } = renderHook(() => useOpener({ onClose }));
-    expect(onClose).toBeCalledTimes(0);
+    expect(onClose).toHaveBeenCalledTimes(0);
     expect(result.current.opened).toEqual(false);
 
     // open
@@ -110,7 +110,7 @@ describe('hooks/useOpener', () => {
     act(() => {
       fireEvent.keyUp(document, { key: 'Escape' });
     });
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
     expect(result.current.opened).toEqual(false);
   });
 
@@ -118,7 +118,7 @@ describe('hooks/useOpener', () => {
     const onClose = jest.fn();
 
     const { result } = renderHook(() => useOpener({ onClose }));
-    expect(onClose).toBeCalledTimes(0);
+    expect(onClose).toHaveBeenCalledTimes(0);
     expect(result.current.opened).toEqual(false);
 
     // open
@@ -135,7 +135,7 @@ describe('hooks/useOpener', () => {
       fireEvent.keyUp(document, { key: '' });
       fireEvent.keyUp(document);
     });
-    expect(onClose).toBeCalledTimes(0);
+    expect(onClose).toHaveBeenCalledTimes(0);
     expect(result.current.opened).toEqual(true);
   });
 
@@ -151,7 +151,7 @@ describe('hooks/useOpener', () => {
         </div>
       </div>,
     );
-    expect(onClose).toBeCalledTimes(0);
+    expect(onClose).toHaveBeenCalledTimes(0);
     expect(result.current.opened).toEqual(false);
 
     // open
@@ -165,7 +165,7 @@ describe('hooks/useOpener', () => {
       const outer = getByTestId(container, 'outer');
       fireEvent.mouseUp(outer);
     });
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
     expect(result.current.opened).toEqual(false);
 
     // open
@@ -179,7 +179,7 @@ describe('hooks/useOpener', () => {
       const handle = getByTestId(container, 'handle');
       fireEvent.mouseUp(handle);
     });
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
     expect(result.current.opened).toEqual(true);
 
     // click inside container (should keep opened)
@@ -187,14 +187,14 @@ describe('hooks/useOpener', () => {
       const inner = getByTestId(container, 'inner');
       fireEvent.mouseUp(inner);
     });
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
     expect(result.current.opened).toEqual(true);
 
     // click on document (should close)
     act(() => {
       fireEvent.mouseUp(document);
     });
-    expect(onClose).toBeCalledTimes(2);
+    expect(onClose).toHaveBeenCalledTimes(2);
     expect(result.current.opened).toEqual(false);
   });
 
@@ -212,7 +212,7 @@ describe('hooks/useOpener', () => {
         </div>
       </div>,
     );
-    expect(onClose).toBeCalledTimes(0);
+    expect(onClose).toHaveBeenCalledTimes(0);
     expect(result.current.opened).toEqual(false);
 
     // open
@@ -226,7 +226,7 @@ describe('hooks/useOpener', () => {
       const outer = getByTestId(container, 'outer');
       fireEvent.focusOut(document, { relatedTarget: outer });
     });
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
     expect(result.current.opened).toEqual(false);
 
     // open
@@ -240,7 +240,7 @@ describe('hooks/useOpener', () => {
       const handle = getByTestId(container, 'handle');
       fireEvent.focusOut(document, { relatedTarget: handle });
     });
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
     expect(result.current.opened).toEqual(true);
 
     // focus inside of container (should keep opened)
@@ -248,14 +248,14 @@ describe('hooks/useOpener', () => {
       const inner = getByTestId(container, 'inner');
       fireEvent.focusOut(document, { relatedTarget: inner });
     });
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
     expect(result.current.opened).toEqual(true);
 
     // focus out (should keep opened)
     act(() => {
       fireEvent.focusOut(document, { relatedTarget: null });
     });
-    expect(onClose).toBeCalledTimes(1);
+    expect(onClose).toHaveBeenCalledTimes(1);
     expect(result.current.opened).toEqual(true);
   });
 });

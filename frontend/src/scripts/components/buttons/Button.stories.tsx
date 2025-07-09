@@ -1,5 +1,5 @@
-import { action } from '@storybook/addon-actions';
-import type { Meta, StoryObj } from '@storybook/react';
+import { action } from 'storybook/actions';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { Button } from './Button';
 import { Grid } from 'components/common/Grid';
@@ -16,7 +16,6 @@ const meta: Meta<typeof Button> = {
 export default meta;
 
 export const DefaultButton: StoryObj<typeof Button> = {
-  name: 'Default Button',
   render: () => <Button text="Button" onClick={action('Clicked!')} />,
 };
 

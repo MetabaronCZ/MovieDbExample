@@ -26,7 +26,7 @@
     "./src/scripts",
     "./webpack.config.ts",
     "./jest.config.ts",
-    "./.storybook/preview.tsx"
+    ".storybook/preview.tsx"
   ],
   "exclude": ["node_modules", "build", "coverage"]
 }

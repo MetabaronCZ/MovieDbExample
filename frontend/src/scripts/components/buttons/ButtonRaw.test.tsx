@@ -50,7 +50,7 @@ describe('components/button/ButtonRaw', () => {
       <ButtonRaw onClick={onClick}>CONTENT</ButtonRaw>,
       { wrapper: TestComponentWrapper },
     );
-    expect(onClick).not.toBeCalled();
+    expect(onClick).not.toHaveBeenCalled();
 
     const button = getByRole(container, 'button');
     expect(button).toBeInTheDocument();
@@ -59,7 +59,7 @@ describe('components/button/ButtonRaw', () => {
     act(() => {
       fireEvent.click(button);
     });
-    expect(onClick).toBeCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should not be clickable when disabled', async () => {
@@ -71,7 +71,7 @@ describe('components/button/ButtonRaw', () => {
       </ButtonRaw>,
       { wrapper: TestComponentWrapper },
     );
-    expect(onClick).not.toBeCalled();
+    expect(onClick).not.toHaveBeenCalled();
 
     const button = getByRole(container, 'button');
     expect(button).toBeInTheDocument();
@@ -80,6 +80,6 @@ describe('components/button/ButtonRaw', () => {
     act(() => {
       fireEvent.click(button);
     });
-    expect(onClick).not.toBeCalled();
+    expect(onClick).not.toHaveBeenCalled();
   });
 });

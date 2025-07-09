@@ -2,7 +2,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { QueryClientProvider } from '@tanstack/react-query';
 
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-webpack5';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 
 import { theme } from '../src/scripts/modules/theme';

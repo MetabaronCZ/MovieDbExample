@@ -272,7 +272,9 @@ describe('components/common/Paging', () => {
   });
 
   it('should contain perPage select', async () => {
-    const onPerPage = jest.fn(() => Promise.resolve());
+    const onPerPage = jest.fn<(perPage: number) => Promise<void>>(() => {
+      return Promise.resolve();
+    });
 
     const { container } = await waitForComponent(
       <PagingWrapper
@@ -286,7 +288,7 @@ describe('components/common/Paging', () => {
       />,
     );
     expect(container).toMatchSnapshot();
-    expect(onPerPage).not.toBeCalled();
+    expect(onPerPage).not.toHaveBeenCalled();
 
     const pagingLabel = getByText(container, 'Stránkování');
     const htmlFor = pagingLabel.getAttribute('for') ?? '';
@@ -326,7 +328,7 @@ describe('components/common/Paging', () => {
       fireEvent.click(items[2]);
       await flushPromises();
     });
-    expect(onPerPage).toBeCalledTimes(1);
-    expect(onPerPage).toBeCalledWith(9);
+    expect(onPerPage).toHaveBeenCalledTimes(1);
+    expect(onPerPage).toHaveBeenCalledWith(9);
   });
 });

@@ -3,6 +3,7 @@ import globals from 'globals';
 import eslint from '@eslint/js';
 import react from 'eslint-plugin-react';
 import tseslint from 'typescript-eslint';
+import storybook from 'eslint-plugin-storybook';
 import reactHooks from 'eslint-plugin-react-hooks';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
@@ -114,4 +115,7 @@ export default tseslint.config(
 
   // Prettier
   eslintPluginPrettierRecommended,
+
+  // Storybook
+  storybook.configs['flat/recommended'],
 );

@@ -121,7 +121,7 @@ describe('components/forms/Select', () => {
       />,
       { wrapper: TestComponentWrapper },
     );
-    expect(onSelect).not.toBeCalled();
+    expect(onSelect).not.toHaveBeenCalled();
 
     const handle = getByRole(container, 'button');
     expect(handle).toHaveTextContent('Item 1'); // Item 1 selected
@@ -137,8 +137,8 @@ describe('components/forms/Select', () => {
     act(() => {
       fireEvent.click(items[1]);
     });
-    expect(onSelect).toBeCalledTimes(1);
-    expect(onSelect).toBeCalledWith(2); // Item 2 value
+    expect(onSelect).toHaveBeenCalledTimes(1);
+    expect(onSelect).toHaveBeenCalledWith(2); // Item 2 value
 
     // Select is closed after selection
     expect(queryByRole(container, 'list')).toEqual(null);

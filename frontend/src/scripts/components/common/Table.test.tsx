@@ -141,7 +141,7 @@ describe('components/common/Table', () => {
       { wrapper: TestComponentWrapper },
     );
     expect(container).toMatchSnapshot();
-    expect(onSort).not.toBeCalled();
+    expect(onSort).not.toHaveBeenCalled();
 
     const header1 = getByText(container, 'Column X');
     expect(header1).toBeInTheDocument();
@@ -157,15 +157,15 @@ describe('components/common/Table', () => {
         fireEvent.click(button1);
       }
     });
-    expect(onSort).toBeCalledTimes(1);
-    expect(onSort).toBeCalledWith('x', 'descending');
+    expect(onSort).toHaveBeenCalledTimes(1);
+    expect(onSort).toHaveBeenCalledWith('x', 'descending');
 
     act(() => {
       if (button2) {
         fireEvent.click(button2);
       }
     });
-    expect(onSort).toBeCalledTimes(2);
-    expect(onSort).toBeCalledWith('y', 'ascending');
+    expect(onSort).toHaveBeenCalledTimes(2);
+    expect(onSort).toHaveBeenCalledWith('y', 'ascending');
   });
 });

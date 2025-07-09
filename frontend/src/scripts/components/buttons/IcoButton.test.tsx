@@ -27,7 +27,7 @@ describe('components/button/Button', () => {
       <IcoButton ico="cross" onClick={onClick} />,
       { wrapper: TestComponentWrapper },
     );
-    expect(onClick).not.toBeCalled();
+    expect(onClick).not.toHaveBeenCalled();
 
     const button = getByRole(container, 'button');
     expect(button).toBeInTheDocument();
@@ -36,7 +36,7 @@ describe('components/button/Button', () => {
     act(() => {
       fireEvent.click(button);
     });
-    expect(onClick).toBeCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should not be clickable when disabled', async () => {
@@ -46,7 +46,7 @@ describe('components/button/Button', () => {
       <IcoButton ico="cross" onClick={onClick} disabled />,
       { wrapper: TestComponentWrapper },
     );
-    expect(onClick).not.toBeCalled();
+    expect(onClick).not.toHaveBeenCalled();
 
     const button = getByRole(container, 'button');
     expect(button).toBeInTheDocument();
@@ -55,6 +55,6 @@ describe('components/button/Button', () => {
     act(() => {
       fireEvent.click(button);
     });
-    expect(onClick).not.toBeCalled();
+    expect(onClick).not.toHaveBeenCalled();
   });
 });
