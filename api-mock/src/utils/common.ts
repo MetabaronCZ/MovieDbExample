@@ -1,4 +1,4 @@
-import { Request } from 'express';
+import { Request, Response } from 'express';
 
 export type QueryParam = Request['query'][number];
 export type Query = Record<string, QueryParam>;
@@ -31,4 +31,14 @@ export const getObjectEntries = <T extends Record<string, unknown>>(
   obj: T,
 ): Entries<T> => {
   return Object.entries(obj) as Entries<T>;
+};
+
+// handle response error
+export const handleError = (
+  res: Response,
+  error: unknown,
+  message?: string,
+): void => {
+  console.error(error);
+  res.status(500).json({ error: message });
 };

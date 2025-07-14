@@ -12,6 +12,7 @@ interface StyledProps {
   readonly $orientation: GridOrientation;
   readonly $align?: GridAlign;
   readonly $justify?: GridJustify;
+  readonly $flex?: number;
   readonly $gap: number;
   readonly $wrap: boolean;
 }
@@ -21,6 +22,7 @@ const Container = styled.div<StyledProps>`
   flex-direction: ${({ $orientation }) =>
     'vertical' === $orientation ? 'column' : 'row'};
   flex-wrap: ${({ $wrap }) => ($wrap ? 'wrap' : '')};
+  flex: ${({ $flex }) => $flex ?? ''};
   gap: ${({ $gap }) => toVU($gap)};
   align-items: ${({ $align }) => $align};
   justify-content: ${({ $justify }) => $justify};
@@ -33,6 +35,7 @@ interface Props extends PropsWithChildren {
   readonly orientation?: GridOrientation;
   readonly align?: GridAlign;
   readonly justify?: GridJustify;
+  readonly flex?: number;
   readonly gap?: number;
   readonly wrap?: boolean;
   readonly style?: CSSProperties;
@@ -43,6 +46,7 @@ export const Grid: FC<Props> = ({
   className,
   component,
   orientation = 'horizontal',
+  flex,
   gap = 2,
   align,
   justify,
@@ -57,6 +61,7 @@ export const Grid: FC<Props> = ({
     $orientation={orientation}
     $align={align}
     $justify={justify}
+    $flex={flex}
     $gap={gap}
     $wrap={wrap}
     style={style}

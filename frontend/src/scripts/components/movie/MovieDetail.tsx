@@ -39,7 +39,7 @@ const getMovieData = (t: TFunction, movie: Movie): MovieDataItem[] => [
   { title: t('movie.titleCs'), value: movie.titleCs || '-' },
   { title: t('movie.titleOriginal'), value: movie.titleOriginal || '-' },
   { title: t('movie.year'), value: `${movie.year ?? '-'}` },
-  { title: t('movie.score'), value: formatScore(movie.score) },
+  { title: t('movie.score'), value: formatScore(movie.score, true) },
   {
     title: t('movie.genre'),
     value: formatArray(movie.genres.map((item) => t(`genre.${item}`))),

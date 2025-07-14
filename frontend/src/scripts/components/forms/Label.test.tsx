@@ -31,4 +31,12 @@ describe('components/forms/Label', () => {
     const asterisk = label.querySelector('span');
     expect(asterisk).toBeInTheDocument();
   });
+
+  it('should render compact variant', async () => {
+    const { container } = await waitForComponent(
+      <Label label="CONTENT" compact />,
+      { wrapper: TestComponentWrapper },
+    );
+    expect(container).toMatchSnapshot();
+  });
 });

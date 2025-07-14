@@ -40,19 +40,35 @@ describe('modules/movie', () => {
 
   describe('#formatScore', () => {
     it('should format movie score value', () => {
-      expect(formatScore(0)).toEqual('0 / 10');
-      expect(formatScore(1)).toEqual('1 / 10');
-      expect(formatScore(2)).toEqual('2 / 10');
-      expect(formatScore(9)).toEqual('9 / 10');
-      expect(formatScore(10)).toEqual('10 / 10');
+      expect(formatScore(0)).toEqual('0');
+      expect(formatScore(1)).toEqual('1');
+      expect(formatScore(2)).toEqual('2');
+      expect(formatScore(9)).toEqual('9');
+      expect(formatScore(10)).toEqual('10');
 
-      expect(formatScore(0.1)).toEqual('0.1 / 10');
-      expect(formatScore(6.07)).toEqual('6.07 / 10');
+      expect(formatScore(0.1)).toEqual('0.1');
+      expect(formatScore(6.07)).toEqual('6.07');
 
       expect(formatScore(-1)).toEqual('-');
       expect(formatScore(11)).toEqual('-');
 
       expect(formatScore(null)).toEqual('-');
+    });
+
+    it('should full-format movie score value', () => {
+      expect(formatScore(0, true)).toEqual('0 / 10');
+      expect(formatScore(1, true)).toEqual('1 / 10');
+      expect(formatScore(2, true)).toEqual('2 / 10');
+      expect(formatScore(9, true)).toEqual('9 / 10');
+      expect(formatScore(10, true)).toEqual('10 / 10');
+
+      expect(formatScore(0.1, true)).toEqual('0.1 / 10');
+      expect(formatScore(6.07, true)).toEqual('6.07 / 10');
+
+      expect(formatScore(-1, true)).toEqual('-');
+      expect(formatScore(11, true)).toEqual('-');
+
+      expect(formatScore(null, true)).toEqual('-');
     });
   });
 

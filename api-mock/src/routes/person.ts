@@ -1,7 +1,7 @@
 import express from 'express';
 
-import { requestDelay } from 'utils/common';
 import { parsePersonFilter } from 'utils/person';
+import { handleError, requestDelay } from 'utils/common';
 
 export const peopleRouter = express.Router();
 
@@ -15,7 +15,7 @@ peopleRouter.get('/', (req, res) => {
       const response = db.person.getList(filter);
       res.json(response);
     } catch (error) {
-      res.status(500).json({ error });
+      handleError(res, error, 'Error getting people list!');
     }
   });
 });
@@ -35,7 +35,7 @@ peopleRouter.get('/:id', (req, res) => {
         res.json(person);
       }
     } catch (error) {
-      res.status(500).json({ error });
+      handleError(res, error, 'Error getting preson data!');
     }
   });
 });

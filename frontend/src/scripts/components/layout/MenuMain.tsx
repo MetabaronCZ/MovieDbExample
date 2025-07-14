@@ -9,16 +9,18 @@ import { paths } from 'modules/paths';
 
 import { Text } from 'components/Typography';
 import { Grid } from 'components/common/Grid';
+import { Ico, IcoId } from 'components/common/Ico';
 
 interface MenuItem {
   readonly title: string;
   readonly url: string;
+  readonly ico?: IcoId;
 }
 
 const getMenuItems = (t: TFunction): MenuItem[] => [
-  { title: t('page.home'), url: paths.HOME },
-  { title: t('page.movieList'), url: paths.MOVIE_LIST },
-  { title: t('page.personList'), url: paths.PERSON_LIST },
+  { title: t('page.home'), url: paths.HOME, ico: 'home' },
+  { title: t('page.movieList'), url: paths.MOVIE_LIST, ico: 'film' },
+  { title: t('page.personList'), url: paths.PERSON_LIST, ico: 'user' },
 ];
 
 const isActiveMenuItem = (path: string): boolean => {
@@ -26,10 +28,6 @@ const isActiveMenuItem = (path: string): boolean => {
     ? location.pathname === path
     : location.pathname.startsWith(path);
 };
-
-const Container = styled(Grid)`
-  flex: 1;
-`;
 
 const List = styled.ul`
   list-style-type: none;
@@ -48,7 +46,10 @@ interface StyledProps {
 
 const MenuLink = styled(RouterLink)<StyledProps>`
   ${Text.Base};
-  display: block;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: ${toVU(1)};
   padding: ${toVU(1)} ${toVU(2)};
   color: ${({ theme, $active }) =>
     $active ? theme.color.base : theme.color.background};
@@ -72,16 +73,17 @@ export const MenuMain: FC = () => {
   const { t } = useTranslation();
   const items = getMenuItems(t);
   return (
-    <Container component="nav">
+    <Grid component="nav" flex={1}>
       <List>
-        {items.map(({ title, url }, i) => (
+        {items.map(({ title, url, ico }, i) => (
           <ListItem key={i}>
             <MenuLink to={url} $active={isActiveMenuItem(url)}>
+              {!!ico && <Ico ico={ico} />}
               {title}
             </MenuLink>
           </ListItem>
         ))}
       </List>
-    </Container>
+    </Grid>
   );
 };

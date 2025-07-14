@@ -143,4 +143,42 @@ describe('components/forms/Select', () => {
     // Select is closed after selection
     expect(queryByRole(container, 'list')).toEqual(null);
   });
+
+  it('should not select disabled item', async () => {
+    const onSelect = jest.fn();
+
+    const { container } = await waitForComponent(
+      <Select
+        value={1}
+        options={[
+          { title: 'Item 1', value: 1 },
+          { title: 'Item 2', value: 2, disabled: true },
+        ]}
+        onSelect={onSelect}
+      />,
+      { wrapper: TestComponentWrapper },
+    );
+    expect(onSelect).not.toHaveBeenCalled();
+
+    const handle = getByRole(container, 'button');
+    expect(handle).toHaveTextContent('Item 1'); // Item 1 selected
+
+    // open Select by handle click
+    act(() => {
+      fireEvent.click(handle);
+    });
+    expect(container).toMatchSnapshot();
+
+    const list = getByRole(container, 'list');
+    const items = getAllByRole(list, 'button');
+
+    // click Item 2
+    act(() => {
+      fireEvent.click(items[1]);
+    });
+    expect(onSelect).not.toHaveBeenCalled();
+
+    // Select is not closed after selection
+    expect(getByRole(container, 'list')).toBeInTheDocument();
+  });
 });

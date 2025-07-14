@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`components/common/Table should render error state 1`] = `
 .c0 {
@@ -13,14 +13,21 @@ exports[`components/common/Table should render error state 1`] = `
   gap: 16px;
 }
 
-.c6 {
+.c3 {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 16px;
+}
+
+.c7 {
   font-family: Tahoma,Verdana,Arial,sans-serif;
   font-size: 14px;
   line-height: 24px;
   color: #002d56;
 }
 
-.c5 {
+.c6 {
   font-family: Tahoma,Verdana,Arial,sans-serif;
   font-size: 14px;
   line-height: 24px;
@@ -33,27 +40,26 @@ exports[`components/common/Table should render error state 1`] = `
   border-bottom: 1px solid #dae0e3;
 }
 
-.c3 {
+.c4 {
   font-family: Tahoma,Verdana,Arial,sans-serif;
   font-size: 14px;
   line-height: 24px;
   color: #002d56;
-  flex: 1;
   min-width: 0;
   gap: 8px;
 }
 
-.c4 {
+.c5 {
   font-weight: 700;
   line-height: 32px;
 }
 
-.c7 {
+.c8 {
   font-style: italic;
   text-align: center;
 }
 
-.c8 {
+.c9 {
   color: #f00;
 }
 
@@ -65,26 +71,26 @@ exports[`components/common/Table should render error state 1`] = `
       class="c1 c2"
     >
       <div
-        class="c1 c3 c4"
+        class="c3 c4 c5"
       >
         <span
-          class="c5"
+          class="c6"
         >
           Column X
         </span>
       </div>
       <div
-        class="c1 c3 c4"
+        class="c3 c4 c5"
       >
         <span
-          class="c5"
+          class="c6"
         >
           Column Y
         </span>
       </div>
     </div>
     <p
-      class="c6 c7 c8"
+      class="c7 c8 c9"
     >
       Some error message!
     </p>
@@ -105,13 +111,20 @@ exports[`components/common/Table should render formatted values 1`] = `
   gap: 16px;
 }
 
-.c6 {
+.c3 {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 16px;
+}
+
+.c7 {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.c5 {
+.c6 {
   font-family: Tahoma,Verdana,Arial,sans-serif;
   font-size: 14px;
   line-height: 24px;
@@ -124,21 +137,20 @@ exports[`components/common/Table should render formatted values 1`] = `
   border-bottom: 1px solid #dae0e3;
 }
 
-.c7:hover {
+.c8:hover {
   background-color: #f2f7fa;
 }
 
-.c3 {
+.c4 {
   font-family: Tahoma,Verdana,Arial,sans-serif;
   font-size: 14px;
   line-height: 24px;
   color: #002d56;
-  flex: 1;
   min-width: 0;
   gap: 8px;
 }
 
-.c4 {
+.c5 {
   font-weight: 700;
   line-height: 32px;
 }
@@ -151,37 +163,37 @@ exports[`components/common/Table should render formatted values 1`] = `
       class="c1 c2"
     >
       <div
-        class="c1 c3 c4"
+        class="c3 c4 c5"
       >
         <span
-          class="c5"
+          class="c6"
         >
           Column X
         </span>
       </div>
       <div
-        class="c1 c3 c4"
+        class="c3 c4 c5"
       >
         <span
-          class="c5"
+          class="c6"
         >
           Column Y
         </span>
       </div>
     </div>
     <div
-      class="c6"
+      class="c7"
     >
       <div
-        class="c1 c7"
+        class="c1 c8"
       >
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           -Value A-
         </div>
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           1120
         </div>
@@ -204,7 +216,14 @@ exports[`components/common/Table should render loading state 1`] = `
   gap: 16px;
 }
 
-.c7 {
+.c4 {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 16px;
+}
+
+.c8 {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -215,7 +234,7 @@ exports[`components/common/Table should render loading state 1`] = `
   pointer-events: none;
 }
 
-.c6 {
+.c7 {
   font-family: Tahoma,Verdana,Arial,sans-serif;
   font-size: 14px;
   line-height: 24px;
@@ -228,21 +247,20 @@ exports[`components/common/Table should render loading state 1`] = `
   border-bottom: 1px solid #dae0e3;
 }
 
-.c8:hover {
+.c9:hover {
   background-color: #f2f7fa;
 }
 
-.c4 {
+.c5 {
   font-family: Tahoma,Verdana,Arial,sans-serif;
   font-size: 14px;
   line-height: 24px;
   color: #002d56;
-  flex: 1;
   min-width: 0;
   gap: 8px;
 }
 
-.c5 {
+.c6 {
   font-weight: 700;
   line-height: 32px;
 }
@@ -258,37 +276,37 @@ exports[`components/common/Table should render loading state 1`] = `
         class="c2 c3"
       >
         <div
-          class="c2 c4 c5"
+          class="c4 c5 c6"
         >
           <span
-            class="c6"
+            class="c7"
           >
             Column X
           </span>
         </div>
         <div
-          class="c2 c4 c5"
+          class="c4 c5 c6"
         >
           <span
-            class="c6"
+            class="c7"
           >
             Column Y
           </span>
         </div>
       </div>
       <div
-        class="c7"
+        class="c8"
       >
         <div
-          class="c2 c8"
+          class="c2 c9"
         >
           <div
-            class="c2 c4"
+            class="c4 c5"
           >
             Value A
           </div>
           <div
-            class="c2 c4"
+            class="c4 c5"
           >
             112
           </div>
@@ -312,13 +330,20 @@ exports[`components/common/Table should render properly 1`] = `
   gap: 16px;
 }
 
-.c6 {
+.c3 {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 16px;
+}
+
+.c7 {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.c5 {
+.c6 {
   font-family: Tahoma,Verdana,Arial,sans-serif;
   font-size: 14px;
   line-height: 24px;
@@ -331,21 +356,20 @@ exports[`components/common/Table should render properly 1`] = `
   border-bottom: 1px solid #dae0e3;
 }
 
-.c7:hover {
+.c8:hover {
   background-color: #f2f7fa;
 }
 
-.c3 {
+.c4 {
   font-family: Tahoma,Verdana,Arial,sans-serif;
   font-size: 14px;
   line-height: 24px;
   color: #002d56;
-  flex: 1;
   min-width: 0;
   gap: 8px;
 }
 
-.c4 {
+.c5 {
   font-weight: 700;
   line-height: 32px;
 }
@@ -358,65 +382,65 @@ exports[`components/common/Table should render properly 1`] = `
       class="c1 c2"
     >
       <div
-        class="c1 c3 c4"
+        class="c3 c4 c5"
       >
         <span
-          class="c5"
+          class="c6"
         >
           Column X
         </span>
       </div>
       <div
-        class="c1 c3 c4"
+        class="c3 c4 c5"
       >
         <span
-          class="c5"
+          class="c6"
         >
           Column Y
         </span>
       </div>
     </div>
     <div
-      class="c6"
+      class="c7"
     >
       <div
-        class="c1 c7"
+        class="c1 c8"
       >
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           Value A
         </div>
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           112
         </div>
       </div>
       <div
-        class="c1 c7"
+        class="c1 c8"
       >
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           Value B
         </div>
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           212
         </div>
       </div>
       <div
-        class="c1 c7"
+        class="c1 c8"
       >
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           Value C
         </div>
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           312
         </div>
@@ -439,19 +463,26 @@ exports[`components/common/Table should sort data 1`] = `
   gap: 16px;
 }
 
-.c8 {
+.c3 {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 16px;
+}
+
+.c9 {
   display: flex;
   flex-direction: column;
   gap: 0px;
 }
 
-.c11 {
+.c12 {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.c5 {
+.c6 {
   display: block;
   border: none;
   background: transparent;
@@ -459,20 +490,8 @@ exports[`components/common/Table should sort data 1`] = `
   cursor: pointer;
 }
 
-.c5:disabled {
+.c6:disabled {
   cursor: not-allowed;
-}
-
-.c9 {
-  position: relative;
-  width: 16px;
-  height: 8px;
-}
-
-.c9>svg {
-  position: absolute;
-  right: 0;
-  height: 16px;
 }
 
 .c10 {
@@ -484,20 +503,32 @@ exports[`components/common/Table should sort data 1`] = `
 .c10>svg {
   position: absolute;
   right: 0;
+  height: 16px;
+}
+
+.c11 {
+  position: relative;
+  width: 16px;
+  height: 8px;
+}
+
+.c11>svg {
+  position: absolute;
+  right: 0;
   bottom: 0;
   height: 16px;
 }
 
-.c6 {
+.c7 {
   display: flex;
   align-items: center;
 }
 
-.c6:focus {
+.c7:focus {
   outline: 1px dashed #002d56;
 }
 
-.c7 {
+.c8 {
   font-family: Tahoma,Verdana,Arial,sans-serif;
   font-size: 14px;
   line-height: 24px;
@@ -510,21 +541,20 @@ exports[`components/common/Table should sort data 1`] = `
   border-bottom: 1px solid #dae0e3;
 }
 
-.c12:hover {
+.c13:hover {
   background-color: #f2f7fa;
 }
 
-.c3 {
+.c4 {
   font-family: Tahoma,Verdana,Arial,sans-serif;
   font-size: 14px;
   line-height: 24px;
   color: #002d56;
-  flex: 1;
   min-width: 0;
   gap: 8px;
 }
 
-.c4 {
+.c5 {
   font-weight: 700;
   line-height: 32px;
 }
@@ -537,23 +567,23 @@ exports[`components/common/Table should sort data 1`] = `
       class="c1 c2"
     >
       <div
-        class="c1 c3 c4"
+        class="c3 c4 c5"
       >
         <button
-          class="c5 c6"
+          class="c6 c7"
           title="Seřadit sestupně"
           type="button"
         >
           <span
-            class="c7"
+            class="c8"
           >
             Column X
           </span>
           <div
-            class="c8"
+            class="c9"
           >
             <div
-              class="c9"
+              class="c10"
             >
               <svg
                 aria-hidden="true"
@@ -573,7 +603,7 @@ exports[`components/common/Table should sort data 1`] = `
               </svg>
             </div>
             <div
-              class="c10"
+              class="c11"
             >
               <svg
                 aria-hidden="true"
@@ -596,23 +626,23 @@ exports[`components/common/Table should sort data 1`] = `
         </button>
       </div>
       <div
-        class="c1 c3 c4"
+        class="c3 c4 c5"
       >
         <button
-          class="c5 c6"
+          class="c6 c7"
           title="Seřadit vzestupně"
           type="button"
         >
           <span
-            class="c7"
+            class="c8"
           >
             Column Y
           </span>
           <div
-            class="c8"
+            class="c9"
           >
             <div
-              class="c9"
+              class="c10"
             >
               <svg
                 aria-hidden="true"
@@ -632,7 +662,7 @@ exports[`components/common/Table should sort data 1`] = `
               </svg>
             </div>
             <div
-              class="c10"
+              class="c11"
             >
               <svg
                 aria-hidden="true"
@@ -656,46 +686,46 @@ exports[`components/common/Table should sort data 1`] = `
       </div>
     </div>
     <div
-      class="c11"
+      class="c12"
     >
       <div
-        class="c1 c12"
+        class="c1 c13"
       >
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           Value A
         </div>
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           112
         </div>
       </div>
       <div
-        class="c1 c12"
+        class="c1 c13"
       >
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           Value B
         </div>
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           212
         </div>
       </div>
       <div
-        class="c1 c12"
+        class="c1 c13"
       >
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           Value C
         </div>
         <div
-          class="c1 c3"
+          class="c3 c4"
         >
           312
         </div>

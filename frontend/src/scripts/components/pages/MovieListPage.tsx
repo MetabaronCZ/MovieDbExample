@@ -8,7 +8,7 @@ export const MovieListPage: FC = () => {
   const { t } = useTranslation();
   return (
     <Page title={t('page.movieList')} breadcrumbs={['movieList']}>
-      <MovieList />
+      <MovieList showFilter />
     </Page>
   );
 };

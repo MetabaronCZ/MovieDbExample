@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`components/common/Paging should contain perPage select 1`] = `
 .c3 {
@@ -95,6 +95,7 @@ exports[`components/common/Paging should contain perPage select 1`] = `
   display: flex;
   flex-direction: row;
   gap: 4px;
+  white-space: nowrap;
 }
 
 .c6 {
@@ -105,9 +106,10 @@ exports[`components/common/Paging should contain perPage select 1`] = `
 }
 
 .c7 {
+  position: relative;
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 8px;
   align-items: center;
   justify-content: start;
 }
@@ -265,7 +267,7 @@ exports[`components/common/Paging should contain perPage select 1`] = `
         class="c7"
       >
         <label
-          class="c8"
+          class="c8 "
           for="select-16"
         >
           Stránkování
@@ -402,6 +404,7 @@ exports[`components/common/Paging should render properly 1`] = `
   display: flex;
   flex-direction: row;
   gap: 4px;
+  white-space: nowrap;
 }
 
 .c6 {
@@ -412,9 +415,10 @@ exports[`components/common/Paging should render properly 1`] = `
 }
 
 .c7 {
+  position: relative;
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 8px;
   align-items: center;
   justify-content: start;
 }
@@ -572,7 +576,7 @@ exports[`components/common/Paging should render properly 1`] = `
         class="c7"
       >
         <label
-          class="c8"
+          class="c8 "
           for="select-1"
         >
           Stránkování

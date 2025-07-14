@@ -152,14 +152,18 @@ describe('hooks/useForm', () => {
   });
 
   it('should clear form data to initial state', () => {
+    const onClear = jest.fn();
+
     const { result } = renderHook(() =>
       useForm({
         initialValues: {
           x: 1,
           y: 'A',
         },
+        onClear,
       }),
     );
+    expect(onClear).toHaveBeenCalledTimes(0);
 
     // update values
     act(() => {
@@ -174,6 +178,9 @@ describe('hooks/useForm', () => {
     act(() => {
       result.current.clear();
     });
+    expect(onClear).toHaveBeenCalledTimes(1);
+    expect(onClear).toHaveBeenCalledWith({ x: 1, y: 'A' }); // initial values
+
     expect(result.current.values.x).toEqual(1);
     expect(result.current.values.y).toEqual('A');
     expect(result.current.isModified).toEqual(false);

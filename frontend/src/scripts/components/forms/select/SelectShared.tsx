@@ -8,6 +8,7 @@ export interface SelectOption<T> {
   readonly extra?: React.JSX.Element;
   readonly description?: string;
   readonly value: T;
+  readonly disabled?: boolean;
 }
 
 export interface SelectSearchProps<T> {

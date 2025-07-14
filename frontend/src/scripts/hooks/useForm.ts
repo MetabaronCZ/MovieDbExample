@@ -27,6 +27,7 @@ interface UseFormConfig<T extends FormData> {
   readonly validations?: Validations<T>;
   readonly onSubmit?: (data: T) => void;
   readonly onSubmitError?: () => void;
+  readonly onClear?: (data: T) => void;
 }
 
 interface UseForm<T extends FormData> {
@@ -144,7 +145,11 @@ export const useForm = <T extends FormData>(
   const clear = useCallback((): void => {
     setErrors({});
     setValues(initialValues);
-  }, [initialValues]);
+
+    if (config.onClear) {
+      config.onClear(initialValues);
+    }
+  }, [config, initialValues]);
 
   // sets current form data as initial
   const fixateData = useCallback((): void => {

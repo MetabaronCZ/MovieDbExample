@@ -9,6 +9,22 @@ import {
 
 import { createDataParser } from 'modules/parse';
 
+export const minYear = 1900;
+export const maxYear = 1999;
+
+export const movieYears = Array(maxYear - minYear + 1)
+  .fill(0)
+  .map((_, i) => minYear + i);
+
+export const minScore = 0.0;
+export const maxScore = 10.0;
+
+export const movieScores: number[] = [];
+
+for (let i = minScore; i <= maxScore; i = Math.round(10 * (i + 0.1)) / 10) {
+  movieScores.push(i);
+}
+
 export const getMovieTitle = (novie: Movie): string => {
   let title = novie.titleCs || novie.titleOriginal;
 
@@ -18,11 +34,11 @@ export const getMovieTitle = (novie: Movie): string => {
   return title;
 };
 
-export const formatScore = (value: number | null): string => {
-  if (null === value || value < 0 || value > 10) {
+export const formatScore = (value: number | null, showFull = false): string => {
+  if (null === value || value < minScore || value > maxScore) {
     return '-';
   }
-  return `${value} / 10`;
+  return showFull ? `${value} / ${maxScore}` : `${value}`;
 };
 
 export const formatMovieCount = (t: TFunction, count: number): string => {

@@ -1,6 +1,64 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`components/forms/FormField should render properly 1`] = `
+exports[`components/forms/FormField should render compact variant 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 12px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c3 {
+  position: absolute;
+  top: -8px;
+  left: 8px;
+  z-index: 1;
+  padding: 0 4px;
+  line-height: 16px;
+  background: #fff;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: start;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 c3"
+      >
+        LABEL
+      </label>
+      CONTENT
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/FormField should render error 1`] = `
 .c2 {
   font-family: Tahoma,Verdana,Arial,sans-serif;
   font-size: 14px;
@@ -9,6 +67,7 @@ exports[`components/forms/FormField should render properly 1`] = `
   display: flex;
   flex-direction: row;
   gap: 4px;
+  white-space: nowrap;
 }
 
 .c0 {
@@ -19,6 +78,172 @@ exports[`components/forms/FormField should render properly 1`] = `
 }
 
 .c1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+.c3 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  color: #f00;
+}
+
+<div>
+  <fieldset
+    class="c0"
+    data-invalid="true"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+      >
+        LABEL
+      </label>
+      CONTENT
+    </div>
+    <p
+      class="c3"
+    >
+      SOME-ERROR
+    </p>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/FormField should render horizontal-reverse variant 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 8px;
+  align-items: center;
+  justify-content: start;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+      >
+        LABEL
+      </label>
+      CONTENT
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/FormField should render info text 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+.c3 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  color: #98c3d9;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+      >
+        LABEL
+      </label>
+      CONTENT
+    </div>
+    <p
+      class="c3"
+    >
+      SOME-INFO
+    </p>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/FormField should render properly 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -34,9 +259,66 @@ exports[`components/forms/FormField should render properly 1`] = `
       class="c1"
     >
       <label
-        class="c2"
+        class="c2 "
         for="ID"
       >
+        LABEL
+      </label>
+      CONTENT
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/FormField should render required label 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c3 {
+  color: #f00;
+}
+
+.c3::after {
+  content: '*';
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+      >
+        <span
+          class="c3"
+        />
         LABEL
       </label>
       CONTENT
@@ -54,6 +336,7 @@ exports[`components/forms/FormField should render vertical variant 1`] = `
   display: flex;
   flex-direction: row;
   gap: 4px;
+  white-space: nowrap;
 }
 
 .c0 {
@@ -64,6 +347,7 @@ exports[`components/forms/FormField should render vertical variant 1`] = `
 }
 
 .c1 {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -79,7 +363,7 @@ exports[`components/forms/FormField should render vertical variant 1`] = `
       class="c1"
     >
       <label
-        class="c2"
+        class="c2 "
       >
         LABEL
       </label>

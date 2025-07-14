@@ -12,7 +12,7 @@ import { MenuMain } from 'components/layout/MenuMain';
 const Container = styled(Grid)`
   width: 100%;
   min-width: ${({ theme }) => theme.dimensions.page.minWidth};
-  min-height: 100vh;
+  height: 100vh;
   background: ${({ theme }) => theme.color.background};
 `;
 
@@ -20,6 +20,7 @@ const Sidebar = styled(Grid)`
   width: ${({ theme }) => theme.dimensions.sidebar.width};
   padding: ${toVU(2)} 0;
   background: ${({ theme }) => theme.color.base};
+  overflow-y: auto;
 `;
 
 export const Layout: FC<PropsWithChildren> = ({ children }) => (

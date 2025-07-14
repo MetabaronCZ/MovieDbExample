@@ -44,7 +44,6 @@ const TableRow = styled(Grid)`
 
 const TableColumn = styled(Grid)`
   ${Text.Base};
-  flex: 1;
   min-width: 0;
   gap: ${toVU(1)};
 `;
@@ -92,6 +91,7 @@ export const Table = <T,>({
           {columnItems.map(([id, column]) => (
             <TableHeader
               justify={column.align}
+              flex={1}
               style={getCellStyles(column)}
               key={String(id)}
             >
@@ -131,6 +131,7 @@ export const Table = <T,>({
                 {columnItems.map(([id, column]) => (
                   <TableColumn
                     justify={column.align}
+                    flex={1}
                     style={getCellStyles(column)}
                     key={String(id)}
                   >

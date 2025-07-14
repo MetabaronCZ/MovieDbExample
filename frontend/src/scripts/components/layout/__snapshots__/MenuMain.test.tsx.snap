@@ -1,21 +1,43 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`components/layout/MenuMain should render properly 1`] = `
 .c0 {
   display: flex;
   flex-direction: row;
+  flex: 1;
   gap: 16px;
 }
 
 .c1 {
-  flex: 1;
-}
-
-.c2 {
   list-style-type: none;
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: #002d56;
+  background: #98c3d9;
+  text-decoration: none;
+}
+
+.c2:hover {
+  background-color: #dae0e3;
+}
+
+.c2:focus {
+  outline: 1px dashed #002d56;
+  outline-color: #0af;
+  outline-offset: -1px;
 }
 
 .c3 {
@@ -23,15 +45,18 @@ exports[`components/layout/MenuMain should render properly 1`] = `
   font-size: 14px;
   line-height: 24px;
   color: #002d56;
-  display: block;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
   padding: 8px 16px;
-  color: #002d56;
-  background: #98c3d9;
+  color: #f2f7fa;
+  background: #002d56;
   text-decoration: none;
 }
 
 .c3:hover {
-  background-color: #dae0e3;
+  background-color: #0f426e;
 }
 
 .c3:focus {
@@ -40,43 +65,36 @@ exports[`components/layout/MenuMain should render properly 1`] = `
   outline-offset: -1px;
 }
 
-.c4 {
-  font-family: Tahoma,Verdana,Arial,sans-serif;
-  font-size: 14px;
-  line-height: 24px;
-  color: #002d56;
-  display: block;
-  padding: 8px 16px;
-  color: #f2f7fa;
-  background: #002d56;
-  text-decoration: none;
-}
-
-.c4:hover {
-  background-color: #0f426e;
-}
-
-.c4:focus {
-  outline: 1px dashed #002d56;
-  outline-color: #0af;
-  outline-offset: -1px;
-}
-
 <div>
   <nav
-    class="c0 c1"
+    class="c0"
   >
     <ul
-      class="c2"
+      class="c1"
     >
       <li
         class=""
       >
         <a
-          class="c3"
+          class="c2"
           data-discover="true"
           href="/"
         >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-house fa-sm "
+            data-icon="house"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 576 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+              fill="currentColor"
+            />
+          </svg>
           Domů
         </a>
       </li>
@@ -84,10 +102,25 @@ exports[`components/layout/MenuMain should render properly 1`] = `
         class=""
       >
         <a
-          class="c4"
+          class="c3"
           data-discover="true"
           href="/movies"
         >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-film fa-sm "
+            data-icon="film"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 96C0 60.7 28.7 32 64 32l384 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zM48 368l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm368-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM48 240l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm368-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM48 112l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16L64 96c-8.8 0-16 7.2-16 16zM416 96c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM160 128l0 64c0 17.7 14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32L192 96c-17.7 0-32 14.3-32 32zm32 160c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-128 0z"
+              fill="currentColor"
+            />
+          </svg>
           Filmy
         </a>
       </li>
@@ -95,10 +128,25 @@ exports[`components/layout/MenuMain should render properly 1`] = `
         class=""
       >
         <a
-          class="c4"
+          class="c3"
           data-discover="true"
           href="/people"
         >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-user fa-sm "
+            data-icon="user"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+              fill="currentColor"
+            />
+          </svg>
           Lidé
         </a>
       </li>

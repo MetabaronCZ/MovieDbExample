@@ -163,4 +163,53 @@ describe('components/forms/SelectMulti', () => {
     list = getAllByRole(container, 'list');
     expect(list.length).toEqual(2);
   });
+
+  it('should not select disabled item', async () => {
+    const onSelect = jest.fn();
+
+    const { container } = await waitForComponent(
+      <SelectMulti
+        value={[1]}
+        options={[
+          { title: 'Item 1', value: 1 },
+          { title: 'Item 2', value: 2, disabled: true },
+        ]}
+        onSelect={onSelect}
+      />,
+      { wrapper: TestComponentWrapper },
+    );
+    expect(onSelect).not.toHaveBeenCalled();
+
+    const handle = getByTitle(container, 'Otevřít');
+
+    let list = getAllByRole(container, 'list');
+    expect(list.length).toEqual(1);
+
+    const selected = getAllByRole(list[0], 'listitem');
+    expect(selected.length).toEqual(1);
+    expect(selected[0].textContent).toEqual('Item 1');
+
+    // open Select by handle click
+    act(() => {
+      fireEvent.click(handle);
+    });
+    expect(container).toMatchSnapshot();
+
+    list = getAllByRole(container, 'list');
+    expect(list.length).toEqual(2);
+
+    const selectableItems = getAllByRole(list[1], 'button');
+    expect(selectableItems.length).toEqual(1);
+    expect(selectableItems[0]).toHaveTextContent('Item 2');
+
+    // click Item 2
+    act(() => {
+      fireEvent.click(selectableItems[0]);
+    });
+    expect(onSelect).not.toHaveBeenCalled();
+
+    // Select is still opened
+    list = getAllByRole(container, 'list');
+    expect(list.length).toEqual(2);
+  });
 });

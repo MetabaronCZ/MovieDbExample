@@ -9,7 +9,7 @@ let instanceId = 0;
 interface Props {
   readonly id?: string;
   readonly type?: HTMLInputTypeAttribute;
-  readonly label: string;
+  readonly label?: string;
   readonly placeholder?: string;
   readonly error?: string | null;
   readonly info?: string;

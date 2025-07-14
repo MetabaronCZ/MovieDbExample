@@ -15,6 +15,8 @@ export const DefaultLabel: StoryObj<typeof Label> = {
     <Grid orientation="vertical" align="flex-start">
       <Label label="Default label" />
       <Label label="Required label" required />
+      <Label label="Compact label" compact />
+      <Label label="Required Compact label" compact required />
     </Grid>
   ),
 };

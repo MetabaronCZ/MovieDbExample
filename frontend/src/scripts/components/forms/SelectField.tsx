@@ -2,21 +2,26 @@ import React from 'react';
 
 import { Select } from './select/Select';
 import { SelectMulti } from './select/SelectMulti';
-import { FormField } from 'components/forms/FormField';
+import { FormField, FormFieldOrientation } from 'components/forms/FormField';
 import { SelectAlign, SelectOption } from './select/SelectShared';
 
 // track number of rendered items to generate auto ID
 let instanceId = 0;
 
+type SelectFieldOrientation = Exclude<
+  FormFieldOrientation,
+  'horizontal-reverse'
+>;
+
 interface BaseProps<T> {
   readonly id?: string;
-  readonly label: string;
+  readonly label?: string;
   readonly align?: SelectAlign;
+  readonly orientation?: SelectFieldOrientation;
   readonly error?: string | null;
   readonly info?: string;
   readonly options: SelectOption<T>[];
   readonly disabled?: boolean;
-  readonly vertical?: boolean;
   readonly required?: boolean;
 }
 
@@ -42,7 +47,7 @@ export const SelectField = <T,>({
   value,
   options,
   align,
-  vertical = false,
+  orientation = 'horizontal',
   multi,
   required,
   disabled,
@@ -54,7 +59,7 @@ export const SelectField = <T,>({
     error={error}
     info={info}
     required={required}
-    orientation={vertical ? 'vertical' : 'horizontal'}
+    orientation={orientation}
   >
     {multi ? (
       <SelectMulti<T>

@@ -1,8 +1,8 @@
 import express from 'express';
 import { MovieData } from '@project/api-types';
 
-import { requestDelay } from 'utils/common';
 import { parseMovieFilter } from 'utils/movie';
+import { handleError, requestDelay } from 'utils/common';
 
 export const movieRouter = express.Router();
 
@@ -16,7 +16,7 @@ movieRouter.get('/', (req, res) => {
       const response = db.movie.getList(filter);
       res.json(response);
     } catch (error) {
-      res.status(500).json({ error });
+      handleError(res, error, 'Error getting movie list!');
     }
   });
 });
@@ -36,7 +36,7 @@ movieRouter.get('/:id', (req, res) => {
         res.json(movie);
       }
     } catch (error) {
-      res.status(500).json({ error });
+      handleError(res, error, 'Error getting movie data!');
     }
   });
 });
@@ -57,7 +57,7 @@ movieRouter.patch('/:id', (req, res) => {
         res.json({ data: 'Movie data updated!' });
       }
     } catch (error) {
-      res.status(500).json({ error });
+      handleError(res, error, 'Error updating movie data!');
     }
   });
 });

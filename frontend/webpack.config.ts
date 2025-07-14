@@ -76,6 +76,8 @@ const config = (env: Args, argv: Args): Configuration => {
       new ESLintPlugin({
         extensions: ['ts', 'tsx', 'js'],
         exclude: ['node_modules', 'build', 'coverage'],
+        failOnError: isProduction,
+        failOnWarning: isProduction,
       }),
     ],
     resolve: {

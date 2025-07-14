@@ -25,6 +25,7 @@ describe('components/common/Grid', () => {
         align="flex-end"
         justify="flex-start"
         gap={3}
+        flex={1}
         wrap
       >
         CONTENT

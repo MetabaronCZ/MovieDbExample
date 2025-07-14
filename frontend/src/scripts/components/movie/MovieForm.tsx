@@ -12,7 +12,7 @@ import {
 
 import { paths } from 'modules/paths';
 import { useForm } from 'hooks/useForm';
-import { getValidations } from 'modules/validations';
+import { minScore, movieScores, movieYears } from 'modules/movie';
 
 import { Box } from 'components/common/Box';
 import { Grid } from 'components/common/Grid';
@@ -26,10 +26,15 @@ import { TextareaField } from 'components/forms/TextareaField';
 import { MovieRoleSelect } from 'components/movie/MovieRoleSelect';
 import { SelectOption } from 'components/forms/select/SelectShared';
 
-// movie year values for select options
-const years = Array(100)
-  .fill(0)
-  .map((_, i) => ({ title: `${1900 + i}`, value: `${1900 + i}` }));
+const years: SelectOption<string>[] = movieYears.map((year) => ({
+  title: `${year}`,
+  value: `${year}`,
+}));
+
+const scores: SelectOption<number>[] = movieScores.map((score) => ({
+  title: score.toFixed(1),
+  value: score,
+}));
 
 const getYearOptions = (t: TFunction): SelectOption<string>[] => [
   { title: t('select'), value: '' },
@@ -47,7 +52,7 @@ type FormData = {
   readonly titleCs: string;
   readonly titleOriginal: string;
   readonly year: string;
-  readonly score: string;
+  readonly score: number;
   readonly genres: MovieGenre[];
   readonly directors: MoviePersonData[];
   readonly writers: MoviePersonData[];
@@ -69,7 +74,6 @@ export const MovieForm: FC<Props> = ({
   onEdit,
 }) => {
   const { t } = useTranslation();
-  const validations = useMemo(() => getValidations(t), [t]);
   const yearOptions = useMemo(() => getYearOptions(t), [t]);
   const genreOptions = useMemo(() => getGenreOptions(t), [t]);
 
@@ -78,7 +82,7 @@ export const MovieForm: FC<Props> = ({
       titleCs: data.titleCs,
       titleOriginal: data.titleOriginal,
       year: `${data.year ?? ''}`,
-      score: `${data.score ?? ''}`,
+      score: data.score ?? minScore,
       genres: data.genres,
       directors: data.directors,
       writers: data.writers,
@@ -86,11 +90,10 @@ export const MovieForm: FC<Props> = ({
       plot: data.plot,
     },
     validations: {
-      score: [validations.MIN(0), validations.MAX(10)],
+      /* */
     },
     onSubmit: (formData) => {
       const year = formData.year.trim();
-      const score = formData.score.trim();
 
       // send form data
       onEdit({
@@ -99,7 +102,7 @@ export const MovieForm: FC<Props> = ({
           titleCs: formData.titleCs.trim(),
           titleOriginal: formData.titleOriginal.trim(),
           year: year ? parseInt(year, 10) : null,
-          score: score ? parseFloat(score) : null,
+          score: formData.score,
           genres: formData.genres,
           directors: formData.directors.map((item) => item.id),
           writers: formData.writers.map((item) => item.id),
@@ -136,36 +139,34 @@ export const MovieForm: FC<Props> = ({
           />
           <SelectField
             label={t('movie.year')}
+            orientation="vertical"
             value={values.year}
             error={errors.year}
             options={yearOptions}
             disabled={isLoading}
-            vertical
             onSelect={(value) => {
               setValue('year', value);
             }}
           />
-          <TextField
+          <SelectField
             label={t('movie.score')}
-            type="number"
+            orientation="vertical"
             value={values.score}
             error={errors.score}
-            min={0}
-            max={10}
-            step={0.1}
+            options={scores}
             disabled={isLoading}
-            onChange={(value) => {
+            onSelect={(value) => {
               setValue('score', value);
             }}
           />
           <SelectField
             label={t('movie.genre')}
+            orientation="vertical"
             value={values.genres}
             error={errors.genres}
             options={genreOptions}
             disabled={isLoading}
             multi
-            vertical
             onSelect={(value) => {
               setValue('genres', value);
             }}

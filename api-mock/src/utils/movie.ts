@@ -13,7 +13,7 @@ import { parseQueryParam, Query } from 'utils/common';
 import { compareNumeric, isSortDirection } from 'utils/sort';
 
 const movieSortValues = [...movieSorts] as string[];
-const movieGenreValues = [...movieGenres] as string[];
+const movieGenreValues = movieGenres.map((item) => item.toLowerCase());
 
 const isMovieSort = (value: string): value is MovieSort => {
   return movieSortValues.includes(value);
@@ -23,14 +23,23 @@ const isMovieGenre = (value: string): value is MovieGenre => {
   return movieGenreValues.includes(value);
 };
 
-const parseInteger = (value: string): number | undefined => {
+const isDefined = <T>(value: T | undefined): value is T => {
+  return 'undefined' !== typeof value;
+};
+
+const parseIntNumber = (value: string): number | undefined => {
   const nr = parseInt(value, 10);
+  return !isNaN(nr) ? nr : undefined;
+};
+
+const parseFloatNumber = (value: string): number | undefined => {
+  const nr = parseFloat(value);
   return !isNaN(nr) ? nr : undefined;
 };
 
 const parseArray = (value: string): string[] => {
   return value
-    .split('|')
+    .split(',')
     .map((item) => item.trim().toLowerCase())
     .filter((item) => !!item);
 };
@@ -54,12 +63,12 @@ export const parseMovieFilter = (requestQuery: Query): MovieFilter => {
 
   // parse values
   const queryParsed = query.trim().toLowerCase();
-  const yearFromParsed = parseInteger(yearFrom);
-  const yearToParsed = parseInteger(yearTo);
-  const scoreFromParsed = parseInteger(scoreFrom);
-  const scoreToParsed = parseInteger(scoreTo);
-  const pageParsed = parseInteger(page);
-  const perPageParsed = parseInteger(perPage);
+  const yearFromParsed = parseIntNumber(yearFrom);
+  const yearToParsed = parseIntNumber(yearTo);
+  const scoreFromParsed = parseFloatNumber(scoreFrom);
+  const scoreToParsed = parseFloatNumber(scoreTo);
+  const pageParsed = parseIntNumber(page);
+  const perPageParsed = parseIntNumber(perPage);
   const sortParsed = sort.trim().toLowerCase();
   const sortDirectionParsed = sortDirection.trim().toLowerCase();
 
@@ -155,12 +164,38 @@ export const filterMovies = (movies: Movie[], filter: MovieFilter): Movie[] => {
     }
 
     // filter by year from
-    if (filter.yearFrom && item.year && item.year < filter.yearFrom) {
+    if (
+      isDefined(filter.yearFrom) &&
+      null !== item.year &&
+      item.year < filter.yearFrom
+    ) {
       return false;
     }
 
     // filter by year to
-    if (filter.yearTo && item.year && item.year > filter.yearTo) {
+    if (
+      isDefined(filter.yearTo) &&
+      null !== item.year &&
+      item.year > filter.yearTo
+    ) {
+      return false;
+    }
+
+    // filter by score from
+    if (
+      isDefined(filter.scoreFrom) &&
+      null !== item.score &&
+      item.score < filter.scoreFrom
+    ) {
+      return false;
+    }
+
+    // filter by score to
+    if (
+      isDefined(filter.scoreTo) &&
+      null !== item.score &&
+      item.score > filter.scoreTo
+    ) {
       return false;
     }
 

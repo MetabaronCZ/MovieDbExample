@@ -82,6 +82,21 @@ export const AlignedSelect: StoryObj<typeof Select> = {
   ),
 };
 
+export const DisabledOptionsSelect: StoryObj<typeof Select> = {
+  name: 'Disabled options',
+  render: () => (
+    <Container>
+      <SelectStory
+        options={[
+          { title: 'Item A', value: 1 },
+          { title: 'Item B', value: 2, disabled: true },
+          { title: 'Item C', value: 3, disabled: true },
+        ]}
+      />
+    </Container>
+  ),
+};
+
 export const EmptySelect: StoryObj<typeof Select> = {
   name: 'Empty select',
   render: () => (

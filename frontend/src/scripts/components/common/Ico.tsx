@@ -36,6 +36,8 @@ import {
   faAngleUp,
   faCircleNotch,
   faMagnifyingGlass,
+  faFilm,
+  faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { ColorId, colors } from 'modules/colors';
@@ -44,6 +46,8 @@ const icons = {
   gear: faGear,
   plus: faPlus,
   home: faHouse,
+  film: faFilm,
+  user: faUser,
   trash: faTrashCan,
   edit: faPenToSquare,
   info: faInfo,

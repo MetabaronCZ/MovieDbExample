@@ -1,4 +1,27 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`components/forms/Label should render compact variant 1`] = `
+.c0 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 12px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+<div>
+  <label
+    class="c0"
+  >
+    CONTENT
+  </label>
+</div>
+`;
 
 exports[`components/forms/Label should render properly 1`] = `
 .c0 {
@@ -9,6 +32,7 @@ exports[`components/forms/Label should render properly 1`] = `
   display: flex;
   flex-direction: row;
   gap: 4px;
+  white-space: nowrap;
 }
 
 <div>
@@ -30,6 +54,7 @@ exports[`components/forms/Label should render required state 1`] = `
   display: flex;
   flex-direction: row;
   gap: 4px;
+  white-space: nowrap;
 }
 
 .c1 {

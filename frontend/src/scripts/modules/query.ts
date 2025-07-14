@@ -32,6 +32,12 @@ export const getListQuery = <T, U>(
       mutationFn: async (filter) => {
         const response = await axios.get(`${apiRoot}${path}`, {
           params: filter,
+          paramsSerializer: {
+            serialize: (params) => {
+              // convert array params to a string with separator
+              return new URLSearchParams(params).toString();
+            },
+          },
         });
         return parse(response.data);
       },

@@ -29,19 +29,20 @@ export const DefaultSelectField: StoryObj<typeof SelectField> = {
       <div>
         <SelectField
           label="Default select field"
+          orientation="vertical"
           value={1}
           options={[
             { title: 'Item A', value: 1 },
             { title: 'Item B', value: 2 },
             { title: 'Item C', value: 3 },
           ]}
-          vertical
           onSelect={action('Changed!')}
         />
       </div>
       <div>
         <SelectField
           label="Required select field"
+          orientation="vertical"
           value={1}
           options={[
             { title: 'Item A', value: 1 },
@@ -50,13 +51,13 @@ export const DefaultSelectField: StoryObj<typeof SelectField> = {
           ]}
           info="Form field description"
           required
-          vertical
           onSelect={action('Changed!')}
         />
       </div>
       <div>
         <SelectField
           label="Invalid select field"
+          orientation="vertical"
           value={1}
           options={[
             { title: 'Item A', value: 1 },
@@ -64,13 +65,13 @@ export const DefaultSelectField: StoryObj<typeof SelectField> = {
             { title: 'Item C', value: 3 },
           ]}
           error="Validation error!"
-          vertical
           onSelect={action('Changed!')}
         />
       </div>
       <div>
         <SelectField
           label="Disabled select field"
+          orientation="vertical"
           value={1}
           options={[
             { title: 'Item A', value: 1 },
@@ -78,7 +79,6 @@ export const DefaultSelectField: StoryObj<typeof SelectField> = {
             { title: 'Item C', value: 3 },
           ]}
           disabled
-          vertical
           onSelect={action('Changed!')}
         />
       </div>
@@ -93,6 +93,7 @@ export const MultiSelectField: StoryObj<typeof SelectField> = {
       <div>
         <SelectField
           label="Default select field"
+          orientation="vertical"
           value={[1]}
           options={[
             { title: 'Item A', value: 1 },
@@ -100,13 +101,13 @@ export const MultiSelectField: StoryObj<typeof SelectField> = {
             { title: 'Item C', value: 3 },
           ]}
           multi
-          vertical
           onSelect={action('Changed!')}
         />
       </div>
       <div>
         <SelectField
           label="Required select field"
+          orientation="vertical"
           value={[1]}
           options={[
             { title: 'Item A', value: 1 },
@@ -116,13 +117,13 @@ export const MultiSelectField: StoryObj<typeof SelectField> = {
           info="Form field description"
           multi
           required
-          vertical
           onSelect={action('Changed!')}
         />
       </div>
       <div>
         <SelectField
           label="Invalid select field"
+          orientation="vertical"
           value={[1]}
           options={[
             { title: 'Item A', value: 1 },
@@ -131,13 +132,13 @@ export const MultiSelectField: StoryObj<typeof SelectField> = {
           ]}
           error="Validation error!"
           multi
-          vertical
           onSelect={action('Changed!')}
         />
       </div>
       <div>
         <SelectField
           label="Disabled select field"
+          orientation="vertical"
           value={[1]}
           options={[
             { title: 'Item A', value: 1 },
@@ -146,7 +147,6 @@ export const MultiSelectField: StoryObj<typeof SelectField> = {
           ]}
           multi
           disabled
-          vertical
           onSelect={action('Changed!')}
         />
       </div>

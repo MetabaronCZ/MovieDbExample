@@ -72,6 +72,20 @@
   "table": {
     "empty": "Tabulka neobsahuje žádná data."
   },
+  "filter": {
+    "action": "Filtrovat",
+    "clear": "Zrušit filtr",
+    "showAdvanced": "Rozšířený filtr",
+    "hideAdvanced": "Skrýt filtr",
+    "advancedChanges": "Obsahuje změny",
+    "movie": {
+      "query": "Hledat v názvu / popisu filmu...",
+      "yearFrom": "Rok od",
+      "yearTo": "Rok do",
+      "scoreFrom": "IMDB od",
+      "scoreTo": "IMDB do"
+    }
+  },
   "sort": {
     "action": {
       "ascending": "Seřadit vzestupně",
@@ -111,10 +125,10 @@
   "edit": "Editovat",
   "cancel": "Zrušit",
   "submit": "Odeslat",
-  "search": "Hledat",
   "remove": "Odebrat",
   "open": "Otevřít",
   "close": "Zavřít",
+  "search": "Hledat",
   "searchEmpty": "Nebyla nalezena žádná data.",
   "select": "- vyberte -",
   "moreItems_one": "{{count}} další",

@@ -62,6 +62,10 @@ const ResultButton = styled(ButtonRaw)`
     outline: ${({ theme }) => theme.outline.default};
     outline-offset: -1px;
   }
+
+  &:disabled {
+    color: ${({ theme }) => theme.color.disabled};
+  }
 `;
 
 const ResultInfo = styled.div`
@@ -98,6 +102,7 @@ export const SelectResults = <T,>({
             <ListItem key={i}>
               <ResultButton
                 title={item.description}
+                disabled={item.disabled}
                 onClick={() => {
                   onSelect(item.value);
                 }}
