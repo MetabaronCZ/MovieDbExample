@@ -45,6 +45,11 @@
     "top": "Nejlépe hodnocené filmy (TOP 10)",
     "topMore": "Zobrazit další filmy"
   },
+  "role": {
+    "director": "Režisér",
+    "writer": "Scénárista",
+    "star": "Herec"
+  },
   "genre": {
     "Western": "Western",
     "Horror": "Horor",
@@ -84,6 +89,11 @@
       "yearTo": "Rok do",
       "scoreFrom": "IMDB od",
       "scoreTo": "IMDB do"
+    },
+    "person": {
+      "query": "Hledat podle jména...",
+      "role": "Role",
+      "roleSelect": "Kdokoliv"
     }
   },
   "sort": {

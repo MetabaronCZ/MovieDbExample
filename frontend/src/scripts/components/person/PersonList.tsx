@@ -18,6 +18,7 @@ import { Box } from 'components/common/Box';
 import { Loader } from 'components/common/Loader';
 import { Paging } from 'components/common/Paging';
 import { PersonTable } from 'components/person/PersonTable';
+import { PersonListFilter } from 'components/person/PersonListFilter';
 
 const perPageValues = [...perPages];
 const personSortValues = [...personSorts] as string[];
@@ -26,13 +27,22 @@ const isPersonStort = (value: string): value is PersonSort => {
   return personSortValues.includes(value);
 };
 
-export const PersonList: FC = () => {
+interface Props {
+  readonly filter?: PersonFilter;
+  readonly showFilter?: boolean;
+}
+
+export const PersonList: FC<Props> = ({
+  filter: initialFilter,
+  showFilter = false,
+}) => {
   const { t } = useTranslation();
   const [initialized, setInitialized] = useState(false);
   const [data, setData] = useState<PeopleFiltered>({ items: [], total: 0 });
 
   const [filter, setFilter] = useState<PersonFilter>({
     sort: defaultPersonSort,
+    ...initialFilter,
   });
   const { isPending, isError, mutateAsync } = client.useFetchPeople();
 
@@ -73,22 +83,33 @@ export const PersonList: FC = () => {
   return !initialized ? (
     <Loader />
   ) : (
-    <Box>
-      <PersonTable
-        data={data.items}
-        isLoading={isPending}
-        error={isError ? t('error.fetch') : null}
-        sort={filter.sort}
-        sortDirection={filter.sortDirection}
-        onSort={(sort, sortDirection) => {
-          if (isPersonStort(sort)) {
-            void fetchData({ sort, sortDirection, page: 0 });
-          } else {
-            Logger.error(`Could not sort people: Invalid sort "${sort}"!`);
-          }
-        }}
-      />
-      <Paging paging={paging} />
-    </Box>
+    <>
+      {showFilter && (
+        <PersonListFilter
+          isLoading={isPending}
+          onChange={(value) => {
+            void fetchData({ ...value, page: 0 });
+          }}
+        />
+      )}
+
+      <Box>
+        <PersonTable
+          data={data.items}
+          isLoading={isPending}
+          error={isError ? t('error.fetch') : null}
+          sort={filter.sort}
+          sortDirection={filter.sortDirection}
+          onSort={(sort, sortDirection) => {
+            if (isPersonStort(sort)) {
+              void fetchData({ sort, sortDirection, page: 0 });
+            } else {
+              Logger.error(`Could not sort people: Invalid sort "${sort}"!`);
+            }
+          }}
+        />
+        <Paging paging={paging} />
+      </Box>
+    </>
   );
 };

@@ -8,7 +8,7 @@ export const PersonListPage: FC = () => {
   const { t } = useTranslation();
   return (
     <Page title={t('page.personList')} breadcrumbs={['personList']}>
-      <PersonList />
+      <PersonList showFilter />
     </Page>
   );
 };
