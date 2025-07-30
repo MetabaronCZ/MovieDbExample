@@ -84,7 +84,7 @@ export const SelectMultiValues = <T,>({
   id,
   items,
   wrapped = false,
-  disabled = false,
+  disabled: globalDisabled = false,
   onRemove,
   onSearch,
 }: Props<T>): React.ReactNode => {
@@ -99,13 +99,13 @@ export const SelectMultiValues = <T,>({
   }
   return (
     <List $wrapped={wrapped}>
-      {items.map(({ title, description, value }, i) => (
+      {items.map(({ title, description, disabled = false, value }, i) => (
         <ListItem key={i}>
           <StyledButton title={description}>{title}</StyledButton>
 
           <ClearButton
             title={t('remove')}
-            disabled={disabled}
+            disabled={disabled || globalDisabled}
             onClick={() => {
               onRemove(value);
             }}
@@ -121,7 +121,7 @@ export const SelectMultiValues = <T,>({
             id={id}
             placeholder={t('search')}
             value={query}
-            disabled={disabled}
+            disabled={globalDisabled}
             onChange={search}
           />
         </SearchListItem>

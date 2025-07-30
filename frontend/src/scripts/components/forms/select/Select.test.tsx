@@ -10,7 +10,7 @@ import {
 import { Select } from './Select';
 import { TestComponentWrapper, waitForComponent } from 'test-utils/component';
 
-describe('components/forms/Select', () => {
+describe('components/forms/select/Select', () => {
   it('should render properly', async () => {
     const { container } = await waitForComponent(
       <Select
@@ -103,6 +103,34 @@ describe('components/forms/Select', () => {
     act(() => {
       fireEvent.keyUp(document, { key: 'Escape' });
     });
+    list = queryByRole(container, 'list');
+    expect(list).not.toBeInTheDocument();
+  });
+
+  it('should not open when disabled', async () => {
+    const { container } = await waitForComponent(
+      <Select
+        value={1}
+        options={[
+          { title: 'Item 1', value: 1 },
+          { title: 'Item 2', value: 2 },
+        ]}
+        disabled
+        onSelect={() => null}
+      />,
+      { wrapper: TestComponentWrapper },
+    );
+    const handle = getByRole(container, 'button');
+    expect(handle).toBeInTheDocument();
+
+    let list = queryByRole(container, 'list');
+    expect(list).not.toBeInTheDocument();
+
+    // try open Select by handle click
+    act(() => {
+      fireEvent.click(handle);
+    });
+
     list = queryByRole(container, 'list');
     expect(list).not.toBeInTheDocument();
   });

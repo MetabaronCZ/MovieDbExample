@@ -14,7 +14,7 @@ export interface SelectOption<T> {
 export interface SelectSearchProps<T> {
   readonly loading?: boolean;
   readonly value: SelectOption<T>[];
-  readonly onSearch: (query: string) => Promise<SelectOption<T>[]>;
+  readonly onSearch: (query: string) => void;
 }
 
 export interface SelectProps<

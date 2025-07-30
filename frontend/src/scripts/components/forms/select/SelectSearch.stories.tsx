@@ -32,7 +32,7 @@ const SelectSearchStory: FC<Partial<StoryProps>> = (props) => {
       ...props,
       value,
       options: defaultOptions,
-      onSearch: () => Promise.resolve(defaultOptions),
+      onSearch: () => null,
       onSelect: (selected) => {
         const values = defaultOptions.filter((item) => {
           return selected.includes(item.value);

@@ -1,0 +1,502 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`components/forms/select/SelectSearch should render empty-options variant 1`] = `
+.c5 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.c5::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c5:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c5:disabled {
+  color: #98c3d9;
+}
+
+.c2 {
+  list-style-type: none;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.c3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.c4 {
+  flex: 1;
+  padding-left: 4px;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c0 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.c1 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+  font-weight: 700;
+  height: 40px;
+  padding: 0 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  width: 100%;
+  height: 40px;
+  gap: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: auto;
+  gap: 8px;
+  min-height: 40px;
+  padding-right: 4px;
+}
+
+.c1:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c1:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c1:disabled {
+  color: #98c3d9;
+  border-color: #98c3d9;
+  background-color: #fff;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <ul
+        class="c2"
+      >
+        <li
+          class="c3 c4"
+        >
+          <input
+            autocomplete="one-time-code"
+            class="c5 c6"
+            placeholder="Hledat"
+            type="text"
+            value=""
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/forms/select/SelectSearch should render empty-value variant 1`] = `
+.c5 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.c5::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c5:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c5:disabled {
+  color: #98c3d9;
+}
+
+.c2 {
+  list-style-type: none;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.c3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.c4 {
+  flex: 1;
+  padding-left: 4px;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c0 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.c1 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+  font-weight: 700;
+  height: 40px;
+  padding: 0 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  width: 100%;
+  height: 40px;
+  gap: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: auto;
+  gap: 8px;
+  min-height: 40px;
+  padding-right: 4px;
+}
+
+.c1:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c1:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c1:disabled {
+  color: #98c3d9;
+  border-color: #98c3d9;
+  background-color: #fff;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <ul
+        class="c2"
+      >
+        <li
+          class="c3 c4"
+        >
+          <input
+            autocomplete="one-time-code"
+            class="c5 c6"
+            placeholder="Hledat"
+            type="text"
+            value=""
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/forms/select/SelectSearch should render properly 1`] = `
+.c4 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c4:disabled {
+  cursor: not-allowed;
+}
+
+.c10 {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.c10:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c10:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c8 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.c8::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c8:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c8:disabled {
+  color: #98c3d9;
+}
+
+.c2 {
+  list-style-type: none;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.c3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.c7 {
+  flex: 1;
+  padding-left: 4px;
+}
+
+.c9 {
+  width: 100%;
+}
+
+.c5 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 12px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  background: #98c3d9;
+  white-space: nowrap;
+}
+
+.c5:hover:not(:disabled) {
+  background-color: #0af;
+}
+
+.c5:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c5:disabled {
+  cursor: initial;
+}
+
+.c6 {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.c0 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.c1 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+  font-weight: 700;
+  height: 40px;
+  padding: 0 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  width: 100%;
+  height: 40px;
+  gap: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: auto;
+  gap: 8px;
+  min-height: 40px;
+  padding-right: 4px;
+}
+
+.c1:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c1:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c1:disabled {
+  color: #98c3d9;
+  border-color: #98c3d9;
+  background-color: #fff;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <ul
+        class="c2"
+      >
+        <li
+          class="c3"
+        >
+          <button
+            class="c4 c5"
+            type="button"
+          >
+            Item 1
+          </button>
+          <button
+            class="c4 c5 c6"
+            title="Odebrat"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-xmark fa-sm "
+              data-icon="xmark"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 384 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </li>
+        <li
+          class="c3 c7"
+        >
+          <input
+            autocomplete="one-time-code"
+            class="c8 c9"
+            id="ID"
+            placeholder="Hledat"
+            type="text"
+            value=""
+          />
+        </li>
+      </ul>
+      <button
+        class="c4 c10"
+        title="Zrušit"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-xmark fa-lg "
+          color="#002d56"
+          data-icon="xmark"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 384 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;

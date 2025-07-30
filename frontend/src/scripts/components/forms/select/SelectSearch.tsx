@@ -81,7 +81,7 @@ export const SelectSearch = <T,>({
   const processSearch = useCallback(
     (query: string) => {
       open();
-      void onSearch(query);
+      onSearch(query);
     },
     [open, onSearch],
   );

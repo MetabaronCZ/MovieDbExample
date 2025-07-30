@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`components/forms/Select should be openable / closeable 1`] = `
+exports[`components/forms/select/Select should be openable / closeable 1`] = `
 .c1 {
   display: block;
   border: none;
@@ -183,9 +183,9 @@ exports[`components/forms/Select should be openable / closeable 1`] = `
 </div>
 `;
 
-exports[`components/forms/Select should not render when no options 1`] = `<div />`;
+exports[`components/forms/select/Select should not render when no options 1`] = `<div />`;
 
-exports[`components/forms/Select should not select disabled item 1`] = `
+exports[`components/forms/select/Select should not select disabled item 1`] = `
 .c1 {
   display: block;
   border: none;
@@ -369,7 +369,7 @@ exports[`components/forms/Select should not select disabled item 1`] = `
 </div>
 `;
 
-exports[`components/forms/Select should render properly 1`] = `
+exports[`components/forms/select/Select should render properly 1`] = `
 .c1 {
   display: block;
   border: none;

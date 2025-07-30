@@ -1,0 +1,423 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`components/forms/SelectField should render error 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: start;
+}
+
+.c3 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  color: #f00;
+}
+
+<div>
+  <fieldset
+    class="c0"
+    data-invalid="true"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+        for="select-0"
+      >
+        LABEL
+      </label>
+    </div>
+    <p
+      class="c3"
+    >
+      SOME-ERROR
+    </p>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/SelectField should render info text 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: start;
+}
+
+.c3 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  color: #98c3d9;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+        for="select-1"
+      >
+        LABEL
+      </label>
+    </div>
+    <p
+      class="c3"
+    >
+      SOME-INFO
+    </p>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/SelectField should render multi-select variant 1`] = `
+.c4 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c4:disabled {
+  cursor: not-allowed;
+}
+
+.c6 {
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.c5 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+  font-weight: 700;
+  height: 40px;
+  padding: 0 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  width: 100%;
+  height: 40px;
+  gap: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.c5:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c5:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c5:disabled {
+  color: #98c3d9;
+  border-color: #98c3d9;
+  background-color: #fff;
+}
+
+.c7 {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.c3 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: start;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+        for="ID"
+      >
+        LABEL
+      </label>
+      <div
+        class="c3"
+      >
+        <button
+          class="c4 c5"
+          id="ID"
+          title="Otevřít"
+          type="button"
+        >
+          <span
+            class="c6 c7"
+          >
+            - vyberte -
+          </span>
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-down fa-lg "
+            data-icon="angle-down"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/SelectField should render properly 1`] = `
+.c5 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c5:disabled {
+  cursor: not-allowed;
+}
+
+.c7 {
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.c6 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+  font-weight: 700;
+  height: 40px;
+  padding: 0 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  width: 100%;
+  height: 40px;
+  gap: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.c6:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c6:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c6:disabled {
+  color: #98c3d9;
+  border-color: #98c3d9;
+  background-color: #fff;
+}
+
+.c8 {
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.c4 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c3 {
+  color: #f00;
+}
+
+.c3::after {
+  content: '*';
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: start;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+        for="ID"
+      >
+        <span
+          class="c3"
+        />
+        LABEL
+      </label>
+      <div
+        class="c4"
+      >
+        <button
+          class="c5 c6"
+          id="ID"
+          title="Otevřít"
+          type="button"
+        >
+          <span
+            class="c7 c8"
+          >
+            Item 1
+          </span>
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-angle-down fa-lg "
+            data-icon="angle-down"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </fieldset>
+</div>
+`;

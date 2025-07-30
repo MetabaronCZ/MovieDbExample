@@ -1,0 +1,665 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`components/forms/SelectSearchField should render error 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: start;
+}
+
+.c10 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  color: #f00;
+}
+
+.c8 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.c8::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c8:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c8:disabled {
+  color: #98c3d9;
+}
+
+.c5 {
+  list-style-type: none;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.c6 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.c7 {
+  flex: 1;
+  padding-left: 4px;
+}
+
+.c9 {
+  width: 100%;
+}
+
+.c3 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.c4 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+  font-weight: 700;
+  height: 40px;
+  padding: 0 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  width: 100%;
+  height: 40px;
+  gap: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: auto;
+  gap: 8px;
+  min-height: 40px;
+  padding-right: 4px;
+}
+
+.c4:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c4:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c4:disabled {
+  color: #98c3d9;
+  border-color: #98c3d9;
+  background-color: #fff;
+}
+
+<div>
+  <fieldset
+    class="c0"
+    data-invalid="true"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+        for="select-search-0"
+      >
+        LABEL
+      </label>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <ul
+            class="c5"
+          >
+            <li
+              class="c6 c7"
+            >
+              <input
+                autocomplete="one-time-code"
+                class="c8 c9"
+                id="select-search-0"
+                placeholder="Hledat"
+                type="text"
+                value=""
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p
+      class="c10"
+    >
+      SOME-ERROR
+    </p>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/SelectSearchField should render info text 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: start;
+}
+
+.c10 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  color: #98c3d9;
+}
+
+.c8 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.c8::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c8:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c8:disabled {
+  color: #98c3d9;
+}
+
+.c5 {
+  list-style-type: none;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.c6 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.c7 {
+  flex: 1;
+  padding-left: 4px;
+}
+
+.c9 {
+  width: 100%;
+}
+
+.c3 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.c4 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+  font-weight: 700;
+  height: 40px;
+  padding: 0 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  width: 100%;
+  height: 40px;
+  gap: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: auto;
+  gap: 8px;
+  min-height: 40px;
+  padding-right: 4px;
+}
+
+.c4:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c4:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c4:disabled {
+  color: #98c3d9;
+  border-color: #98c3d9;
+  background-color: #fff;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+        for="select-search-1"
+      >
+        LABEL
+      </label>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <ul
+            class="c5"
+          >
+            <li
+              class="c6 c7"
+            >
+              <input
+                autocomplete="one-time-code"
+                class="c8 c9"
+                id="select-search-1"
+                placeholder="Hledat"
+                type="text"
+                value=""
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p
+      class="c10"
+    >
+      SOME-INFO
+    </p>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/SelectSearchField should render properly 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c3 {
+  color: #f00;
+}
+
+.c3::after {
+  content: '*';
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: start;
+}
+
+.c8 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c8:disabled {
+  cursor: not-allowed;
+}
+
+.c14 {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.c14:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c14:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c12 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.c12::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c12:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c12:disabled {
+  color: #98c3d9;
+}
+
+.c6 {
+  list-style-type: none;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.c7 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.c11 {
+  flex: 1;
+  padding-left: 4px;
+}
+
+.c13 {
+  width: 100%;
+}
+
+.c9 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 12px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  background: #98c3d9;
+  white-space: nowrap;
+}
+
+.c9:hover:not(:disabled) {
+  background-color: #0af;
+}
+
+.c9:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c9:disabled {
+  cursor: initial;
+}
+
+.c10 {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.c4 {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.c5 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+  font-weight: 700;
+  height: 40px;
+  padding: 0 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  width: 100%;
+  height: 40px;
+  gap: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: auto;
+  gap: 8px;
+  min-height: 40px;
+  padding-right: 4px;
+}
+
+.c5:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c5:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c5:disabled {
+  color: #98c3d9;
+  border-color: #98c3d9;
+  background-color: #fff;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+        for="ID"
+      >
+        <span
+          class="c3"
+        />
+        LABEL
+      </label>
+      <div
+        class="c4"
+      >
+        <div
+          class="c5"
+        >
+          <ul
+            class="c6"
+          >
+            <li
+              class="c7"
+            >
+              <button
+                class="c8 c9"
+                type="button"
+              >
+                Item 1
+              </button>
+              <button
+                class="c8 c9 c10"
+                title="Odebrat"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-xmark fa-sm "
+                  data-icon="xmark"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 384 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li
+              class="c7 c11"
+            >
+              <input
+                autocomplete="one-time-code"
+                class="c12 c13"
+                id="ID"
+                placeholder="Hledat"
+                type="text"
+                value=""
+              />
+            </li>
+          </ul>
+          <button
+            class="c8 c14"
+            title="Zrušit"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-xmark fa-lg "
+              color="#002d56"
+              data-icon="xmark"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 384 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+`;

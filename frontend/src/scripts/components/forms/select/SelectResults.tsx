@@ -71,6 +71,7 @@ const ResultButton = styled(ButtonRaw)`
 const ResultInfo = styled.div`
   ${Text.Base};
   padding: ${toVU(1)};
+  font-style: italic;
   text-align: center;
 `;
 
@@ -93,9 +94,7 @@ export const SelectResults = <T,>({
       {loading ? (
         <Loader />
       ) : 0 === options.length ? (
-        <ResultInfo>
-          <em>{t('searchEmpty')}</em>
-        </ResultInfo>
+        <ResultInfo>{t('searchEmpty')}</ResultInfo>
       ) : (
         <List>
           {options.map((item, i) => (

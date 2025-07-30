@@ -26,13 +26,8 @@ export const MovieRoleSelect: FC<Props> = ({
   const { data, isPending, mutateAsync: fetchPeople } = client.useFetchPeople();
 
   const searchPeople = useCallback(
-    async (query: string): Promise<SelectOption<MoviePersonData>[]> => {
-      const response = await fetchPeople({ query, role });
-
-      return response.items.map((item) => ({
-        title: item.name,
-        value: item,
-      }));
+    (query: string): void => {
+      void fetchPeople({ query, role });
     },
     [fetchPeople, role],
   );

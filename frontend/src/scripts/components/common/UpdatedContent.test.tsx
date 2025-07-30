@@ -5,7 +5,7 @@ import { UpdatedContent } from 'components/common/UpdatedContent';
 import { TestComponentWrapper, waitForComponent } from 'test-utils/component';
 
 describe('components/common/UpdatedContent', () => {
-  it('should render standardcontent when not loading', async () => {
+  it('should render standard content when not loading', async () => {
     const { container } = await waitForComponent(
       <UpdatedContent>CONTENT</UpdatedContent>,
       { wrapper: TestComponentWrapper },

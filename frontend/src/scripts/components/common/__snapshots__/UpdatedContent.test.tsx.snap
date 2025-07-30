@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`components/common/UpdatedContent should render faded content when loading 1`] = `
 .c0 {
@@ -15,7 +15,7 @@ exports[`components/common/UpdatedContent should render faded content when loadi
 </div>
 `;
 
-exports[`components/common/UpdatedContent should render standardcontent when not loading 1`] = `
+exports[`components/common/UpdatedContent should render standard content when not loading 1`] = `
 <div>
   CONTENT
 </div>

@@ -1,0 +1,452 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`components/forms/select/SelectMultiValues should not render at all when no options and onSearch not defined 1`] = `<div />`;
+
+exports[`components/forms/select/SelectMultiValues should not render search input when onSearch not defined 1`] = `
+.c2 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c2:disabled {
+  cursor: not-allowed;
+}
+
+.c0 {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.c3 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 12px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  background: #98c3d9;
+  white-space: nowrap;
+}
+
+.c3:hover:not(:disabled) {
+  background-color: #0af;
+}
+
+.c3:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c3:disabled {
+  cursor: initial;
+}
+
+.c4 {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+<div>
+  <ul
+    class="c0"
+  >
+    <li
+      class="c1"
+    >
+      <button
+        class="c2 c3"
+        type="button"
+      >
+        Item 1
+      </button>
+      <button
+        class="c2 c3 c4"
+        title="Odebrat"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-xmark fa-sm "
+          data-icon="xmark"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 384 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </li>
+    <li
+      class="c1"
+    >
+      <button
+        class="c2 c3"
+        type="button"
+      >
+        Item 2
+      </button>
+      <button
+        class="c2 c3 c4"
+        title="Odebrat"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-xmark fa-sm "
+          data-icon="xmark"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 384 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`components/forms/select/SelectMultiValues should render properly 1`] = `
+.c2 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c2:disabled {
+  cursor: not-allowed;
+}
+
+.c6 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.c6::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c6:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c6:disabled {
+  color: #98c3d9;
+}
+
+.c0 {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.c5 {
+  flex: 1;
+  padding-left: 4px;
+}
+
+.c7 {
+  width: 100%;
+}
+
+.c3 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 12px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  background: #98c3d9;
+  white-space: nowrap;
+}
+
+.c3:hover:not(:disabled) {
+  background-color: #0af;
+}
+
+.c3:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c3:disabled {
+  cursor: initial;
+}
+
+.c4 {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+<div>
+  <ul
+    class="c0"
+  >
+    <li
+      class="c1"
+    >
+      <button
+        class="c2 c3"
+        title="DESC 1"
+        type="button"
+      >
+        Item 1
+      </button>
+      <button
+        class="c2 c3 c4"
+        title="Odebrat"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-xmark fa-sm "
+          data-icon="xmark"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 384 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </li>
+    <li
+      class="c1"
+    >
+      <button
+        class="c2 c3"
+        title="DESC 2"
+        type="button"
+      >
+        Item 2
+      </button>
+      <button
+        class="c2 c3 c4"
+        title="Odebrat"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-xmark fa-sm "
+          data-icon="xmark"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 384 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </li>
+    <li
+      class="c1 c5"
+    >
+      <input
+        autocomplete="one-time-code"
+        class="c6 c7"
+        id="ID"
+        placeholder="Hledat"
+        type="text"
+        value=""
+      />
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`components/forms/select/SelectMultiValues should render wrapped variant 1`] = `
+.c2 {
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.c2:disabled {
+  cursor: not-allowed;
+}
+
+.c0 {
+  list-style-type: none;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1px;
+}
+
+.c3 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  font-size: 12px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  background: #98c3d9;
+  white-space: nowrap;
+}
+
+.c3:hover:not(:disabled) {
+  background-color: #0af;
+}
+
+.c3:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c3:disabled {
+  cursor: initial;
+}
+
+.c4 {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+<div>
+  <ul
+    class="c0"
+  >
+    <li
+      class="c1"
+    >
+      <button
+        class="c2 c3"
+        type="button"
+      >
+        Item 1
+      </button>
+      <button
+        class="c2 c3 c4"
+        title="Odebrat"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-xmark fa-sm "
+          data-icon="xmark"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 384 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </li>
+    <li
+      class="c1"
+    >
+      <button
+        class="c2 c3"
+        type="button"
+      >
+        Item 2
+      </button>
+      <button
+        class="c2 c3 c4"
+        title="Odebrat"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-xmark fa-sm "
+          data-icon="xmark"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 384 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </li>
+  </ul>
+</div>
+`;

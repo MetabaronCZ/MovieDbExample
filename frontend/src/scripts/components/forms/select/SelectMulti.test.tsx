@@ -10,7 +10,7 @@ import {
 import { SelectMulti } from './SelectMulti';
 import { TestComponentWrapper, waitForComponent } from 'test-utils/component';
 
-describe('components/forms/SelectMulti', () => {
+describe('components/forms/select/SelectMulti', () => {
   it('should render properly', async () => {
     const { container } = await waitForComponent(
       <SelectMulti
@@ -112,6 +112,34 @@ describe('components/forms/SelectMulti', () => {
     act(() => {
       fireEvent.keyUp(document, { key: 'Escape' });
     });
+    list = getAllByRole(container, 'list');
+    expect(list.length).toEqual(1);
+  });
+
+  it('should not open when disabled', async () => {
+    const { container } = await waitForComponent(
+      <SelectMulti
+        value={[1]}
+        options={[
+          { title: 'Item 1', value: 1 },
+          { title: 'Item 2', value: 2 },
+        ]}
+        disabled
+        onSelect={() => null}
+      />,
+      { wrapper: TestComponentWrapper },
+    );
+    const handle = getByTitle(container, 'Otevřít');
+    expect(handle).toBeInTheDocument();
+
+    let list = getAllByRole(container, 'list');
+    expect(list.length).toEqual(1);
+
+    // try open Select by handle click
+    act(() => {
+      fireEvent.click(handle);
+    });
+
     list = getAllByRole(container, 'list');
     expect(list.length).toEqual(1);
   });

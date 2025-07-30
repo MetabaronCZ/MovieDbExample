@@ -1,0 +1,428 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`components/forms/TextField should not change value when disabled 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+.c3 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.c3::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c3:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c3:disabled {
+  color: #98c3d9;
+}
+
+.c4 {
+  width: 100%;
+  padding: 0 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  line-height: 1;
+  height: 40px;
+}
+
+.c4:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c4:disabled {
+  border-color: #98c3d9;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+        for="text-input-3"
+      >
+        LABEL
+      </label>
+      <input
+        autocomplete="one-time-code"
+        class="c3 c4"
+        disabled=""
+        id="text-input-3"
+        type="text"
+        value=""
+      />
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/TextField should render error 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+.c5 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  color: #f00;
+}
+
+.c3 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #f00;
+}
+
+.c3::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c3:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c3:disabled {
+  color: #98c3d9;
+}
+
+.c4 {
+  width: 100%;
+  padding: 0 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  border-color: #f00;
+  line-height: 1;
+  height: 40px;
+}
+
+.c4:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c4:disabled {
+  border-color: #98c3d9;
+}
+
+<div>
+  <fieldset
+    class="c0"
+    data-invalid="true"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+        for="text-input-0"
+      >
+        LABEL
+      </label>
+      <input
+        autocomplete="one-time-code"
+        class="c3 c4"
+        id="text-input-0"
+        type="text"
+        value="VALUE"
+      />
+    </div>
+    <p
+      class="c5"
+    >
+      SOME-ERROR
+    </p>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/TextField should render info text 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+.c5 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  color: #98c3d9;
+}
+
+.c3 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.c3::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c3:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c3:disabled {
+  color: #98c3d9;
+}
+
+.c4 {
+  width: 100%;
+  padding: 0 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  line-height: 1;
+  height: 40px;
+}
+
+.c4:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c4:disabled {
+  border-color: #98c3d9;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+        for="text-input-1"
+      >
+        LABEL
+      </label>
+      <input
+        autocomplete="one-time-code"
+        class="c3 c4"
+        id="text-input-1"
+        type="text"
+        value="VALUE"
+      />
+    </div>
+    <p
+      class="c5"
+    >
+      SOME-INFO
+    </p>
+  </fieldset>
+</div>
+`;
+
+exports[`components/forms/TextField should render properly 1`] = `
+.c2 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.c3 {
+  color: #f00;
+}
+
+.c3::after {
+  content: '*';
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+}
+
+.c1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+.c4 {
+  font-family: Tahoma,Verdana,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #002d56;
+  display: block;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.c4::placeholder {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.5;
+}
+
+.c4:hover:not(:disabled) {
+  background-color: #f2f7fa;
+}
+
+.c4:disabled {
+  color: #98c3d9;
+}
+
+.c5 {
+  width: 100%;
+  padding: 0 12px;
+  border: 2px solid #002d56;
+  background: #fff;
+  line-height: 1;
+  height: 40px;
+}
+
+.c5:focus {
+  outline: 1px dashed #002d56;
+}
+
+.c5:disabled {
+  border-color: #98c3d9;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <label
+        class="c2 "
+        for="ID"
+      >
+        <span
+          class="c3"
+        />
+        LABEL
+      </label>
+      <input
+        autocomplete="one-time-code"
+        class="c4 c5"
+        id="ID"
+        max="10"
+        maxlength="100"
+        min="1"
+        name="NAME"
+        placeholder="PLACEHOLDER"
+        step="5"
+        type="text"
+        value="VALUE"
+      />
+    </div>
+  </fieldset>
+</div>
+`;

@@ -37,7 +37,7 @@ export const DefaultSelectSearchField: StoryObj<typeof SelectSearchField> = {
           ]}
           vertical
           onSelect={action('Changed!')}
-          onSearch={() => Promise.resolve([])}
+          onSearch={() => null}
         />
       </div>
       <div>
@@ -53,7 +53,7 @@ export const DefaultSelectSearchField: StoryObj<typeof SelectSearchField> = {
           required
           vertical
           onSelect={action('Changed!')}
-          onSearch={() => Promise.resolve([])}
+          onSearch={() => null}
         />
       </div>
       <div>
@@ -68,7 +68,7 @@ export const DefaultSelectSearchField: StoryObj<typeof SelectSearchField> = {
           error="Validation error!"
           vertical
           onSelect={action('Changed!')}
-          onSearch={() => Promise.resolve([])}
+          onSearch={() => null}
         />
       </div>
       <div>
@@ -83,7 +83,7 @@ export const DefaultSelectSearchField: StoryObj<typeof SelectSearchField> = {
           disabled
           vertical
           onSelect={action('Changed!')}
-          onSearch={() => Promise.resolve([])}
+          onSearch={() => null}
         />
       </div>
     </Container>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`components/forms/SelectMulti should be openable / closeable 1`] = `
+exports[`components/forms/select/SelectMulti should be openable / closeable 1`] = `
 .c7 {
   display: flex;
   flex-direction: row;
@@ -300,9 +300,9 @@ exports[`components/forms/SelectMulti should be openable / closeable 1`] = `
 </div>
 `;
 
-exports[`components/forms/SelectMulti should not render when no options 1`] = `<div />`;
+exports[`components/forms/select/SelectMulti should not render when no options 1`] = `<div />`;
 
-exports[`components/forms/SelectMulti should not select disabled item 1`] = `
+exports[`components/forms/select/SelectMulti should not select disabled item 1`] = `
 .c7 {
   display: flex;
   flex-direction: row;
@@ -603,7 +603,7 @@ exports[`components/forms/SelectMulti should not select disabled item 1`] = `
 </div>
 `;
 
-exports[`components/forms/SelectMulti should render properly 1`] = `
+exports[`components/forms/select/SelectMulti should render properly 1`] = `
 .c7 {
   display: flex;
   flex-direction: row;
