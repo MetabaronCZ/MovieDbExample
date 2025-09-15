@@ -15,9 +15,9 @@ export const compareNumeric = (
   if (null === b && null === a) {
     return 0;
   } else if (null === a) {
-    return 'descending' === direction ? +1 : -1;
+    return 'descending' === direction ? 1 : -1;
   } else if (null === b) {
-    return 'descending' === direction ? -1 : +1;
+    return 'descending' === direction ? -1 : 1;
   } else {
     return 'descending' === direction ? b - a : a - b;
   }

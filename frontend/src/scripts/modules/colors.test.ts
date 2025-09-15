@@ -18,8 +18,8 @@ describe('modules/color', () => {
     it('should clamp alpha value to interval <0, 1>', () => {
       expect(addAlpha('#ffffff', -1.0)).toEqual('#ffffff00');
       expect(addAlpha('#ffffff', -0.1)).toEqual('#ffffff00');
-      expect(addAlpha('#ffffff', +1.1)).toEqual('#ffffffff');
-      expect(addAlpha('#ffffff', +2.0)).toEqual('#ffffffff');
+      expect(addAlpha('#ffffff', 1.1)).toEqual('#ffffffff');
+      expect(addAlpha('#ffffff', 2.0)).toEqual('#ffffffff');
     });
 
     it('should throw on invalid input color', () => {
