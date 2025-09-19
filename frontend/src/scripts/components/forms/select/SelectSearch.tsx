@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
@@ -50,7 +50,7 @@ export const SelectSearch = <T,>({
   disabled = false,
   onSearch,
   onSelect,
-}: Props<T>): React.ReactNode => {
+}: Props<T>): ReactNode => {
   const { t } = useTranslation();
 
   const {

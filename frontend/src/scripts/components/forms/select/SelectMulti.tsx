@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import { ReactNode, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
@@ -44,7 +44,7 @@ export const SelectMulti = <T,>({
   options,
   disabled = false,
   onSelect,
-}: SelectProps<T, true>): React.ReactNode => {
+}: SelectProps<T, true>): ReactNode => {
   const { t } = useTranslation();
 
   const {

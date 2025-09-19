@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 import { FormField } from 'components/forms/FormField';
 import { SelectSearch } from 'components/forms/select/SelectSearch';
@@ -38,7 +38,7 @@ export const SelectSearchField = <T,>({
   disabled,
   onSearch,
   onSelect,
-}: Props<T>): React.ReactNode => (
+}: Props<T>): ReactNode => (
   <FormField
     id={id}
     label={label}

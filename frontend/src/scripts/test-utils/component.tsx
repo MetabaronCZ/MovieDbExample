@@ -1,4 +1,4 @@
-import { JSX, PropsWithChildren } from 'react';
+import { FC, JSX, PropsWithChildren } from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
@@ -10,9 +10,7 @@ import { GlobalStyles } from 'components/GlobalStyles';
 import { theme } from 'modules/theme';
 import { flushPromises } from './core';
 
-export const TestComponentWrapper: React.FC<PropsWithChildren> = ({
-  children,
-}) => (
+export const TestComponentWrapper: FC<PropsWithChildren> = ({ children }) => (
   <MemoryRouter>
     <ThemeProvider theme={theme}>
       <GlobalStyles />

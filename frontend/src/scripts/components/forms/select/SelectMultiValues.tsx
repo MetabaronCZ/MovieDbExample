@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
@@ -87,7 +87,7 @@ export const SelectMultiValues = <T,>({
   disabled: globalDisabled = false,
   onRemove,
   onSearch,
-}: Props<T>): React.ReactNode => {
+}: Props<T>): ReactNode => {
   const { t } = useTranslation();
 
   const { query, search } = useSearch({

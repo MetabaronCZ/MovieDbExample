@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { useOpener } from 'hooks/useOpener';
@@ -22,7 +22,7 @@ export const Select = <T,>({
   options,
   disabled = false,
   onSelect,
-}: Props<T>): React.ReactNode => {
+}: Props<T>): ReactNode => {
   const {
     ref: containerElement,
     opened,

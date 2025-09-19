@@ -1,5 +1,4 @@
-import React from 'react';
-
+import { FC } from 'react';
 import { act } from '@testing-library/react';
 import { describe, expect, it, jest } from '@jest/globals';
 import {
@@ -20,7 +19,7 @@ interface Props {
   readonly config: PagingConfig<number>;
 }
 
-const PagingWrapper: React.FC<Props> = ({ config }) => {
+const PagingWrapper: FC<Props> = ({ config }) => {
   const paging = usePaging(config);
   return (
     <TestComponentWrapper>

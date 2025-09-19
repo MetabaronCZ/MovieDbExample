@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { Paging } from './Paging';
@@ -14,7 +14,7 @@ interface PagingTemplateProps {
   readonly totalCount: number;
 }
 
-const PagingTemplate: React.FC<PagingTemplateProps> = ({ totalCount }) => {
+const PagingTemplate: FC<PagingTemplateProps> = ({ totalCount }) => {
   const [page, setPage] = useState(0);
   const [perPage, setPerPage] = useState(3);
 

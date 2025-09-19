@@ -1,11 +1,11 @@
-import React from 'react';
+import { JSX } from 'react';
 
 // select results / options horizontal orientation
 export type SelectAlign = 'left' | 'right';
 
 export interface SelectOption<T> {
   readonly title: string;
-  readonly extra?: React.JSX.Element;
+  readonly extra?: JSX.Element;
   readonly description?: string;
   readonly value: T;
   readonly disabled?: boolean;

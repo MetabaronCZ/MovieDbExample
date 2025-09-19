@@ -1,9 +1,9 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 import { Select } from './select/Select';
 import { SelectMulti } from './select/SelectMulti';
-import { FormField, FormFieldOrientation } from 'components/forms/FormField';
 import { SelectAlign, SelectOption } from './select/SelectShared';
+import { FormField, FormFieldOrientation } from 'components/forms/FormField';
 
 // track number of rendered items to generate auto ID
 let instanceId = 0;
@@ -52,7 +52,7 @@ export const SelectField = <T,>({
   required,
   disabled,
   onSelect,
-}: SelectFieldProps<T>): React.ReactNode => (
+}: SelectFieldProps<T>): ReactNode => (
   <FormField
     id={id}
     label={label}
