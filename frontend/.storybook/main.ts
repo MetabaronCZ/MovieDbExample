@@ -1,6 +1,10 @@
-import { resolve } from 'path';
+import { fileURLToPath } from 'url';
+import { resolve, dirname } from 'path';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import type { StorybookConfig } from '@storybook/react-webpack5';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const config: StorybookConfig = {
   stories: ['../src/scripts/**/*.mdx', '../src/scripts/**/*.stories.@(ts|tsx)'],

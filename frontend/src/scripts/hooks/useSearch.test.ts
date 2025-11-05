@@ -15,16 +15,6 @@ describe('hooks/useSearch', () => {
     expect(typeof result.current.search).toEqual('function');
   });
 
-  it('should update internal state on given query', () => {
-    const { result } = renderHook(() =>
-      useSearch({
-        query: 'QUERY',
-        onSearch: () => null,
-      }),
-    );
-    expect(result.current.query).toEqual('QUERY');
-  });
-
   it('should search given query', async () => {
     const onSearch = jest.fn();
 

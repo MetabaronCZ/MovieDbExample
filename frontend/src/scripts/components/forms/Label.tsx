@@ -5,11 +5,11 @@ import { toVU } from 'modules/theme';
 import { Text } from 'components/Typography';
 
 interface StyledProps {
-  readonly $comnpact: boolean;
+  readonly $compact: boolean;
 }
 
 const StyledLabel = styled.label<StyledProps>`
-  ${({ $comnpact }) => ($comnpact ? Text.Small : Text.Base)}
+  ${({ $compact }) => ($compact ? Text.Small : Text.Base)}
   display: flex;
   flex-direction: row;
   gap: ${toVU(0.5)};
@@ -39,7 +39,7 @@ export const Label: FC<Props> = ({
   required = false,
   compact = false,
 }) => (
-  <StyledLabel className={className} htmlFor={htmlFor} $comnpact={compact}>
+  <StyledLabel className={className} htmlFor={htmlFor} $compact={compact}>
     {required && <Required />}
     {label}
   </StyledLabel>

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { getObjectEntries } from 'modules/core';
 
 type FormData = Record<string, unknown>;
@@ -48,20 +48,6 @@ export const useForm = <T extends FormData>(
   const [errors, setErrors] = useState<FormErrors<T>>({});
   const [isModified, setModified] = useState(false);
 
-  // evaluate isModified state
-  useEffect(() => {
-    for (const [field, value] of getObjectEntries(values)) {
-      const fieldValue = JSON.stringify(value);
-      const initialValue = JSON.stringify(initialValues[field]);
-
-      if (initialValue !== fieldValue) {
-        setModified(true);
-        return;
-      }
-    }
-    setModified(false);
-  }, [initialValues, values]);
-
   // set form field error
   const setFieldError = useCallback(
     (field: keyof T, error: string | null): void => {
@@ -110,18 +96,43 @@ export const useForm = <T extends FormData>(
   // set form field value
   const setValue: OnFieldChange<T> = useCallback(
     (field, value, skipValidation) => {
+      // validate new field value
       if (!skipValidation) {
         validateField(field, value);
       } else {
         setFieldError(field, null);
       }
 
-      setValues((state) => ({
-        ...state,
-        [field]: value,
-      }));
+      // update field value
+      setValues((state) => {
+        const newValues: T = { ...state, [field]: value };
+
+        // modification check
+        setModified((state) => {
+          if (!state) {
+            // non-modified state value check
+            return value !== initialValues[field];
+          } else if (value === newValues[field]) {
+            // modified state value not changed
+            return state;
+          } else {
+            // modified state value check
+            for (const [field, value] of getObjectEntries(newValues)) {
+              const fieldValue = JSON.stringify(value);
+              const initialValue = JSON.stringify(initialValues[field]);
+
+              if (initialValue !== fieldValue) {
+                return true;
+              }
+            }
+            return false;
+          }
+        });
+
+        return newValues;
+      });
     },
-    [setFieldError, validateField],
+    [initialValues, setFieldError, validateField],
   );
 
   // try submit form data
@@ -145,6 +156,7 @@ export const useForm = <T extends FormData>(
   const clear = useCallback((): void => {
     setErrors({});
     setValues(initialValues);
+    setModified(false);
 
     if (config.onClear) {
       config.onClear(initialValues);
@@ -154,6 +166,7 @@ export const useForm = <T extends FormData>(
   // sets current form data as initial
   const fixateData = useCallback((): void => {
     setInitialValues(values);
+    setModified(false);
   }, [values]);
 
   return {

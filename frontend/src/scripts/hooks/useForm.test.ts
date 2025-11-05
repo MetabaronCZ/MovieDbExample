@@ -36,9 +36,9 @@ describe('hooks/useForm', () => {
         },
       }),
     );
-
     expect(result.current.values.x).toEqual(1);
     expect(result.current.values.y).toEqual('A');
+    expect(result.current.isModified).toEqual(false);
 
     act(() => {
       result.current.setValue('x', 7);
@@ -62,6 +62,7 @@ describe('hooks/useForm', () => {
     );
     expect(result.current.values.x).toEqual(1);
     expect(result.current.errors).toEqual({});
+    expect(result.current.isModified).toEqual(false);
 
     act(() => {
       result.current.setValue('x', -1);
@@ -85,6 +86,7 @@ describe('hooks/useForm', () => {
     );
     expect(result.current.values.x).toEqual(1);
     expect(result.current.errors).toEqual({});
+    expect(result.current.isModified).toEqual(false);
 
     act(() => {
       // change field + skip validation
@@ -111,6 +113,7 @@ describe('hooks/useForm', () => {
     );
     expect(onSubmit).toHaveBeenCalledTimes(0);
     expect(onSubmitError).toHaveBeenCalledTimes(0);
+    expect(result.current.isModified).toEqual(false);
 
     act(() => {
       result.current.submit();
@@ -164,6 +167,7 @@ describe('hooks/useForm', () => {
       }),
     );
     expect(onClear).toHaveBeenCalledTimes(0);
+    expect(result.current.isModified).toEqual(false);
 
     // update values
     act(() => {
@@ -195,6 +199,7 @@ describe('hooks/useForm', () => {
         },
       }),
     );
+    expect(result.current.isModified).toEqual(false);
 
     // update values
     act(() => {
@@ -222,6 +227,7 @@ describe('hooks/useForm', () => {
         },
       }),
     );
+    expect(result.current.isModified).toEqual(false);
 
     // update form data
     act(() => {

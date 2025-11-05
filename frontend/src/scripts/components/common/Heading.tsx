@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, useMemo } from 'react';
 import styled from 'styled-components';
 
 import { Text } from 'components/Typography';
@@ -16,15 +16,6 @@ const HeadingLarge = styled.div`
   font-weight: 400;
 `;
 
-const getHeadingComponent = (size: HeadingSize): typeof HeadingDefault => {
-  switch (size) {
-    case 'large':
-      return HeadingLarge;
-    default:
-      return HeadingDefault;
-  }
-};
-
 interface Props extends PropsWithChildren {
   readonly className?: string;
   readonly tag?: HeadingTag;
@@ -37,10 +28,14 @@ export const Heading: FC<Props> = ({
   size = 'default',
   children,
 }) => {
-  const Component = getHeadingComponent(size);
-  return (
-    <Component className={className} as={tag}>
-      {children}
-    </Component>
+  const componentProps = useMemo(
+    () => ({ as: tag, className, children }),
+    [tag, className, children],
   );
+  switch (size) {
+    case 'large':
+      return <HeadingLarge {...componentProps} />;
+    default:
+      return <HeadingDefault {...componentProps} />;
+  }
 };

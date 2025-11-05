@@ -1,10 +1,9 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 const defaultDelayTime = 150; // time to wait for query changes (in milliseconds)
 const minQueryLength = 2; // minimum query length to start search
 
 interface UseSearchConfig {
-  readonly query?: string;
   readonly delayTime?: number;
   readonly onSearch: (value: string) => void;
 }
@@ -20,10 +19,6 @@ export const useSearch = (config: UseSearchConfig): UseSearch => {
   const timeout = useRef<number | null>(null);
 
   const delayTime = config.delayTime ?? defaultDelayTime;
-
-  useEffect(() => {
-    setQuery(config.query ?? '');
-  }, [config.query]);
 
   const search = useCallback(
     (value: string, force = false): void => {

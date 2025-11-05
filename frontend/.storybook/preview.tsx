@@ -22,11 +22,10 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      values: [
-        { name: 'Default', value: 'transparent' },
-        { name: 'Light', value: '#f2f7fa' },
-      ],
-      default: 'Default',
+      options: {
+        default: { name: 'Default', value: 'transparent' },
+        light: { name: 'Light', value: '#f2f7fa' },
+      },
     },
   },
   decorators: [
@@ -46,6 +45,11 @@ const preview: Preview = {
       </QueryClientProvider>
     ),
   ],
+  initialGlobals: {
+    backgrounds: {
+      value: 'default',
+    },
+  },
 };
 
 export default preview;
