@@ -21,7 +21,7 @@ export const DefaultIco: StoryObj<typeof Ico> = {
           <Paragraph>size: {size}</Paragraph>
           <Grid>
             {icoIds.map((id) => (
-              <Ico title={id} ico={id} size={size} key={`${size}-${id}`} />
+              <Ico ico={id} size={size} key={`${size}-${id}`} />
             ))}
           </Grid>
         </Grid>
@@ -36,7 +36,6 @@ export const ColoredIco: StoryObj<typeof Ico> = {
     <Grid>
       {Object.keys(colors).map((id) => (
         <Ico
-          title={`color: ${id}`}
           ico="exclamationCircle"
           size="large"
           color={id as ColorId}

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { SortDirection } from '@project/api-types';
 
+import { toVU } from 'modules/theme';
 import { Text } from 'components/Typography';
 import { ButtonRaw } from 'components/buttons/ButtonRaw';
 import { TableSortIco } from 'components/common/TableSortIco';
@@ -11,6 +12,7 @@ import { TableSortIco } from 'components/common/TableSortIco';
 const StyledButton = styled(ButtonRaw)`
   display: flex;
   align-items: center;
+  gap: ${toVU(1)};
 
   &:focus {
     outline: ${({ theme }) => theme.outline.default};

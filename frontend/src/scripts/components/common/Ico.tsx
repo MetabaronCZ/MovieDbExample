@@ -116,7 +116,6 @@ interface Props {
   readonly ico: IcoId;
   readonly size?: IcoSize;
   readonly color?: ColorId;
-  readonly title?: string;
   readonly spin?: boolean; // enable spin animation
 }
 
@@ -125,12 +124,10 @@ export const Ico: FC<Props> = ({
   ico,
   size = 'default',
   color,
-  title,
   spin = false,
 }) => (
   <StyledIco
     className={className}
-    title={title}
     icon={icons[ico]}
     size={iconSize[size]}
     color={color ? colors[color] : undefined}

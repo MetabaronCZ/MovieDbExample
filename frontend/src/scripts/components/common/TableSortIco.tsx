@@ -11,7 +11,7 @@ interface StyledProps {
   readonly $direction: SortDirection;
 }
 
-const IcoContainer = styled.div<StyledProps>`
+const IcoContainer = styled.span<StyledProps>`
   position: relative;
   width: ${toVU(2)};
   height: ${toVU(1)};
@@ -29,7 +29,7 @@ interface Props {
 }
 
 export const TableSortIco: FC<Props> = ({ direction }) => (
-  <Grid orientation="vertical" gap={0}>
+  <Grid component="span" orientation="vertical" gap={0}>
     {sortDirections.map((value) => (
       <IcoContainer $direction={value} key={value}>
         <Ico
