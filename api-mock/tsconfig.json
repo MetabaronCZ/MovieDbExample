@@ -1,10 +1,4 @@
 {
-  "ts-node": {
-    "require": ["tsconfig-paths/register"],
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
   "compilerOptions": {
     "lib": ["esnext"],
     "target": "ESNext",

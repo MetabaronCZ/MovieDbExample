@@ -3,20 +3,15 @@ import globals from 'globals';
 import eslint from '@eslint/js';
 import react from 'eslint-plugin-react';
 import tseslint from 'typescript-eslint';
+import { defineConfig } from 'eslint/config';
 import storybook from 'eslint-plugin-storybook';
 import reactHooks from 'eslint-plugin-react-hooks';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
-export default tseslint.config(
+export default defineConfig(
   // ignores
   {
-    ignores: [
-      'node_modules',
-      'build',
-      'coverage',
-      '.storybook',
-      'eslint.config.mjs',
-    ],
+    ignores: ['node_modules', 'build', 'coverage', '.storybook'],
   },
 
   // base rules
@@ -28,8 +23,7 @@ export default tseslint.config(
   {
     languageOptions: {
       parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
+        project: ['./tsconfig.eslint.json'],
       },
     },
   },
@@ -103,7 +97,7 @@ export default tseslint.config(
       'react-hooks': reactHooks,
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
+      ...reactHooks.configs.flat.recommended.rules,
     },
   },
 
